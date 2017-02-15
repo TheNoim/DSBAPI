@@ -1,4 +1,5 @@
 {
+  "name": "dsbapi",
   "dependencies": {
     "bluebird": "^3.4.7",
     "cheerio": "^0.22.0",
@@ -10,5 +11,19 @@
   },
   "devDependencies": {
     "javascript-obfuscator": "^0.9.1"
-  }
+  },
+  "version": "1.0.0",
+  "description": "An api for mobile.dsbcontrol.de",
+  "author": "Nils Bergmann <nilsbergmann@noim.io>",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheNoim/DSBAPI.git"
+  },
+  "keywords": [
+    "dsb",
+    "api",
+    "mobile"
+  ],
+  "license": "MIT"
 }
