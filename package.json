@@ -1,8 +1,13 @@
 {
   "dependencies": {
+    "bluebird": "^3.4.7",
     "cheerio": "^0.22.0",
+    "fs-extra": "^2.0.0",
     "pako": "^1.0.4",
     "request": "^2.79.0",
     "tough-cookie": "^2.3.2"
+  },
+  "devDependencies": {
+    "javascript-obfuscator": "^0.9.1"
   }
 }

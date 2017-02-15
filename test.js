@@ -8,6 +8,7 @@ const request = require('request');
 const cheerio = require('cheerio');
 const Jar = request.jar();
 const tough = require('tough-cookie');
+const fs = require('fs-extra');
 const Cookie = tough.Cookie;
 const cookiejar = new tough.CookieJar();
 
@@ -83,9 +84,7 @@ request('http://mobile.dsbcontrol.de/Login.aspx', {jar: Jar},(error, response, b
                     body: data
                 }, (error, response, body) => {
                     if (!error && response.statusCode == 200 || 302){
-                        console.log(JSON.stringify(response));
-                        console.log("-----------");
-                        console.log(JSON.stringify(Decode(response.body.d)));
+                        fs.writeJsonSync('./t.json', Decode(response.body.d));
                     } else {
                         throw error || response.statusCode;
                     }
