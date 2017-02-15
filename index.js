@@ -9,6 +9,7 @@ const Encode = require('./DSBEncoding');
 const Decode = require('./DSBDecode');
 const cheerio = require('cheerio');
 const Cookie = tough.Cookie;
+const oc = require('optional-callback');
 
 class DSB {
 
@@ -23,15 +24,83 @@ class DSB {
         this.urls = {
             "login": "http://mobile.dsbcontrol.de/Login.aspx",
             "main": "http://mobile.dsbcontrol.de/",
-            "Data": "http://www.dsbmobile.de/JsonHandlerWeb.ashx/GetData"
+            "Data": "http://www.dsbmobile.de/JsonHandlerWeb.ashx/GetData",
+            "default": "http://mobile.dsbcontrol.de/default.aspx"
         };
 
         this._login = this._login.bind(this);
         this._validateLogin = this._validateLogin.bind(this);
         this._loadCookies = this._loadCookies.bind(this);
         this._saveCookies = this._saveCookies.bind(this);
+        this._getData = this._getData.bind(this);
+        this.getData = this.getData.bind(this);
+
+        this._login = oc(this._login);
+        this._validateLogin = oc(this._validateLogin);
+        this._getData = oc(this._getData);
+        this.getData = oc(this.getData);
 
         this._loadCookies();
+    }
+
+    getData() {
+        const self = this;
+        return new Promise((resolve, reject) => {
+            return self._validateLogin().then(login => {
+                if (login){
+                    return self._getData();
+                } else {
+                    return self._login().then(() => {
+                        return self._getData();
+                    });
+                }
+            }).then(Data => {
+                resolve(Data);
+            }).catch(reject);
+        });
+    }
+
+    _getData() {
+        const self = this;
+        return new Promise((resolve, reject) => {
+            const data = {
+                req: {
+                    Data: Encode({
+                        UserId: "",
+                        UserPw: "",
+                        Abos: [],
+                        AppVersion: "2.3",
+                        Language: "de",
+                        AppId: "",
+                        Device: "WebApp",
+                        PushId: "",
+                        BundleId: "de.heinekingmedia.inhouse.dsbmobile.web",
+                        Date: new Date,
+                        LastUpdate: new Date,
+                        OsVersion: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+                    }),
+                    DataType: 1
+                }
+            };
+            request(self.urls.Data, {
+                method: "POST",
+                gzip: true,
+                "X-Requested-With": "XMLHttpRequest",
+                headers: {
+                    Bundle_ID: "de.heinekingmedia.inhouse.dsbmobile.web",
+                    Referer: self.urls.main,
+                    Cookie: self.jar.getCookieStringSync(self.urls.main)
+                },
+                json: true,
+                body: data
+            }, (error, response, body) => {
+                if (!error && response.statusCode == 200 || 302){
+                    resolve(Decode(response.body.d));
+                } else {
+                    reject(error || {statusCode: response.statusCode, body: body});
+                }
+            });
+        });
     }
 
     _login() {
@@ -92,18 +161,22 @@ class DSB {
 
     _saveCookies(){
         if (!this.cookieJarPath) return;
-        fs.writeJSONSync(this.cookieJarPath, this.jar.getSetCookieStringsSync(this.urls.main));
+        fs.writeJsonSync(this.cookieJarPath, this.jar.getSetCookieStringsSync(this.urls.main));
     }
 
     _validateLogin() {
         const self = this;
         return new Promise((resolve, reject) => {
-            request(self.urls.main, {
+            request(self.urls.default, {
                 headers: {
-                    Cookie: self.jar.getSetCookieStringsSync(self.urls.main)
-                }
+                    Cookie: self.jar.getCookieStringSync(self.urls.main),
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+                    "Cache-Control": "no-cache",
+                    "Pragma": "no-cache"
+                },
+                followRedirect: false
             }, (error, response) => {
-                if (!error && response.statusCode == 200 || 302){
+                if (!error && response.statusCode == 200){
                     resolve(true);
                 } else {
                     resolve(false);
@@ -114,7 +187,9 @@ class DSB {
 
     _loadCookies(){
         if (!this.cookieJarPath) return;
-        const cookies = fs.readJSONSync(this.cookieJarPath);
+        fs.ensureFileSync(this.cookieJarPath);
+        fs.accessSync(this.cookieJarPath, fs.constants.F_OK||fs.constants.R_OK||fs.constants.W_OK);
+        const cookies = fs.readJSONSync(this.cookieJarPath, {throws: false}) || [];
         for (let I in cookies){
             if (!cookies.hasOwnProperty(I)) continue;
             this.jar.setCookieSync(Cookie.parse(cookies[I]), this.urls.main);
