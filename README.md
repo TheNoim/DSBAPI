@@ -62,6 +62,6 @@ Get the data from the old API (https://iphone.dsbcontrol.de/)
 
 | Name | Type |
 | --- | --- |
-| news | <code>Object</code> | 
-| timetables | <code>Object</code> | 
+| news | <code>Array</code> | 
+| timetables | <code>Array</code> | 
 

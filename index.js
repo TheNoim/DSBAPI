@@ -76,8 +76,8 @@ class DSB {
 
     /**
      * @typedef {Object} V1Object
-     * @property {Object} news
-     * @property {Object} timetables
+     * @property {Array} news
+     * @property {Array} timetables
      */
 
     /**
