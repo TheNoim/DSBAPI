@@ -6,7 +6,7 @@
 * [DSB](#DSB)
     * [new DSB(username, password, cookieJar)](#new_DSB_new)
     * [.getData([Callback])](#DSB+getData) ⇒ <code>Promise.&lt;Object&gt;</code>
-    * [.getDataV1([Callback])](#DSB+getDataV1)
+    * [.getDataV1([Callback])](#DSB+getDataV1) ⇒ <code>Promise.&lt;Array&gt;</code>
 
 <a name="new_DSB_new"></a>
 
@@ -31,7 +31,7 @@ Get data from mobile.dsbcontrol.de (The API used by mobile.dsbcontrol.de and eve
 
 <a name="DSB+getDataV1"></a>
 
-### dsB.getDataV1([Callback])
+### dsB.getDataV1([Callback]) ⇒ <code>Promise.&lt;Array&gt;</code>
 Get the data from the old API (https://iphone.dsbcontrol.de/)
 
 **Kind**: instance method of <code>[DSB](#DSB)</code>  

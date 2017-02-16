@@ -75,6 +75,7 @@ class DSB {
     /**
      * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
      * @description Get the data from the old API (https://iphone.dsbcontrol.de/)
+     * @return {Promise<Array>}
      */
     getDataV1(Callback) {
         const self = this;
