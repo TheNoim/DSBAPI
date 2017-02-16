@@ -6,7 +6,7 @@
 * [DSB](#DSB)
     * [new DSB(username, password, cookieJar)](#new_DSB_new)
     * [.getData([Callback])](#DSB+getData) ⇒ <code>Promise.&lt;Object&gt;</code>
-    * [.getDataV1()](#DSB+getDataV1)
+    * [.getDataV1([Callback])](#DSB+getDataV1)
 
 <a name="new_DSB_new"></a>
 
@@ -25,13 +25,18 @@ Get data from mobile.dsbcontrol.de (The API used by mobile.dsbcontrol.de and eve
 
 **Kind**: instance method of <code>[DSB](#DSB)</code>  
 
-| Param | Type | Default |
-| --- | --- | --- |
-| [Callback] | <code>function</code> | <code></code> | 
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [Callback] | <code>function</code> | <code></code> | If you add a callback, no Promise will be returned. |
 
 <a name="DSB+getDataV1"></a>
 
-### dsB.getDataV1()
+### dsB.getDataV1([Callback])
 Get the data from the old API (https://iphone.dsbcontrol.de/)
 
-**Kind**: instance method of <code>[DSB](#DSB)</code>
+**Kind**: instance method of <code>[DSB](#DSB)</code>  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [Callback] | <code>function</code> | <code></code> | If you add a callback, no Promise will be returned. |
+

@@ -51,7 +51,7 @@ class DSB {
     }
 
     /**
-     * @param {Function} [Callback=null]
+     * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
      * @description Get data from mobile.dsbcontrol.de (The API used by mobile.dsbcontrol.de and every APP)
      * @return {Promise<Object>}
      */
@@ -73,9 +73,10 @@ class DSB {
     }
 
     /**
+     * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
      * @description Get the data from the old API (https://iphone.dsbcontrol.de/)
      */
-    getDataV1() {
+    getDataV1(Callback) {
         const self = this;
         return new Promise((resolve, reject) => {
             request(self.urls.loginV1, {json: true}, (error, response, body) => {
