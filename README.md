@@ -1,3 +1,17 @@
+## Classes
+
+<dl>
+<dt><a href="#DSB">DSB</a></dt>
+<dd></dd>
+</dl>
+
+## Typedefs
+
+<dl>
+<dt><a href="#V1Object">V1Object</a> : <code>Object</code></dt>
+<dd></dd>
+</dl>
+
 <a name="DSB"></a>
 
 ## DSB
@@ -6,7 +20,7 @@
 * [DSB](#DSB)
     * [new DSB(username, password, cookieJar)](#new_DSB_new)
     * [.getData([Callback])](#DSB+getData) ⇒ <code>Promise.&lt;Object&gt;</code>
-    * [.getDataV1([Callback])](#DSB+getDataV1) ⇒ <code>Promise.&lt;Array&gt;</code>
+    * [.getDataV1([Callback])](#DSB+getDataV1) ⇒ <code>[Promise.&lt;V1Object&gt;](#V1Object)</code>
 
 <a name="new_DSB_new"></a>
 
@@ -31,7 +45,7 @@ Get data from mobile.dsbcontrol.de (The API used by mobile.dsbcontrol.de and eve
 
 <a name="DSB+getDataV1"></a>
 
-### dsB.getDataV1([Callback]) ⇒ <code>Promise.&lt;Array&gt;</code>
+### dsB.getDataV1([Callback]) ⇒ <code>[Promise.&lt;V1Object&gt;](#V1Object)</code>
 Get the data from the old API (https://iphone.dsbcontrol.de/)
 
 **Kind**: instance method of <code>[DSB](#DSB)</code>  
@@ -39,4 +53,15 @@ Get the data from the old API (https://iphone.dsbcontrol.de/)
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | [Callback] | <code>function</code> | <code></code> | If you add a callback, no Promise will be returned. |
+
+<a name="V1Object"></a>
+
+## V1Object : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| news | <code>Object</code> | 
+| timetables | <code>Object</code> | 
 

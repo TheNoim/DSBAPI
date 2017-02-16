@@ -7,6 +7,7 @@ const Decode = require('./DSBDecode');
 const cheerio = require('cheerio');
 const Cookie = tough.Cookie;
 const oc = require('optional-callback');
+const async = require('async');
 
 class DSB {
 
@@ -30,7 +31,8 @@ class DSB {
             "Data": "http://www.dsbmobile.de/JsonHandlerWeb.ashx/GetData",
             "default": "http://mobile.dsbcontrol.de/default.aspx",
             "loginV1": `https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/authid/${this.username}/${this.password}`,
-            "timetables": "https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/timetables/"
+            "timetables": "https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/timetables/",
+            "news": "https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/news/"
         };
 
         this._login = this._login.bind(this);
@@ -73,9 +75,15 @@ class DSB {
     }
 
     /**
+     * @typedef {Object} V1Object
+     * @property {Object} news
+     * @property {Object} timetables
+     */
+
+    /**
      * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
      * @description Get the data from the old API (https://iphone.dsbcontrol.de/)
-     * @return {Promise<Array>}
+     * @return {Promise<V1Object>}
      */
     getDataV1(Callback) {
         const self = this;
@@ -83,11 +91,30 @@ class DSB {
             request(self.urls.loginV1, {json: true}, (error, response, body) => {
                 if (!error && response.statusCode == 200){
                     if (body != "00000000-0000-0000-0000-000000000000"){
-                        request(self.urls.timetables + body, {json: true}, (error, response, body) => {
-                            if (!error && response.statusCode == 200){
-                                resolve(body);
+                        async.parallel({
+                            timetables: (PCallback) => {
+                                request(self.urls.timetables + body, {json: true}, (error, response, body) => {
+                                    if (!error && response.statusCode == 200){
+                                        PCallback(null, body);
+                                    } else {
+                                        PCallback(error || {statusCode: response.statusCode, body: body});
+                                    }
+                                });
+                            },
+                            news: (PCallback) => {
+                                request(self.urls.news + body, {json: true}, (error, response, body) => {
+                                    if (!error && response.statusCode == 200){
+                                        PCallback(null, body);
+                                    } else {
+                                        PCallback(error || {statusCode: response.statusCode, body: body});
+                                    }
+                                });
+                            }
+                        }, (error, result) => {
+                            if (error){
+                                reject(error);
                             } else {
-                                reject(error || {statusCode: response.statusCode, body: body});
+                                resolve(result);
                             }
                         });
                     } else {

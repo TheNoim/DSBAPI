@@ -1,6 +1,7 @@
 {
   "name": "dsbapi",
   "dependencies": {
+    "async": "^2.1.4",
     "bluebird": "^3.4.7",
     "cheerio": "^0.22.0",
     "fs-extra": "^2.0.0",
