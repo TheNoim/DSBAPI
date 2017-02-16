@@ -42,12 +42,16 @@ class DSB {
         this._getData = this._getData.bind(this);
         this.getData = this.getData.bind(this);
         this.getDataV1 = this.getDataV1.bind(this);
+        this.getDataWithUUIDV1 = this.getDataWithUUIDV1.bind(this);
+        this.getUUIDV1 = this.getUUIDV1.bind(this);
 
         this._login = oc(this._login);
         this._validateLogin = oc(this._validateLogin);
         this._getData = oc(this._getData);
         this.getData = oc(this.getData);
         this.getDataV1 = oc(this.getDataV1);
+        this.getDataWithUUIDV1 = oc(this.getDataWithUUIDV1);
+        this.getUUIDV1 = oc(this.getUUIDV1);
 
         this._loadCookies();
     }
@@ -117,6 +121,66 @@ class DSB {
                                 resolve(result);
                             }
                         });
+                    } else {
+                        reject({statusCode: response.statusCode, body: body, message: "Wrong username or password"});
+                    }
+                } else {
+                    reject(error || {statusCode: response.statusCode, body: body});
+                }
+            });
+        });
+    }
+
+    /**
+     * @param {string} uuid
+     * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
+     * @description Get the data from the old API by given uuid (https://iphone.dsbcontrol.de/)
+     * @return {Promise<String>}
+     */
+    getDataWithUUIDV1(uuid, Callback){
+        const self = this;
+        return new Promise((resolve, reject) => {
+            async.parallel({
+                timetables: (PCallback) => {
+                    request(self.urls.timetables + uuid, {json: true}, (error, response, body) => {
+                        if (!error && response.statusCode == 200){
+                            PCallback(null, body);
+                        } else {
+                            PCallback(error || {statusCode: response.statusCode, body: body});
+                        }
+                    });
+                },
+                news: (PCallback) => {
+                    request(self.urls.news + uuid, {json: true}, (error, response, body) => {
+                        if (!error && response.statusCode == 200){
+                            PCallback(null, body);
+                        } else {
+                            PCallback(error || {statusCode: response.statusCode, body: body});
+                        }
+                    });
+                }
+            }, (error, result) => {
+                if (error){
+                    reject(error);
+                } else {
+                    resolve(result);
+                }
+            });
+        });
+    }
+
+    /**
+     * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
+     * @description Get the uuid from the old API (https://iphone.dsbcontrol.de/)
+     * @return {Promise<String>}
+     */
+    getUUIDV1(Callback){
+        const self = this;
+        return new Promise((resolve, reject) => {
+            request(self.urls.loginV1, {json: true}, (error, response, body) => {
+                if (!error && response.statusCode == 200){
+                    if (body != "00000000-0000-0000-0000-000000000000"){
+                        resolve(body);
                     } else {
                         reject({statusCode: response.statusCode, body: body, message: "Wrong username or password"});
                     }
