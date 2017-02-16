@@ -1,18 +1,3 @@
-## Classes
-
-<dl>
-<dt><a href="#DSB">DSB</a></dt>
-<dd></dd>
-</dl>
-
-## Constants
-
-<dl>
-<dt><a href="#Promise">Promise</a></dt>
-<dd><p>Created by nilsbergmann on 15.02.17.</p>
-</dd>
-</dl>
-
 <a name="DSB"></a>
 
 ## DSB
@@ -49,10 +34,4 @@ Get data from mobile.dsbcontrol.de (The API used by mobile.dsbcontrol.de and eve
 ### dsB.getDataV1()
 Get the data from the old API (https://iphone.dsbcontrol.de/)
 
-**Kind**: instance method of <code>[DSB](#DSB)</code>  
-<a name="Promise"></a>
-
-## Promise
-Created by nilsbergmann on 15.02.17.
-
-**Kind**: global constant  
+**Kind**: instance method of <code>[DSB](#DSB)</code>

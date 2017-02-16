@@ -1,6 +1,3 @@
-/**
- * Created by nilsbergmann on 15.02.17.
- */
 const Promise = require('bluebird');
 const tough = require('tough-cookie');
 const request = require('request');
