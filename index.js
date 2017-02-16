@@ -13,6 +13,12 @@ const oc = require('optional-callback');
 
 class DSB {
 
+    /**
+     *
+     * @param {string} username The username for your school
+     * @param {string} password The password for your school
+     * @param {string} cookieJar=null Optional path to a file for caching the login cookies
+     */
     constructor(username, password, cookieJar) {
 
         this.username = username;
@@ -25,7 +31,9 @@ class DSB {
             "login": "http://mobile.dsbcontrol.de/Login.aspx",
             "main": "http://mobile.dsbcontrol.de/",
             "Data": "http://www.dsbmobile.de/JsonHandlerWeb.ashx/GetData",
-            "default": "http://mobile.dsbcontrol.de/default.aspx"
+            "default": "http://mobile.dsbcontrol.de/default.aspx",
+            "loginV1": `https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/authid/${this.username}/${this.password}`,
+            "timetables": "https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/timetables/"
         };
 
         this._login = this._login.bind(this);
@@ -34,20 +42,27 @@ class DSB {
         this._saveCookies = this._saveCookies.bind(this);
         this._getData = this._getData.bind(this);
         this.getData = this.getData.bind(this);
+        this.getDataV1 = this.getDataV1.bind(this);
 
         this._login = oc(this._login);
         this._validateLogin = oc(this._validateLogin);
         this._getData = oc(this._getData);
         this.getData = oc(this.getData);
+        this.getDataV1 = oc(this.getDataV1);
 
         this._loadCookies();
     }
 
-    getData() {
+    /**
+     * @param {Function} [Callback=null]
+     * @description Get data from mobile.dsbcontrol.de (The API used by mobile.dsbcontrol.de and every APP)
+     * @return {Promise<Object>}
+     */
+    getData(Callback) {
         const self = this;
         return new Promise((resolve, reject) => {
             return self._validateLogin().then(login => {
-                if (login){
+                if (login) {
                     return self._getData();
                 } else {
                     return self._login().then(() => {
@@ -60,6 +75,36 @@ class DSB {
         });
     }
 
+    /**
+     * @description Get the data from the old API (https://iphone.dsbcontrol.de/)
+     */
+    getDataV1() {
+        const self = this;
+        return new Promise((resolve, reject) => {
+            request(self.urls.loginV1, {json: true}, (error, response, body) => {
+                if (!error && response.statusCode == 200){
+                    if (body != "00000000-0000-0000-0000-000000000000"){
+                        request(self.urls.timetables + body, {json: true}, (error, response, body) => {
+                            if (!error && response.statusCode == 200){
+                                resolve(body);
+                            } else {
+                                reject(error || {statusCode: response.statusCode, body: body});
+                            }
+                        });
+                    } else {
+                        reject({statusCode: response.statusCode, body: body, message: "Wrong username or password"});
+                    }
+                } else {
+                    reject(error || {statusCode: response.statusCode, body: body});
+                }
+            });
+        });
+    }
+
+    /**
+     *
+     * @private
+     */
     _getData() {
         const self = this;
         return new Promise((resolve, reject) => {
@@ -94,7 +139,7 @@ class DSB {
                 json: true,
                 body: data
             }, (error, response, body) => {
-                if (!error && response.statusCode == 200 || 302){
+                if (!error && response.statusCode == 200 || 302) {
                     resolve(Decode(response.body.d));
                 } else {
                     reject(error || {statusCode: response.statusCode, body: body});
@@ -103,13 +148,17 @@ class DSB {
         });
     }
 
+    /**
+     *
+     * @private
+     */
     _login() {
         const self = this;
         return new Promise((resolve, reject) => {
             request(this.urls.login, (error, response, body) => {
-                if (!error && response.statusCode == 200 || 302){
-                    for (let CookieI in response.headers['set-cookie']){
-                        if (response.headers['set-cookie'].hasOwnProperty(CookieI)){
+                if (!error && response.statusCode == 200 || 302) {
+                    for (let CookieI in response.headers['set-cookie']) {
+                        if (response.headers['set-cookie'].hasOwnProperty(CookieI)) {
                             self.jar.setCookieSync(Cookie.parse(response.headers['set-cookie'][CookieI]), self.urls.main);
                         }
                     }
@@ -138,9 +187,9 @@ class DSB {
                             ctl03: "Anmelden"
                         }
                     }, (error, response, body) => {
-                        if (!error && response.statusCode == 200 || 302){
-                            for (let CookieIndex in response.headers['set-cookie']){
-                                if (response.headers['set-cookie'].hasOwnProperty(CookieIndex)){
+                        if (!error && response.statusCode == 200 || 302) {
+                            for (let CookieIndex in response.headers['set-cookie']) {
+                                if (response.headers['set-cookie'].hasOwnProperty(CookieIndex)) {
                                     self.jar.setCookieSync(Cookie.parse(response.headers['set-cookie'][CookieIndex]), self.urls.main);
                                 }
                             }
@@ -159,11 +208,19 @@ class DSB {
         });
     }
 
-    _saveCookies(){
+    /**
+     *
+     * @private
+     */
+    _saveCookies() {
         if (!this.cookieJarPath) return;
         fs.writeJsonSync(this.cookieJarPath, this.jar.getSetCookieStringsSync(this.urls.main));
     }
 
+    /**
+     *
+     * @private
+     */
     _validateLogin() {
         const self = this;
         return new Promise((resolve, reject) => {
@@ -176,7 +233,7 @@ class DSB {
                 },
                 followRedirect: false
             }, (error, response) => {
-                if (!error && response.statusCode == 200){
+                if (!error && response.statusCode == 200) {
                     resolve(true);
                 } else {
                     resolve(false);
@@ -185,12 +242,16 @@ class DSB {
         });
     }
 
-    _loadCookies(){
+    /**
+     *
+     * @private
+     */
+    _loadCookies() {
         if (!this.cookieJarPath) return;
         fs.ensureFileSync(this.cookieJarPath);
-        fs.accessSync(this.cookieJarPath, fs.constants.F_OK||fs.constants.R_OK||fs.constants.W_OK);
+        fs.accessSync(this.cookieJarPath, fs.constants.F_OK || fs.constants.R_OK || fs.constants.W_OK);
         const cookies = fs.readJSONSync(this.cookieJarPath, {throws: false}) || [];
-        for (let I in cookies){
+        for (let I in cookies) {
             if (!cookies.hasOwnProperty(I)) continue;
             this.jar.setCookieSync(Cookie.parse(cookies[I]), this.urls.main);
         }
