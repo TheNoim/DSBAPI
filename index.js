@@ -1,7 +1,9 @@
 const Promise = require('bluebird');
 const tough = require('tough-cookie');
 const request = require('request');
-const fs = require('fs-extra');
+if (typeof window === 'undefined'){
+    const fs = require('fs-extra');
+}
 const Encode = require('./DSBEncoding');
 const Decode = require('./DSBDecode');
 const cheerio = require('cheerio');
@@ -93,12 +95,12 @@ class DSB {
         const self = this;
         return new Promise((resolve, reject) => {
             request(self.urls.loginV1, {json: true}, (error, response, body) => {
-                if (!error && response.statusCode == 200){
-                    if (body != "00000000-0000-0000-0000-000000000000"){
+                if (!error && response.statusCode == 200) {
+                    if (body != "00000000-0000-0000-0000-000000000000") {
                         async.parallel({
                             timetables: (PCallback) => {
                                 request(self.urls.timetables + body, {json: true}, (error, response, body) => {
-                                    if (!error && response.statusCode == 200){
+                                    if (!error && response.statusCode == 200) {
                                         PCallback(null, body);
                                     } else {
                                         PCallback(error || {statusCode: response.statusCode, body: body});
@@ -107,7 +109,7 @@ class DSB {
                             },
                             news: (PCallback) => {
                                 request(self.urls.news + body, {json: true}, (error, response, body) => {
-                                    if (!error && response.statusCode == 200){
+                                    if (!error && response.statusCode == 200) {
                                         PCallback(null, body);
                                     } else {
                                         PCallback(error || {statusCode: response.statusCode, body: body});
@@ -115,7 +117,7 @@ class DSB {
                                 });
                             }
                         }, (error, result) => {
-                            if (error){
+                            if (error) {
                                 reject(error);
                             } else {
                                 resolve(result);
@@ -137,13 +139,13 @@ class DSB {
      * @description Get the data from the old API by given uuid (https://iphone.dsbcontrol.de/)
      * @return {Promise<String>}
      */
-    getDataWithUUIDV1(uuid, Callback){
+    getDataWithUUIDV1(uuid, Callback) {
         const self = this;
         return new Promise((resolve, reject) => {
             async.parallel({
                 timetables: (PCallback) => {
                     request(self.urls.timetables + uuid, {json: true}, (error, response, body) => {
-                        if (!error && response.statusCode == 200){
+                        if (!error && response.statusCode == 200) {
                             PCallback(null, body);
                         } else {
                             PCallback(error || {statusCode: response.statusCode, body: body});
@@ -152,7 +154,7 @@ class DSB {
                 },
                 news: (PCallback) => {
                     request(self.urls.news + uuid, {json: true}, (error, response, body) => {
-                        if (!error && response.statusCode == 200){
+                        if (!error && response.statusCode == 200) {
                             PCallback(null, body);
                         } else {
                             PCallback(error || {statusCode: response.statusCode, body: body});
@@ -160,7 +162,7 @@ class DSB {
                     });
                 }
             }, (error, result) => {
-                if (error){
+                if (error) {
                     reject(error);
                 } else {
                     resolve(result);
@@ -174,12 +176,12 @@ class DSB {
      * @description Get the uuid from the old API (https://iphone.dsbcontrol.de/)
      * @return {Promise<String>}
      */
-    getUUIDV1(Callback){
+    getUUIDV1(Callback) {
         const self = this;
         return new Promise((resolve, reject) => {
             request(self.urls.loginV1, {json: true}, (error, response, body) => {
-                if (!error && response.statusCode == 200){
-                    if (body != "00000000-0000-0000-0000-000000000000"){
+                if (!error && response.statusCode == 200) {
+                    if (body != "00000000-0000-0000-0000-000000000000") {
                         resolve(body);
                     } else {
                         reject({statusCode: response.statusCode, body: body, message: "Wrong username or password"});
@@ -303,6 +305,7 @@ class DSB {
      * @private
      */
     _saveCookies() {
+        if (!(typeof window === 'undefined'))return;
         if (!this.cookieJarPath) return;
         fs.writeJsonSync(this.cookieJarPath, this.jar.getSetCookieStringsSync(this.urls.main));
     }
@@ -337,6 +340,7 @@ class DSB {
      * @private
      */
     _loadCookies() {
+        if (!(typeof window === 'undefined'))return;
         if (!this.cookieJarPath) return;
         fs.ensureFileSync(this.cookieJarPath);
         fs.accessSync(this.cookieJarPath, fs.constants.F_OK || fs.constants.R_OK || fs.constants.W_OK);

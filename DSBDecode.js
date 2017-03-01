@@ -1,1 +1,666 @@
-var _0x63cd=['\x6d\x69\x6e','\x72\x61\x77\x44\x61\x74\x61','\x6d\x61\x6b\x65\x49\x6e\x64\x65\x78','\x6c\x6f\x61\x64\x55\x54\x46\x38\x43\x68\x61\x72\x43\x6f\x64\x65','\x63\x68\x61\x72\x43\x6f\x64\x65\x41\x74','\x62\x75\x66\x66\x65\x72\x56\x69\x65\x77','\x66\x72\x65\x65\x7a\x65','\x6e\x75\x6d\x62\x65\x72','\x6c\x6f\x61\x64\x55\x54\x46\x31\x36\x43\x68\x61\x72\x43\x6f\x64\x65','\x62\x36\x34\x54\x6f\x55\x69\x6e\x74\x36','\x75\x69\x6e\x74\x36\x54\x6f\x42\x36\x34','\x6d\x61\x6b\x65\x46\x72\x6f\x6d\x42\x61\x73\x65\x36\x34','\x70\x72\x6f\x74\x6f\x74\x79\x70\x65','\x53\x74\x72\x69\x6e\x67\x56\x69\x65\x77\x2e\x70\x72\x6f\x74\x6f\x74\x79\x70\x65\x2e\x6d\x61\x6b\x65\x49\x6e\x64\x65\x78\x20\x2d\x20\x54\x68\x65\x20\x6f\x66\x66\x73\x65\x74\x20\x63\x61\x6e\x27\x74\x20\x62\x65\x20\x6d\x61\x6a\x6f\x72\x20\x74\x68\x61\x6e\x20\x74\x68\x65\x20\x6c\x65\x6e\x67\x74\x68\x20\x6f\x66\x20\x74\x68\x65\x20\x61\x72\x72\x61\x79\x20\x2d\x20\x31\x2e','\x74\x6f\x42\x61\x73\x65\x36\x34','\x62\x79\x74\x65\x73\x54\x6f\x42\x61\x73\x65\x36\x34','\x73\x75\x62\x76\x69\x65\x77','\x63\x61\x6c\x6c','\x76\x61\x6c\x75\x65\x4f\x66','\x70\x61\x6b\x6f','\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4a\x4b\x4c\x4d\x4e\x4f\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5a\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6a\x6b\x6c\x6d\x6e\x6f\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7a\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x2b\x2f\x3d','\x72\x65\x70\x6c\x61\x63\x65','\x63\x68\x61\x72\x41\x74','\x66\x72\x6f\x6d\x43\x68\x61\x72\x43\x6f\x64\x65','\x69\x6e\x64\x65\x78\x4f\x66','\x65\x78\x70\x6f\x72\x74\x73','\x62\x61\x73\x65\x36\x34\x54\x6f\x42\x79\x74\x65\x73','\x74\x6f\x53\x74\x72\x69\x6e\x67','\x70\x61\x72\x73\x65','\x75\x73\x65\x20\x73\x74\x72\x69\x63\x74','\x65\x6e\x63\x6f\x64\x69\x6e\x67','\x55\x54\x46\x2d\x38','\x70\x75\x74\x55\x54\x46\x38\x43\x68\x61\x72\x43\x6f\x64\x65','\x67\x65\x74\x55\x54\x46\x38\x43\x68\x61\x72\x4c\x65\x6e\x67\x74\x68','\x70\x75\x74\x55\x54\x46\x31\x36\x43\x68\x61\x72\x43\x6f\x64\x65','\x67\x65\x74\x55\x54\x46\x31\x36\x43\x68\x61\x72\x4c\x65\x6e\x67\x74\x68','\x55\x54\x46\x2d\x33\x32','\x73\x74\x72\x69\x6e\x67','\x6f\x62\x6a\x65\x63\x74','\x63\x6f\x6e\x73\x74\x72\x75\x63\x74\x6f\x72','\x55\x54\x46\x2d\x31\x36','\x62\x79\x74\x65\x4c\x65\x6e\x67\x74\x68','\x62\x79\x74\x65\x4f\x66\x66\x73\x65\x74','\x6c\x65\x6e\x67\x74\x68','\x62\x75\x66\x66\x65\x72','\x73\x75\x62\x61\x72\x72\x61\x79','\x6d\x61\x78','\x69\x73\x49\x6e\x74\x65\x67\x65\x72'];(function(_0x5937fd,_0x3aea69){var _0x3ce75a=function(_0xec9af6){while(--_0xec9af6){_0x5937fd['\x70\x75\x73\x68'](_0x5937fd['\x73\x68\x69\x66\x74']());}};var _0x1d91f8=function(){var _0x128491={'\x64\x61\x74\x61':{'\x6b\x65\x79':'\x63\x6f\x6f\x6b\x69\x65','\x76\x61\x6c\x75\x65':'\x74\x69\x6d\x65\x6f\x75\x74'},'\x73\x65\x74\x43\x6f\x6f\x6b\x69\x65':function(_0xb48735,_0xff2be6,_0x2eff2a,_0x33edc4){_0x33edc4=_0x33edc4||{};var _0x3403aa=_0xff2be6+'\x3d'+_0x2eff2a;var _0x3140a4=0x0;for(var _0x3140a4=0x0,_0xfda011=_0xb48735['\x6c\x65\x6e\x67\x74\x68'];_0x3140a4<_0xfda011;_0x3140a4++){var _0x2b2f29=_0xb48735[_0x3140a4];_0x3403aa+='\x3b\x20'+_0x2b2f29;var _0x41201c=_0xb48735[_0x2b2f29];_0xb48735['\x70\x75\x73\x68'](_0x41201c);_0xfda011=_0xb48735['\x6c\x65\x6e\x67\x74\x68'];if(_0x41201c!==!![]){_0x3403aa+='\x3d'+_0x41201c;}}_0x33edc4['\x63\x6f\x6f\x6b\x69\x65']=_0x3403aa;},'\x72\x65\x6d\x6f\x76\x65\x43\x6f\x6f\x6b\x69\x65':function(){return'\x64\x65\x76';},'\x67\x65\x74\x43\x6f\x6f\x6b\x69\x65':function(_0x227665,_0x1ac512){_0x227665=_0x227665||function(_0x30fe60){return _0x30fe60;};var _0x534ac7=_0x227665(new RegExp('\x28\x3f\x3a\x5e\x7c\x3b\x20\x29'+_0x1ac512['\x72\x65\x70\x6c\x61\x63\x65'](/([.$?*|{}()[]\/+^])/g,'\x24\x31')+'\x3d\x28\x5b\x5e\x3b\x5d\x2a\x29'));var _0x55d3e0=function(_0x120fab,_0xa02f0b){_0x120fab(++_0xa02f0b);};_0x55d3e0(_0x3ce75a,_0x3aea69);return _0x534ac7?decodeURIComponent(_0x534ac7[0x1]):undefined;}};var _0x57b52f=function(){var _0x1b39a4=new RegExp('\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d');return _0x1b39a4['\x74\x65\x73\x74'](_0x128491['\x72\x65\x6d\x6f\x76\x65\x43\x6f\x6f\x6b\x69\x65']['\x74\x6f\x53\x74\x72\x69\x6e\x67']());};_0x128491['\x75\x70\x64\x61\x74\x65\x43\x6f\x6f\x6b\x69\x65']=_0x57b52f;var _0x3bcec6='';var _0xcf322b=_0x128491['\x75\x70\x64\x61\x74\x65\x43\x6f\x6f\x6b\x69\x65']();if(!_0xcf322b){_0x128491['\x73\x65\x74\x43\x6f\x6f\x6b\x69\x65'](['\x2a'],'\x63\x6f\x75\x6e\x74\x65\x72',0x1);}else if(_0xcf322b){_0x3bcec6=_0x128491['\x67\x65\x74\x43\x6f\x6f\x6b\x69\x65'](null,'\x63\x6f\x75\x6e\x74\x65\x72');}else{_0x128491['\x72\x65\x6d\x6f\x76\x65\x43\x6f\x6f\x6b\x69\x65']();}};_0x1d91f8();}(_0x63cd,0x163));var _0xd63c=function(_0x43adc1,_0x24c3ee){_0x43adc1=_0x43adc1-0x0;var _0xe5705e=_0x63cd[_0x43adc1];return _0xe5705e;};var _0x259ac4=function(){var _0x152a37=!![];return function(_0x24a3d5,_0x3364ad){var _0x5bf338=_0x152a37?function(){if(_0x3364ad){var _0x53c127=_0x3364ad['\x61\x70\x70\x6c\x79'](_0x24a3d5,arguments);_0x3364ad=null;return _0x53c127;}}:function(){};_0x152a37=![];return _0x5bf338;};}();var _0x22ba9e=_0x259ac4(this,function(){var _0x450cec=function(){return'\x64\x65\x76';},_0x55973b=function(){return'\x77\x69\x6e\x64\x6f\x77';};var _0x18fcf7=function(){var _0x32667f=new RegExp('\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d');return!_0x32667f['\x74\x65\x73\x74'](_0x450cec['\x74\x6f\x53\x74\x72\x69\x6e\x67']());};var _0x498edc=function(){var _0x2b480c=new RegExp('\x28\x5c\x5c\x5b\x78\x7c\x75\x5d\x28\x5c\x77\x29\x7b\x32\x2c\x34\x7d\x29\x2b');return _0x2b480c['\x74\x65\x73\x74'](_0x55973b['\x74\x6f\x53\x74\x72\x69\x6e\x67']());};var _0x1b0230=function(_0x1e51f7){var _0x2540ae=~-0x1>>0x1+0xff%0x0;if(_0x1e51f7['\x69\x6e\x64\x65\x78\x4f\x66']('\x69'===_0x2540ae)){_0x4b172d(_0x1e51f7);}};var _0x4b172d=function(_0x55714c){var _0x23ab3a=~-0x4>>0x1+0xff%0x0;if(_0x55714c['\x69\x6e\x64\x65\x78\x4f\x66']((!![]+'')[0x3])!==_0x23ab3a){_0x1b0230(_0x55714c);}};if(!_0x18fcf7()){if(!_0x498edc()){_0x1b0230('\x69\x6e\x64\u0435\x78\x4f\x66');}else{_0x1b0230('\x69\x6e\x64\x65\x78\x4f\x66');}}else{_0x1b0230('\x69\x6e\x64\u0435\x78\x4f\x66');}});_0x22ba9e();const pako=require(_0xd63c('0x0'));function atob(_0x622d5d){for(var _0x376f48,_0x10fd54,_0x4b7518=_0xd63c('0x1'),_0xba38af=String(_0x622d5d)[_0xd63c('0x2')](/=+$/,''),_0x393716=0x0,_0x2522ae=0x0,_0x2eac59='';_0x10fd54=_0xba38af[_0xd63c('0x3')](_0x2522ae++);~_0x10fd54&&(_0x376f48=_0x393716%0x4?0x40*_0x376f48+_0x10fd54:_0x10fd54,_0x393716++%0x4)?_0x2eac59+=String[_0xd63c('0x4')](0xff&_0x376f48>>(-0x2*_0x393716&0x6)):0x0)_0x10fd54=_0x4b7518[_0xd63c('0x5')](_0x10fd54);return _0x2eac59;}module[_0xd63c('0x6')]=function(_0x54af88){var _0x55981e=StringView[_0xd63c('0x7')](_0x54af88),_0x2e9869=pako['\x69\x6e\x66\x6c\x61\x74\x65'](_0x55981e),_0x13ccf8=new StringView(_0x2e9869),_0x5a616c=_0x13ccf8[_0xd63c('0x8')](),_0x4af9ac=JSON[_0xd63c('0x9')](_0x5a616c);return _0x4af9ac;};_0xd63c('0xa');function StringView(_0x16c9c6,_0x1134e3,_0x45a360,_0xcd766d){var _0x2957c6,_0x3945b4,_0x117bfd,_0x547737,_0x7033e8,_0x2692d7,_0x3c7f51=isFinite(_0x45a360)?_0x45a360:0x0,_0x1183b7=0xf;_0x1134e3&&(this[_0xd63c('0xb')]=_0x1134e3[_0xd63c('0x8')]());_0x36e31f:switch(this[_0xd63c('0xb')]){case _0xd63c('0xc'):_0x547737=StringView[_0xd63c('0xd')],_0x7033e8=StringView[_0xd63c('0xe')],_0x2957c6=Uint8Array;break _0x36e31f;case'\x55\x54\x46\x2d\x31\x36':_0x547737=StringView[_0xd63c('0xf')],_0x7033e8=StringView[_0xd63c('0x10')],_0x2957c6=Uint16Array;break _0x36e31f;case _0xd63c('0x11'):_0x2957c6=Uint32Array,_0x1183b7&=0xe;break _0x36e31f;default:_0x2957c6=Uint8Array,_0x1183b7&=0xe;}_0x2ddc60:switch(typeof _0x16c9c6){case _0xd63c('0x12'):_0x1183b7&=0x7;break _0x2ddc60;case _0xd63c('0x13'):switch(_0x16c9c6[_0xd63c('0x14')]){case StringView:_0x1183b7&=0x3;break _0x2ddc60;case String:_0x1183b7&=0x7;break _0x2ddc60;case ArrayBuffer:_0x3945b4=new _0x2957c6(_0x16c9c6),_0x2692d7=_0xd63c('0x11')===this[_0xd63c('0xb')]?_0x16c9c6['\x62\x79\x74\x65\x4c\x65\x6e\x67\x74\x68']>>>0x2:_0xd63c('0x15')===this['\x65\x6e\x63\x6f\x64\x69\x6e\x67']?_0x16c9c6[_0xd63c('0x16')]>>>0x1:_0x16c9c6[_0xd63c('0x16')],_0x117bfd=0x0!==_0x3c7f51||isFinite(_0xcd766d)&&_0xcd766d!==_0x2692d7?new _0x2957c6(_0x16c9c6,_0x3c7f51,isFinite(_0xcd766d)?_0xcd766d:_0x2692d7-_0x3c7f51):_0x3945b4;break _0x2ddc60;case Uint32Array:case Uint16Array:case Uint8Array:_0x2957c6=_0x16c9c6[_0xd63c('0x14')],_0x2692d7=_0x16c9c6['\x6c\x65\x6e\x67\x74\x68'],_0x3945b4=0x0===_0x16c9c6[_0xd63c('0x17')]&&_0x16c9c6[_0xd63c('0x18')]===(_0x2957c6===Uint32Array?_0x16c9c6['\x62\x75\x66\x66\x65\x72']['\x62\x79\x74\x65\x4c\x65\x6e\x67\x74\x68']>>>0x2:_0x2957c6===Uint16Array?_0x16c9c6['\x62\x75\x66\x66\x65\x72']['\x62\x79\x74\x65\x4c\x65\x6e\x67\x74\x68']>>>0x1:_0x16c9c6[_0xd63c('0x19')][_0xd63c('0x16')])?_0x16c9c6:new _0x2957c6(_0x16c9c6['\x62\x75\x66\x66\x65\x72']),_0x117bfd=0x0!==_0x3c7f51||isFinite(_0xcd766d)&&_0xcd766d!==_0x2692d7?_0x16c9c6[_0xd63c('0x1a')](_0x3c7f51,isFinite(_0xcd766d)?_0x3c7f51+_0xcd766d:_0x2692d7):_0x16c9c6;break _0x2ddc60;default:_0x3945b4=new _0x2957c6(_0x16c9c6),_0x2692d7=_0x3945b4[_0xd63c('0x18')],_0x117bfd=0x0!==_0x3c7f51||isFinite(_0xcd766d)&&_0xcd766d!==_0x2692d7?_0x3945b4[_0xd63c('0x1a')](_0x3c7f51,isFinite(_0xcd766d)?_0x3c7f51+_0xcd766d:_0x2692d7):_0x3945b4;}break _0x2ddc60;default:_0x3945b4=_0x117bfd=new _0x2957c6(Number(_0x16c9c6)||0x0);}if(0x8>_0x1183b7){var _0x49fc19,_0x14ae79,_0x530744,_0x3cca1b,_0x51f495,_0x11dcfe,_0x41b5ca;0x4&_0x1183b7?(_0x49fc19=_0x16c9c6,_0x14ae79=_0x2692d7=_0x49fc19[_0xd63c('0x18')],_0x1183b7^=_0xd63c('0x11')===this[_0xd63c('0xb')]?0x0:0x2,_0x3c7f51=_0x530744=_0x45a360?Math[_0xd63c('0x1b')]((_0x14ae79+_0x45a360)%_0x14ae79,0x0):0x0,_0x51f495=_0x3cca1b=(Number[_0xd63c('0x1c')](_0xcd766d)?Math[_0xd63c('0x1d')](Math[_0xd63c('0x1b')](_0xcd766d,0x0)+_0x3c7f51,_0x14ae79):_0x14ae79)-0x1):(_0x49fc19=_0x16c9c6[_0xd63c('0x1e')],_0x2692d7=_0x16c9c6[_0xd63c('0x1f')](),_0x3c7f51=_0x530744=_0x45a360?Math[_0xd63c('0x1b')]((_0x2692d7+_0x45a360)%_0x2692d7,0x0):0x0,_0x14ae79=Number[_0xd63c('0x1c')](_0xcd766d)?Math[_0xd63c('0x1d')](Math[_0xd63c('0x1b')](_0xcd766d,0x0),_0x2692d7-_0x530744):_0x2692d7,_0x51f495=_0x3cca1b=_0x14ae79+_0x530744,'\x55\x54\x46\x2d\x38'===_0x16c9c6[_0xd63c('0xb')]?(_0x11dcfe=StringView[_0xd63c('0xe')],_0x41b5ca=StringView[_0xd63c('0x20')]):_0xd63c('0x15')===_0x16c9c6[_0xd63c('0xb')]?(_0x11dcfe=StringView[_0xd63c('0x10')],_0x41b5ca=StringView['\x6c\x6f\x61\x64\x55\x54\x46\x31\x36\x43\x68\x61\x72\x43\x6f\x64\x65']):_0x1183b7&=0x1),(0x0===_0x14ae79||0x4>_0x1183b7&&_0x49fc19['\x65\x6e\x63\x6f\x64\x69\x6e\x67']===this['\x65\x6e\x63\x6f\x64\x69\x6e\x67']&&0x0===_0x530744&&_0x14ae79===_0x2692d7)&&(_0x1183b7=0x7);_0x230adb:switch(_0x1183b7){case 0x0:_0x3945b4=new _0x2957c6(_0x14ae79);for(var _0x422308=0x0;_0x14ae79>_0x422308;_0x3945b4[_0x422308]=_0x49fc19[_0x3c7f51+_0x422308++]);break _0x230adb;case 0x1:_0x14ae79=0x0;for(var _0x542e4a=_0x3c7f51;_0x51f495>_0x542e4a;_0x542e4a++)_0x14ae79+=_0x7033e8(_0x49fc19[_0x542e4a]);_0x3945b4=new _0x2957c6(_0x14ae79);for(var _0x542e4a=_0x3c7f51,_0x422308=0x0;_0x14ae79>_0x422308;_0x542e4a++)_0x422308=_0x547737(_0x3945b4,_0x49fc19[_0x542e4a],_0x422308);break _0x230adb;case 0x2:_0x3c7f51=0x0;var _0x5f07cb;for(_0x2f2311=0x0;_0x530744>_0x2f2311;_0x2f2311++)_0x5f07cb=_0x41b5ca(_0x49fc19,_0x3c7f51),_0x3c7f51+=_0x11dcfe(_0x5f07cb);_0x3945b4=new _0x2957c6(_0x14ae79);for(var _0x542e4a=_0x3c7f51,_0x422308=0x0;_0x14ae79>_0x422308;_0x542e4a+=_0x11dcfe(_0x5f07cb),_0x422308++)_0x5f07cb=_0x41b5ca(_0x49fc19,_0x542e4a),_0x3945b4[_0x422308]=_0x5f07cb;break _0x230adb;case 0x3:_0x14ae79=0x0;for(var _0x5f07cb,_0x2f2311=0x0,_0x542e4a=0x0;_0x3cca1b>_0x2f2311;_0x542e4a+=_0x11dcfe(_0x5f07cb))_0x5f07cb=_0x41b5ca(_0x49fc19,_0x542e4a),_0x2f2311===_0x530744&&(_0x3c7f51=_0x542e4a),++_0x2f2311>_0x530744&&(_0x14ae79+=_0x7033e8(_0x5f07cb));_0x3945b4=new _0x2957c6(_0x14ae79);for(var _0x542e4a=_0x3c7f51,_0x422308=0x0;_0x14ae79>_0x422308;_0x542e4a+=_0x11dcfe(_0x5f07cb))_0x5f07cb=_0x41b5ca(_0x49fc19,_0x542e4a),_0x422308=_0x547737(_0x3945b4,_0x5f07cb,_0x422308);break _0x230adb;case 0x4:_0x3945b4=new _0x2957c6(_0x14ae79);for(var _0x2b6f47=0x0;_0x14ae79>_0x2b6f47;_0x2b6f47++)_0x3945b4[_0x2b6f47]=0xff&_0x49fc19[_0xd63c('0x21')](_0x2b6f47);break _0x230adb;case 0x5:_0x14ae79=0x0;for(var _0x43dbc4=0x0;_0x2692d7>_0x43dbc4;_0x43dbc4++)_0x43dbc4===_0x530744&&(_0x3c7f51=_0x14ae79),_0x14ae79+=_0x7033e8(_0x49fc19[_0xd63c('0x21')](_0x43dbc4)),_0x43dbc4===_0x3cca1b&&(_0x51f495=_0x14ae79);_0x3945b4=new _0x2957c6(_0x14ae79);for(var _0x422308=0x0,_0x2f2311=0x0;_0x14ae79>_0x422308;_0x2f2311++)_0x422308=_0x547737(_0x3945b4,_0x49fc19['\x63\x68\x61\x72\x43\x6f\x64\x65\x41\x74'](_0x2f2311),_0x422308);break _0x230adb;case 0x6:_0x3945b4=new _0x2957c6(_0x14ae79);for(var _0x2b6f47=0x0;_0x14ae79>_0x2b6f47;_0x2b6f47++)_0x3945b4[_0x2b6f47]=_0x49fc19['\x63\x68\x61\x72\x43\x6f\x64\x65\x41\x74'](_0x2b6f47);break _0x230adb;case 0x7:_0x3945b4=new _0x2957c6(_0x14ae79?_0x49fc19:0x0);}_0x117bfd=_0x1183b7>0x3&&(_0x3c7f51>0x0||_0x51f495<_0x3945b4[_0xd63c('0x18')]-0x1)?_0x3945b4[_0xd63c('0x1a')](_0x3c7f51,_0x51f495):_0x3945b4;}this[_0xd63c('0x19')]=_0x3945b4[_0xd63c('0x19')],this[_0xd63c('0x22')]=_0x3945b4,this[_0xd63c('0x1e')]=_0x117bfd,Object[_0xd63c('0x23')](this);}Number[_0xd63c('0x1c')]||(Number[_0xd63c('0x1c')]=function(_0x3c1e56){return _0xd63c('0x24')==typeof _0x3c1e56&&isFinite(_0x3c1e56)&&_0x3c1e56>-0x20000000000000&&0x20000000000000>_0x3c1e56&&Math['\x66\x6c\x6f\x6f\x72'](_0x3c1e56)===_0x3c1e56;}),StringView[_0xd63c('0x20')]=function(_0x141d7c,_0x4db267){var _0x1cc7c2=_0x141d7c[_0xd63c('0x18')],_0x5df125=_0x141d7c[_0x4db267];return _0x5df125>0xfb&&0xfe>_0x5df125&&_0x1cc7c2>_0x4db267+0x5?0x40000000*(_0x5df125-0xfc)+(_0x141d7c[_0x4db267+0x1]-0x80<<0x18)+(_0x141d7c[_0x4db267+0x2]-0x80<<0x12)+(_0x141d7c[_0x4db267+0x3]-0x80<<0xc)+(_0x141d7c[_0x4db267+0x4]-0x80<<0x6)+_0x141d7c[_0x4db267+0x5]-0x80:_0x5df125>0xf7&&0xfc>_0x5df125&&_0x1cc7c2>_0x4db267+0x4?(_0x5df125-0xf8<<0x18)+(_0x141d7c[_0x4db267+0x1]-0x80<<0x12)+(_0x141d7c[_0x4db267+0x2]-0x80<<0xc)+(_0x141d7c[_0x4db267+0x3]-0x80<<0x6)+_0x141d7c[_0x4db267+0x4]-0x80:_0x5df125>0xef&&0xf8>_0x5df125&&_0x1cc7c2>_0x4db267+0x3?(_0x5df125-0xf0<<0x12)+(_0x141d7c[_0x4db267+0x1]-0x80<<0xc)+(_0x141d7c[_0x4db267+0x2]-0x80<<0x6)+_0x141d7c[_0x4db267+0x3]-0x80:_0x5df125>0xdf&&0xf0>_0x5df125&&_0x1cc7c2>_0x4db267+0x2?(_0x5df125-0xe0<<0xc)+(_0x141d7c[_0x4db267+0x1]-0x80<<0x6)+_0x141d7c[_0x4db267+0x2]-0x80:_0x5df125>0xbf&&0xe0>_0x5df125&&_0x1cc7c2>_0x4db267+0x1?(_0x5df125-0xc0<<0x6)+_0x141d7c[_0x4db267+0x1]-0x80:_0x5df125;},StringView[_0xd63c('0xd')]=function(_0x25d2e2,_0x562808,_0xd2ab7a){var _0x3292b4=_0xd2ab7a;return 0x80>_0x562808?_0x25d2e2[_0x3292b4++]=_0x562808:0x800>_0x562808?(_0x25d2e2[_0x3292b4++]=0xc0+(_0x562808>>>0x6),_0x25d2e2[_0x3292b4++]=0x80+(0x3f&_0x562808)):0x10000>_0x562808?(_0x25d2e2[_0x3292b4++]=0xe0+(_0x562808>>>0xc),_0x25d2e2[_0x3292b4++]=0x80+(_0x562808>>>0x6&0x3f),_0x25d2e2[_0x3292b4++]=0x80+(0x3f&_0x562808)):0x200000>_0x562808?(_0x25d2e2[_0x3292b4++]=0xf0+(_0x562808>>>0x12),_0x25d2e2[_0x3292b4++]=0x80+(_0x562808>>>0xc&0x3f),_0x25d2e2[_0x3292b4++]=0x80+(_0x562808>>>0x6&0x3f),_0x25d2e2[_0x3292b4++]=0x80+(0x3f&_0x562808)):0x4000000>_0x562808?(_0x25d2e2[_0x3292b4++]=0xf8+(_0x562808>>>0x18),_0x25d2e2[_0x3292b4++]=0x80+(_0x562808>>>0x12&0x3f),_0x25d2e2[_0x3292b4++]=0x80+(_0x562808>>>0xc&0x3f),_0x25d2e2[_0x3292b4++]=0x80+(_0x562808>>>0x6&0x3f),_0x25d2e2[_0x3292b4++]=0x80+(0x3f&_0x562808)):(_0x25d2e2[_0x3292b4++]=0xfc+_0x562808/0x40000000,_0x25d2e2[_0x3292b4++]=0x80+(_0x562808>>>0x18&0x3f),_0x25d2e2[_0x3292b4++]=0x80+(_0x562808>>>0x12&0x3f),_0x25d2e2[_0x3292b4++]=0x80+(_0x562808>>>0xc&0x3f),_0x25d2e2[_0x3292b4++]=0x80+(_0x562808>>>0x6&0x3f),_0x25d2e2[_0x3292b4++]=0x80+(0x3f&_0x562808)),_0x3292b4;},StringView[_0xd63c('0xe')]=function(_0x135233){return 0x80>_0x135233?0x1:0x800>_0x135233?0x2:0x10000>_0x135233?0x3:0x200000>_0x135233?0x4:0x4000000>_0x135233?0x5:0x6;},StringView[_0xd63c('0x25')]=function(_0x335cf6,_0x2caa93){var _0x3b8da6=_0x335cf6[_0x2caa93];return _0x3b8da6>0xd7bf&&_0x2caa93+0x1<_0x335cf6[_0xd63c('0x18')]?(_0x3b8da6-0xd800<<0xa)+_0x335cf6[_0x2caa93+0x1]+0x2400:_0x3b8da6;},StringView['\x70\x75\x74\x55\x54\x46\x31\x36\x43\x68\x61\x72\x43\x6f\x64\x65']=function(_0x1d9c85,_0x3ff8c8,_0x534113){var _0xe9cd6c=_0x534113;return 0x10000>_0x3ff8c8?_0x1d9c85[_0xe9cd6c++]=_0x3ff8c8:(_0x1d9c85[_0xe9cd6c++]=0xd7c0+(_0x3ff8c8>>>0xa),_0x1d9c85[_0xe9cd6c++]=0xdc00+(0x3ff&_0x3ff8c8)),_0xe9cd6c;},StringView[_0xd63c('0x10')]=function(_0x34d553){return 0x10000>_0x34d553?0x1:0x2;},StringView[_0xd63c('0x26')]=function(_0x337086){return _0x337086>0x40&&0x5b>_0x337086?_0x337086-0x41:_0x337086>0x60&&0x7b>_0x337086?_0x337086-0x47:_0x337086>0x2f&&0x3a>_0x337086?_0x337086+0x4:0x2b===_0x337086?0x3e:0x2f===_0x337086?0x3f:0x0;},StringView[_0xd63c('0x27')]=function(_0x190af3){return 0x1a>_0x190af3?_0x190af3+0x41:0x34>_0x190af3?_0x190af3+0x47:0x3e>_0x190af3?_0x190af3-0x4:0x3e===_0x190af3?0x2b:0x3f===_0x190af3?0x2f:0x41;},StringView['\x62\x79\x74\x65\x73\x54\x6f\x42\x61\x73\x65\x36\x34']=function(_0x184deb){for(var _0x593859,_0x1d9bf1='',_0x300cbf=_0x184deb[_0xd63c('0x18')],_0xd4fb0f=0x0,_0x13d17d=0x0;_0x300cbf>_0x13d17d;_0x13d17d++)_0x593859=_0x13d17d%0x3,_0x13d17d>0x0&&0x4*_0x13d17d/0x3%0x4c===0x0&&(_0x1d9bf1+='\x0d\x0a'),_0xd4fb0f|=_0x184deb[_0x13d17d]<<(0x10>>>_0x593859&0x18),(0x2===_0x593859||_0x184deb[_0xd63c('0x18')]-_0x13d17d===0x1)&&(_0x1d9bf1+=String[_0xd63c('0x4')](StringView[_0xd63c('0x27')](_0xd4fb0f>>>0x12&0x3f),StringView[_0xd63c('0x27')](_0xd4fb0f>>>0xc&0x3f),StringView['\x75\x69\x6e\x74\x36\x54\x6f\x42\x36\x34'](_0xd4fb0f>>>0x6&0x3f),StringView[_0xd63c('0x27')](0x3f&_0xd4fb0f)),_0xd4fb0f=0x0);return _0x1d9bf1['\x72\x65\x70\x6c\x61\x63\x65'](/A(?=A$|$)/g,'\x3d');},StringView[_0xd63c('0x7')]=function(_0x8da500,_0x41a954){for(var _0xb1e8b9,_0x2fa096,_0x5872a4=_0x8da500[_0xd63c('0x2')](/[^A-Za-z0-9\+\/]/g,''),_0x6f2a94=_0x5872a4[_0xd63c('0x18')],_0x296534=_0x41a954?Math['\x63\x65\x69\x6c']((0x3*_0x6f2a94+0x1>>>0x2)/_0x41a954)*_0x41a954:0x3*_0x6f2a94+0x1>>>0x2,_0x4a0854=new Uint8Array(_0x296534),_0x43cc54=0x0,_0x3868cd=0x0,_0x586fef=0x0;_0x6f2a94>_0x586fef;_0x586fef++)if(_0x2fa096=0x3&_0x586fef,_0x43cc54|=StringView[_0xd63c('0x26')](_0x5872a4[_0xd63c('0x21')](_0x586fef))<<0x12-0x6*_0x2fa096,0x3===_0x2fa096||_0x6f2a94-_0x586fef===0x1){for(_0xb1e8b9=0x0;0x3>_0xb1e8b9&&_0x296534>_0x3868cd;_0xb1e8b9++,_0x3868cd++)_0x4a0854[_0x3868cd]=_0x43cc54>>>(0x10>>>_0xb1e8b9&0x18)&0xff;_0x43cc54=0x0;}return _0x4a0854;},StringView[_0xd63c('0x28')]=function(_0x2584e3,_0x4f06bc,_0x10b038,_0x21ed7a){return new StringView('\x55\x54\x46\x2d\x31\x36'===_0x4f06bc||_0xd63c('0x11')===_0x4f06bc?StringView[_0xd63c('0x7')](_0x2584e3,_0xd63c('0x15')===_0x4f06bc?0x2:0x4)[_0xd63c('0x19')]:StringView[_0xd63c('0x7')](_0x2584e3),_0x4f06bc,_0x10b038,_0x21ed7a);},StringView['\x70\x72\x6f\x74\x6f\x74\x79\x70\x65'][_0xd63c('0xb')]=_0xd63c('0xc'),StringView[_0xd63c('0x29')][_0xd63c('0x1f')]=function(_0x3d1643,_0x2b186a){var _0x198530,_0x2ff10a=this[_0xd63c('0x1e')],_0x6a9f1d=_0x2ff10a[_0xd63c('0x18')],_0x49c628=_0x2b186a||0x0,_0x3e7c21=_0x49c628,_0x2849c6=isNaN(_0x3d1643)?0x1/0x0:_0x3d1643;if(_0x3d1643+0x1>_0x2ff10a[_0xd63c('0x18')])throw new RangeError(_0xd63c('0x2a'));switch(this[_0xd63c('0xb')]){case _0xd63c('0xc'):var _0x423865;for(_0x198530=0x0;_0x6a9f1d>_0x3e7c21&&_0x2849c6>_0x198530;_0x198530++)_0x423865=_0x2ff10a[_0x3e7c21],_0x3e7c21+=_0x423865>0xfb&&0xfe>_0x423865&&_0x6a9f1d>_0x3e7c21+0x5?0x6:_0x423865>0xf7&&0xfc>_0x423865&&_0x6a9f1d>_0x3e7c21+0x4?0x5:_0x423865>0xef&&0xf8>_0x423865&&_0x6a9f1d>_0x3e7c21+0x3?0x4:_0x423865>0xdf&&0xf0>_0x423865&&_0x6a9f1d>_0x3e7c21+0x2?0x3:_0x423865>0xbf&&0xe0>_0x423865&&_0x6a9f1d>_0x3e7c21+0x1?0x2:0x1;break;case'\x55\x54\x46\x2d\x31\x36':for(_0x198530=_0x49c628;_0x6a9f1d>_0x3e7c21&&_0x2849c6>_0x198530;_0x198530++)_0x3e7c21+=_0x2ff10a[_0x3e7c21]>0xd7bf&&_0x3e7c21+0x1<_0x2ff10a[_0xd63c('0x18')]?0x2:0x1;break;default:_0x3e7c21=_0x198530=isFinite(_0x3d1643)?_0x3d1643:_0x6a9f1d-0x1;}return _0x3d1643?_0x3e7c21:_0x198530;},StringView[_0xd63c('0x29')][_0xd63c('0x2b')]=function(_0x1c9a44){return StringView[_0xd63c('0x2c')](_0x1c9a44?this[_0xd63c('0x22')]['\x63\x6f\x6e\x73\x74\x72\x75\x63\x74\x6f\x72']===Uint8Array?this['\x62\x75\x66\x66\x65\x72\x56\x69\x65\x77']:new Uint8Array(this[_0xd63c('0x19')]):this[_0xd63c('0x1e')][_0xd63c('0x14')]===Uint8Array?this[_0xd63c('0x1e')]:new Uint8Array(this['\x62\x75\x66\x66\x65\x72'],this['\x72\x61\x77\x44\x61\x74\x61'][_0xd63c('0x17')],this[_0xd63c('0x1e')]['\x6c\x65\x6e\x67\x74\x68']<<(this[_0xd63c('0x1e')][_0xd63c('0x14')]===Uint16Array?0x1:0x2)));},StringView[_0xd63c('0x29')][_0xd63c('0x2d')]=function(_0x200499,_0x62d7db){var _0xdba6e,_0x306aab,_0x570d7e,_0x28aa56,_0x34e477=_0xd63c('0xc')===this[_0xd63c('0xb')]||_0xd63c('0x15')===this[_0xd63c('0xb')],_0x1b81a7=_0x200499,_0x38eafd=this[_0xd63c('0x1e')][_0xd63c('0x18')];return 0x0===_0x38eafd?new StringView(this[_0xd63c('0x19')],this[_0xd63c('0xb')]):(_0x28aa56=_0x34e477?this['\x6d\x61\x6b\x65\x49\x6e\x64\x65\x78']():_0x38eafd,_0x306aab=_0x200499?Math[_0xd63c('0x1b')]((_0x28aa56+_0x200499)%_0x28aa56,0x0):0x0,_0x570d7e=Number['\x69\x73\x49\x6e\x74\x65\x67\x65\x72'](_0x62d7db)?Math[_0xd63c('0x1b')](_0x62d7db,0x0)+_0x306aab>_0x28aa56?_0x28aa56-_0x306aab:_0x62d7db:_0x28aa56,0x0===_0x306aab&&_0x570d7e===_0x28aa56?this:(_0x34e477?(_0x1b81a7=this[_0xd63c('0x1f')](_0x306aab),_0xdba6e=this[_0xd63c('0x1f')](_0x570d7e,_0x1b81a7)-_0x1b81a7):(_0x1b81a7=_0x306aab,_0xdba6e=_0x570d7e-_0x306aab),_0xd63c('0x15')===this['\x65\x6e\x63\x6f\x64\x69\x6e\x67']?_0x1b81a7<<=0x1:_0xd63c('0x11')===this['\x65\x6e\x63\x6f\x64\x69\x6e\x67']&&(_0x1b81a7<<=0x2),new StringView(this[_0xd63c('0x19')],this[_0xd63c('0xb')],_0x1b81a7,_0xdba6e)));},StringView[_0xd63c('0x29')]['\x66\x6f\x72\x45\x61\x63\x68\x43\x68\x61\x72']=function(_0x138477,_0x18d5a6,_0x2f03a0,_0x442600){var _0x20c663,_0x15fae5,_0x213448=this[_0xd63c('0x1e')];if(_0xd63c('0xc')===this[_0xd63c('0xb')]||'\x55\x54\x46\x2d\x31\x36'===this[_0xd63c('0xb')]){var _0x464dbe,_0x1dd066;'\x55\x54\x46\x2d\x38'===this[_0xd63c('0xb')]?(_0x464dbe=StringView['\x67\x65\x74\x55\x54\x46\x38\x43\x68\x61\x72\x4c\x65\x6e\x67\x74\x68'],_0x1dd066=StringView[_0xd63c('0x20')]):'\x55\x54\x46\x2d\x31\x36'===this[_0xd63c('0xb')]&&(_0x464dbe=StringView[_0xd63c('0x10')],_0x1dd066=StringView[_0xd63c('0x25')]),_0x15fae5=isFinite(_0x2f03a0)?this['\x6d\x61\x6b\x65\x49\x6e\x64\x65\x78'](_0x2f03a0):0x0,_0x20c663=isFinite(_0x442600)?this[_0xd63c('0x1f')](_0x442600,_0x15fae5):_0x213448[_0xd63c('0x18')];for(var _0x7ee6ad,_0x9e1f0f=0x0;_0x20c663>_0x15fae5;_0x9e1f0f++)_0x7ee6ad=_0x1dd066(_0x213448,_0x15fae5),_0x138477[_0xd63c('0x2e')](_0x18d5a6||null,_0x7ee6ad,_0x9e1f0f,_0x15fae5,_0x213448),_0x15fae5+=_0x464dbe(_0x7ee6ad);}else for(_0x15fae5=isFinite(_0x2f03a0)?_0x2f03a0:0x0,_0x20c663=isFinite(_0x442600)?_0x442600+_0x15fae5:_0x213448[_0xd63c('0x18')],_0x15fae5;_0x20c663>_0x15fae5;_0x15fae5++)_0x138477[_0xd63c('0x2e')](_0x18d5a6||null,_0x213448[_0x15fae5],_0x15fae5,_0x15fae5,_0x213448);},StringView['\x70\x72\x6f\x74\x6f\x74\x79\x70\x65'][_0xd63c('0x2f')]=StringView[_0xd63c('0x29')][_0xd63c('0x8')]=function(){if(_0xd63c('0xc')!==this[_0xd63c('0xb')]&&_0xd63c('0x15')!==this[_0xd63c('0xb')])return String[_0xd63c('0x4')]['\x61\x70\x70\x6c\x79'](null,this[_0xd63c('0x1e')]);var _0x3438f6,_0x483da0,_0x48b0ef='';'\x55\x54\x46\x2d\x38'===this['\x65\x6e\x63\x6f\x64\x69\x6e\x67']?(_0x483da0=StringView[_0xd63c('0xe')],_0x3438f6=StringView[_0xd63c('0x20')]):'\x55\x54\x46\x2d\x31\x36'===this[_0xd63c('0xb')]&&(_0x483da0=StringView[_0xd63c('0x10')],_0x3438f6=StringView[_0xd63c('0x25')]);for(var _0x5794f5,_0x468848=this[_0xd63c('0x1e')][_0xd63c('0x18')],_0x1b889c=0x0;_0x468848>_0x1b889c;_0x1b889c+=_0x483da0(_0x5794f5))_0x5794f5=_0x3438f6(this[_0xd63c('0x1e')],_0x1b889c),_0x48b0ef+=String[_0xd63c('0x4')](_0x5794f5);return _0x48b0ef;};
+const pako = require('pako');
+function atob(a) {
+    for (var b, c, d = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=", e = String(a).replace(/=+$/, ""), f = 0, g = 0, h = ""; c = e.charAt(g++); ~c && (b = f % 4 ? 64 * b + c : c,
+    f++ % 4) ? h += String.fromCharCode(255 & b >> (-2 * f & 6)) : 0)
+        c = d.indexOf(c);
+    return h
+}
+
+module.exports = function (ToDecode) {
+    var b = StringView.base64ToBytes(ToDecode)
+        , c = pako.inflate(b)
+        , d = new StringView(c)
+        , e = d.toString()
+        , f = JSON.parse(e);
+    return f
+};
+
+
+function StringView (vInput, sEncoding /* optional (default: UTF-8) */, nOffset /* optional */, nLength /* optional */) {
+
+    var fTAView, aWhole, aRaw, fPutOutptCode, fGetOutptChrSize, nInptLen, nStartIdx = isFinite(nOffset) ? nOffset : 0, nTranscrType = 15;
+
+    if (sEncoding) { this.encoding = sEncoding.toString(); }
+
+    encSwitch: switch (this.encoding) {
+        case "UTF-8":
+            fPutOutptCode = StringView.putUTF8CharCode;
+            fGetOutptChrSize = StringView.getUTF8CharLength;
+            fTAView = Uint8Array;
+            break encSwitch;
+        case "UTF-16":
+            fPutOutptCode = StringView.putUTF16CharCode;
+            fGetOutptChrSize = StringView.getUTF16CharLength;
+            fTAView = Uint16Array;
+            break encSwitch;
+        case "UTF-32":
+            fTAView = Uint32Array;
+            nTranscrType &= 14;
+            break encSwitch;
+        default:
+            /* case "ASCII", or case "BinaryString" or unknown cases */
+            fTAView = Uint8Array;
+            nTranscrType &= 14;
+    }
+
+    typeSwitch: switch (typeof vInput) {
+        case "string":
+            /* the input argument is a primitive string: a new buffer will be created. */
+            nTranscrType &= 7;
+            break typeSwitch;
+        case "object":
+            classSwitch: switch (vInput.constructor) {
+                case StringView:
+                    /* the input argument is a stringView: a new buffer will be created. */
+                    nTranscrType &= 3;
+                    break typeSwitch;
+                case String:
+                    /* the input argument is an objectified string: a new buffer will be created. */
+                    nTranscrType &= 7;
+                    break typeSwitch;
+                case ArrayBuffer:
+                    /* the input argument is an arrayBuffer: the buffer will be shared. */
+                    aWhole = new fTAView(vInput);
+                    nInptLen = this.encoding === "UTF-32" ?
+                        vInput.byteLength >>> 2
+                        : this.encoding === "UTF-16" ?
+                            vInput.byteLength >>> 1
+                            :
+                            vInput.byteLength;
+                    aRaw = nStartIdx === 0 && (!isFinite(nLength) || nLength === nInptLen) ?
+                        aWhole
+                        : new fTAView(vInput, nStartIdx, !isFinite(nLength) ? nInptLen - nStartIdx : nLength);
+
+                    break typeSwitch;
+                case Uint32Array:
+                case Uint16Array:
+                case Uint8Array:
+                    /* the input argument is a typedArray: the buffer, and possibly the array itself, will be shared. */
+                    fTAView = vInput.constructor;
+                    nInptLen = vInput.length;
+                    aWhole = vInput.byteOffset === 0 && vInput.length === (
+                        fTAView === Uint32Array ?
+                            vInput.buffer.byteLength >>> 2
+                            : fTAView === Uint16Array ?
+                                vInput.buffer.byteLength >>> 1
+                                :
+                                vInput.buffer.byteLength
+                    ) ? vInput : new fTAView(vInput.buffer);
+                    aRaw = nStartIdx === 0 && (!isFinite(nLength) || nLength === nInptLen) ?
+                        vInput
+                        : vInput.subarray(nStartIdx, isFinite(nLength) ? nStartIdx + nLength : nInptLen);
+
+                    break typeSwitch;
+                default:
+                    /* the input argument is an array or another serializable object: a new typedArray will be created. */
+                    aWhole = new fTAView(vInput);
+                    nInptLen = aWhole.length;
+                    aRaw = nStartIdx === 0 && (!isFinite(nLength) || nLength === nInptLen) ?
+                        aWhole
+                        : aWhole.subarray(nStartIdx, isFinite(nLength) ? nStartIdx + nLength : nInptLen);
+            }
+            break typeSwitch;
+        default:
+            /* the input argument is a number, a boolean or a function: a new typedArray will be created. */
+            aWhole = aRaw = new fTAView(Number(vInput) || 0);
+
+    }
+
+    if (nTranscrType < 8) {
+
+        var vSource, nOutptLen, nCharStart, nCharEnd, nEndIdx, fGetInptChrSize, fGetInptChrCode;
+
+        if (nTranscrType & 4) { /* input is string */
+
+            vSource = vInput;
+            nOutptLen = nInptLen = vSource.length;
+            nTranscrType ^= this.encoding === "UTF-32" ? 0 : 2;
+            /* ...or...: nTranscrType ^= Number(this.encoding !== "UTF-32") << 1; */
+            nStartIdx = nCharStart = nOffset ? Math.max((nOutptLen + nOffset) % nOutptLen, 0) : 0;
+            nEndIdx = nCharEnd = (Number.isInteger(nLength) ? Math.min(Math.max(nLength, 0) + nStartIdx, nOutptLen) : nOutptLen) - 1;
+
+        } else { /* input is stringView */
+
+            vSource = vInput.rawData;
+            nInptLen = vInput.makeIndex();
+            nStartIdx = nCharStart = nOffset ? Math.max((nInptLen + nOffset) % nInptLen, 0) : 0;
+            nOutptLen = Number.isInteger(nLength) ? Math.min(Math.max(nLength, 0), nInptLen - nCharStart) : nInptLen;
+            nEndIdx = nCharEnd = nOutptLen + nCharStart;
+
+            if (vInput.encoding === "UTF-8") {
+                fGetInptChrSize = StringView.getUTF8CharLength;
+                fGetInptChrCode = StringView.loadUTF8CharCode;
+            } else if (vInput.encoding === "UTF-16") {
+                fGetInptChrSize = StringView.getUTF16CharLength;
+                fGetInptChrCode = StringView.loadUTF16CharCode;
+            } else {
+                nTranscrType &= 1;
+            }
+
+        }
+
+        if (nOutptLen === 0 || nTranscrType < 4 && vSource.encoding === this.encoding && nCharStart === 0 && nOutptLen === nInptLen) {
+
+            /* the encoding is the same, the length too and the offset is 0... or the input is empty! */
+
+            nTranscrType = 7;
+
+        }
+
+        conversionSwitch: switch (nTranscrType) {
+
+            case 0:
+
+                /* both the source and the new StringView have a fixed-length encoding... */
+
+                aWhole = new fTAView(nOutptLen);
+                for (var nOutptIdx = 0; nOutptIdx < nOutptLen; aWhole[nOutptIdx] = vSource[nStartIdx + nOutptIdx++]);
+                break conversionSwitch;
+
+            case 1:
+
+                /* the source has a fixed-length encoding but the new StringView has a variable-length encoding... */
+
+                /* mapping... */
+
+                nOutptLen = 0;
+
+                for (var nInptIdx = nStartIdx; nInptIdx < nEndIdx; nInptIdx++) {
+                    nOutptLen += fGetOutptChrSize(vSource[nInptIdx]);
+                }
+
+                aWhole = new fTAView(nOutptLen);
+
+                /* transcription of the source... */
+
+                for (var nInptIdx = nStartIdx, nOutptIdx = 0; nOutptIdx < nOutptLen; nInptIdx++) {
+                    nOutptIdx = fPutOutptCode(aWhole, vSource[nInptIdx], nOutptIdx);
+                }
+
+                break conversionSwitch;
+
+            case 2:
+
+                /* the source has a variable-length encoding but the new StringView has a fixed-length encoding... */
+
+                /* mapping... */
+
+                nStartIdx = 0;
+
+                var nChrCode;
+
+                for (nChrIdx = 0; nChrIdx < nCharStart; nChrIdx++) {
+                    nChrCode = fGetInptChrCode(vSource, nStartIdx);
+                    nStartIdx += fGetInptChrSize(nChrCode);
+                }
+
+                aWhole = new fTAView(nOutptLen);
+
+                /* transcription of the source... */
+
+                for (var nInptIdx = nStartIdx, nOutptIdx = 0; nOutptIdx < nOutptLen; nInptIdx += fGetInptChrSize(nChrCode), nOutptIdx++) {
+                    nChrCode = fGetInptChrCode(vSource, nInptIdx);
+                    aWhole[nOutptIdx] = nChrCode;
+                }
+
+                break conversionSwitch;
+
+            case 3:
+
+                /* both the source and the new StringView have a variable-length encoding... */
+
+                /* mapping... */
+
+                nOutptLen = 0;
+
+                var nChrCode;
+
+                for (var nChrIdx = 0, nInptIdx = 0; nChrIdx < nCharEnd; nInptIdx += fGetInptChrSize(nChrCode)) {
+                    nChrCode = fGetInptChrCode(vSource, nInptIdx);
+                    if (nChrIdx === nCharStart) { nStartIdx = nInptIdx; }
+                    if (++nChrIdx > nCharStart) { nOutptLen += fGetOutptChrSize(nChrCode); }
+                }
+
+                aWhole = new fTAView(nOutptLen);
+
+                /* transcription... */
+
+                for (var nInptIdx = nStartIdx, nOutptIdx = 0; nOutptIdx < nOutptLen; nInptIdx += fGetInptChrSize(nChrCode)) {
+                    nChrCode = fGetInptChrCode(vSource, nInptIdx);
+                    nOutptIdx = fPutOutptCode(aWhole, nChrCode, nOutptIdx);
+                }
+
+                break conversionSwitch;
+
+            case 4:
+
+                /* DOMString to ASCII or BinaryString or other unknown encodings */
+
+                aWhole = new fTAView(nOutptLen);
+
+                /* transcription... */
+
+                for (var nIdx = 0; nIdx < nOutptLen; nIdx++) {
+                    aWhole[nIdx] = vSource.charCodeAt(nIdx) & 0xff;
+                }
+
+                break conversionSwitch;
+
+            case 5:
+
+                /* DOMString to UTF-8 or to UTF-16 */
+
+                /* mapping... */
+
+                nOutptLen = 0;
+
+                for (var nMapIdx = 0; nMapIdx < nInptLen; nMapIdx++) {
+                    if (nMapIdx === nCharStart) { nStartIdx = nOutptLen; }
+                    nOutptLen += fGetOutptChrSize(vSource.charCodeAt(nMapIdx));
+                    if (nMapIdx === nCharEnd) { nEndIdx = nOutptLen; }
+                }
+
+                aWhole = new fTAView(nOutptLen);
+
+                /* transcription... */
+
+                for (var nOutptIdx = 0, nChrIdx = 0; nOutptIdx < nOutptLen; nChrIdx++) {
+                    nOutptIdx = fPutOutptCode(aWhole, vSource.charCodeAt(nChrIdx), nOutptIdx);
+                }
+
+                break conversionSwitch;
+
+            case 6:
+
+                /* DOMString to UTF-32 */
+
+                aWhole = new fTAView(nOutptLen);
+
+                /* transcription... */
+
+                for (var nIdx = 0; nIdx < nOutptLen; nIdx++) {
+                    aWhole[nIdx] = vSource.charCodeAt(nIdx);
+                }
+
+                break conversionSwitch;
+
+            case 7:
+
+                aWhole = new fTAView(nOutptLen ? vSource : 0);
+                break conversionSwitch;
+
+        }
+
+        aRaw = nTranscrType > 3 && (nStartIdx > 0 || nEndIdx < aWhole.length - 1) ? aWhole.subarray(nStartIdx, nEndIdx) : aWhole;
+
+    }
+
+    this.buffer = aWhole.buffer;
+    this.bufferView = aWhole;
+    this.rawData = aRaw;
+
+    Object.freeze(this);
+
+}
+
+/* CONSTRUCTOR'S METHODS */
+
+StringView.loadUTF8CharCode = function (aChars, nIdx) {
+
+    var nLen = aChars.length, nPart = aChars[nIdx];
+
+    return nPart > 251 && nPart < 254 && nIdx + 5 < nLen ?
+        /* (nPart - 252 << 30) may be not safe in ECMAScript! So...: */
+        /* six bytes */ (nPart - 252) * 1073741824 + (aChars[nIdx + 1] - 128 << 24) + (aChars[nIdx + 2] - 128 << 18) + (aChars[nIdx + 3] - 128 << 12) + (aChars[nIdx + 4] - 128 << 6) + aChars[nIdx + 5] - 128
+        : nPart > 247 && nPart < 252 && nIdx + 4 < nLen ?
+            /* five bytes */ (nPart - 248 << 24) + (aChars[nIdx + 1] - 128 << 18) + (aChars[nIdx + 2] - 128 << 12) + (aChars[nIdx + 3] - 128 << 6) + aChars[nIdx + 4] - 128
+            : nPart > 239 && nPart < 248 && nIdx + 3 < nLen ?
+                /* four bytes */(nPart - 240 << 18) + (aChars[nIdx + 1] - 128 << 12) + (aChars[nIdx + 2] - 128 << 6) + aChars[nIdx + 3] - 128
+                : nPart > 223 && nPart < 240 && nIdx + 2 < nLen ?
+                    /* three bytes */ (nPart - 224 << 12) + (aChars[nIdx + 1] - 128 << 6) + aChars[nIdx + 2] - 128
+                    : nPart > 191 && nPart < 224 && nIdx + 1 < nLen ?
+                        /* two bytes */ (nPart - 192 << 6) + aChars[nIdx + 1] - 128
+                        :
+                        /* one byte */ nPart;
+
+};
+
+StringView.putUTF8CharCode = function (aTarget, nChar, nPutAt) {
+
+    var nIdx = nPutAt;
+
+    if (nChar < 0x80 /* 128 */) {
+        /* one byte */
+        aTarget[nIdx++] = nChar;
+    } else if (nChar < 0x800 /* 2048 */) {
+        /* two bytes */
+        aTarget[nIdx++] = 0xc0 /* 192 */ + (nChar >>> 6);
+        aTarget[nIdx++] = 0x80 /* 128 */ + (nChar & 0x3f /* 63 */);
+    } else if (nChar < 0x10000 /* 65536 */) {
+        /* three bytes */
+        aTarget[nIdx++] = 0xe0 /* 224 */ + (nChar >>> 12);
+        aTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 6) & 0x3f /* 63 */);
+        aTarget[nIdx++] = 0x80 /* 128 */ + (nChar & 0x3f /* 63 */);
+    } else if (nChar < 0x200000 /* 2097152 */) {
+        /* four bytes */
+        aTarget[nIdx++] = 0xf0 /* 240 */ + (nChar >>> 18);
+        aTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 12) & 0x3f /* 63 */);
+        aTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 6) & 0x3f /* 63 */);
+        aTarget[nIdx++] = 0x80 /* 128 */ + (nChar & 0x3f /* 63 */);
+    } else if (nChar < 0x4000000 /* 67108864 */) {
+        /* five bytes */
+        aTarget[nIdx++] = 0xf8 /* 248 */ + (nChar >>> 24);
+        aTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 18) & 0x3f /* 63 */);
+        aTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 12) & 0x3f /* 63 */);
+        aTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 6) & 0x3f /* 63 */);
+        aTarget[nIdx++] = 0x80 /* 128 */ + (nChar & 0x3f /* 63 */);
+    } else /* if (nChar <= 0x7fffffff) */ { /* 2147483647 */
+        /* six bytes */
+        aTarget[nIdx++] = 0xfc /* 252 */ + /* (nChar >>> 30) may be not safe in ECMAScript! So...: */ (nChar / 1073741824);
+        aTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 24) & 0x3f /* 63 */);
+        aTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 18) & 0x3f /* 63 */);
+        aTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 12) & 0x3f /* 63 */);
+        aTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 6) & 0x3f /* 63 */);
+        aTarget[nIdx++] = 0x80 /* 128 */ + (nChar & 0x3f /* 63 */);
+    }
+
+    return nIdx;
+
+};
+
+StringView.getUTF8CharLength = function (nChar) {
+    return nChar < 0x80 ? 1 : nChar < 0x800 ? 2 : nChar < 0x10000 ? 3 : nChar < 0x200000 ? 4 : nChar < 0x4000000 ? 5 : 6;
+};
+
+StringView.loadUTF16CharCode = function (aChars, nIdx) {
+
+    /* UTF-16 to DOMString decoding algorithm */
+    var nFrstChr = aChars[nIdx];
+
+    return nFrstChr > 0xD7BF /* 55231 */ && nIdx + 1 < aChars.length ?
+        (nFrstChr - 0xD800 /* 55296 */ << 10) + aChars[nIdx + 1] + 0x2400 /* 9216 */
+        : nFrstChr;
+
+};
+
+StringView.putUTF16CharCode = function (aTarget, nChar, nPutAt) {
+
+    var nIdx = nPutAt;
+
+    if (nChar < 0x10000 /* 65536 */) {
+        /* one element */
+        aTarget[nIdx++] = nChar;
+    } else {
+        /* two elements */
+        aTarget[nIdx++] = 0xD7C0 /* 55232 */ + (nChar >>> 10);
+        aTarget[nIdx++] = 0xDC00 /* 56320 */ + (nChar & 0x3FF /* 1023 */);
+    }
+
+    return nIdx;
+
+};
+
+StringView.getUTF16CharLength = function (nChar) {
+    return nChar < 0x10000 ? 1 : 2;
+};
+
+/* Array of bytes to base64 string decoding */
+
+StringView.b64ToUint6 = function (nChr) {
+
+    return nChr > 64 && nChr < 91 ?
+        nChr - 65
+        : nChr > 96 && nChr < 123 ?
+            nChr - 71
+            : nChr > 47 && nChr < 58 ?
+                nChr + 4
+                : nChr === 43 ?
+                    62
+                    : nChr === 47 ?
+                        63
+                        :
+                        0;
+
+};
+
+StringView.uint6ToB64 = function (nUint6) {
+
+    return nUint6 < 26 ?
+        nUint6 + 65
+        : nUint6 < 52 ?
+            nUint6 + 71
+            : nUint6 < 62 ?
+                nUint6 - 4
+                : nUint6 === 62 ?
+                    43
+                    : nUint6 === 63 ?
+                        47
+                        :
+                        65;
+
+};
+
+/* Base64 string to array encoding */
+
+StringView.bytesToBase64 = function (aBytes) {
+
+    var eqLen = (3 - (aBytes.length % 3)) % 3, sB64Enc = "";
+
+    for (var nMod3, nLen = aBytes.length, nUint24 = 0, nIdx = 0; nIdx < nLen; nIdx++) {
+        nMod3 = nIdx % 3;
+        /* Uncomment the following line in order to split the output in lines 76-character long: */
+        /*
+         if (nIdx > 0 && (nIdx * 4 / 3) % 76 === 0) { sB64Enc += "\r\n"; }
+         */
+        nUint24 |= aBytes[nIdx] << (16 >>> nMod3 & 24);
+        if (nMod3 === 2 || aBytes.length - nIdx === 1) {
+            sB64Enc += String.fromCharCode(StringView.uint6ToB64(nUint24 >>> 18 & 63), StringView.uint6ToB64(nUint24 >>> 12 & 63), StringView.uint6ToB64(nUint24 >>> 6 & 63), StringView.uint6ToB64(nUint24 & 63));
+            nUint24 = 0;
+        }
+    }
+
+    return  eqLen === 0 ?
+        sB64Enc
+        :
+        sB64Enc.substring(0, sB64Enc.length - eqLen) + (eqLen === 1 ? "=" : "==");
+
+
+};
+
+
+StringView.base64ToBytes = function (sBase64, nBlockBytes) {
+
+    var
+        sB64Enc = sBase64.replace(/[^A-Za-z0-9\+\/]/g, ""), nInLen = sB64Enc.length,
+        nOutLen = nBlockBytes ? Math.ceil((nInLen * 3 + 1 >>> 2) / nBlockBytes) * nBlockBytes : nInLen * 3 + 1 >>> 2, aBytes = new Uint8Array(nOutLen);
+
+    for (var nMod3, nMod4, nUint24 = 0, nOutIdx = 0, nInIdx = 0; nInIdx < nInLen; nInIdx++) {
+        nMod4 = nInIdx & 3;
+        nUint24 |= StringView.b64ToUint6(sB64Enc.charCodeAt(nInIdx)) << 18 - 6 * nMod4;
+        if (nMod4 === 3 || nInLen - nInIdx === 1) {
+            for (nMod3 = 0; nMod3 < 3 && nOutIdx < nOutLen; nMod3++, nOutIdx++) {
+                aBytes[nOutIdx] = nUint24 >>> (16 >>> nMod3 & 24) & 255;
+            }
+            nUint24 = 0;
+        }
+    }
+
+    return aBytes;
+
+};
+
+StringView.makeFromBase64 = function (sB64Inpt, sEncoding, nByteOffset, nLength) {
+
+    return new StringView(sEncoding === "UTF-16" || sEncoding === "UTF-32" ? StringView.base64ToBytes(sB64Inpt, sEncoding === "UTF-16" ? 2 : 4).buffer : StringView.base64ToBytes(sB64Inpt), sEncoding, nByteOffset, nLength);
+
+};
+
+/* DEFAULT VALUES */
+
+StringView.prototype.encoding = "UTF-8"; /* Default encoding... */
+
+/* INSTANCES' METHODS */
+
+StringView.prototype.makeIndex = function (nChrLength, nStartFrom) {
+
+    var
+
+        aTarget = this.rawData, nChrEnd, nRawLength = aTarget.length,
+        nStartIdx = nStartFrom || 0, nIdxEnd = nStartIdx, nStopAtChr = isNaN(nChrLength) ? Infinity : nChrLength;
+
+    if (nChrLength + 1 > aTarget.length) { throw new RangeError("StringView.prototype.makeIndex - The offset can\'t be major than the length of the array - 1."); }
+
+    switch (this.encoding) {
+
+        case "UTF-8":
+
+            var nPart;
+
+            for (nChrEnd = 0; nIdxEnd < nRawLength && nChrEnd < nStopAtChr; nChrEnd++) {
+                nPart = aTarget[nIdxEnd];
+                nIdxEnd += nPart > 251 && nPart < 254 && nIdxEnd + 5 < nRawLength ? 6
+                    : nPart > 247 && nPart < 252 && nIdxEnd + 4 < nRawLength ? 5
+                        : nPart > 239 && nPart < 248 && nIdxEnd + 3 < nRawLength ? 4
+                            : nPart > 223 && nPart < 240 && nIdxEnd + 2 < nRawLength ? 3
+                                : nPart > 191 && nPart < 224 && nIdxEnd + 1 < nRawLength ? 2
+                                    : 1;
+            }
+
+            break;
+
+        case "UTF-16":
+
+            for (nChrEnd = nStartIdx; nIdxEnd < nRawLength && nChrEnd < nStopAtChr; nChrEnd++) {
+                nIdxEnd += aTarget[nIdxEnd] > 0xD7BF /* 55231 */ && nIdxEnd + 1 < aTarget.length ? 2 : 1;
+            }
+
+            break;
+
+        default:
+
+            nIdxEnd = nChrEnd = isFinite(nChrLength) ? nChrLength : nRawLength - 1;
+
+    }
+
+    if (nChrLength) { return nIdxEnd; }
+
+    return nChrEnd;
+
+};
+
+StringView.prototype.toBase64 = function (bWholeBuffer) {
+
+    return StringView.bytesToBase64(
+        bWholeBuffer ?
+            (
+                this.bufferView.constructor === Uint8Array ?
+                    this.bufferView
+                    :
+                    new Uint8Array(this.buffer)
+            )
+            : this.rawData.constructor === Uint8Array ?
+                this.rawData
+                :
+                new Uint8Array(this.buffer, this.rawData.byteOffset, this.rawData.length << (this.rawData.constructor === Uint16Array ? 1 : 2))
+    );
+
+};
+
+StringView.prototype.subview = function (nCharOffset /* optional */, nCharLength /* optional */) {
+
+    var
+
+        nRawSubLen, nRawSubOffset, nSubOffset, nSubLen, bVariableLen = this.encoding === "UTF-8" || this.encoding === "UTF-16",
+        nThisLen, nRawLen = this.rawData.length;
+
+    if (nRawLen === 0) {
+        return new StringView(this.buffer, this.encoding);
+    }
+
+    nThisLen = bVariableLen ? this.makeIndex() : nRawLen;
+    nSubOffset = nCharOffset ? nCharOffset + 1 > nThisLen ? nThisLen : Math.max((nThisLen + nCharOffset) % nThisLen, 0) : 0;
+    nSubLen = Number.isInteger(nCharLength) ? Math.max(nCharLength, 0) + nSubOffset > nThisLen ? nThisLen - nSubOffset : nCharLength : nThisLen - nSubOffset;
+
+    if (nSubOffset === 0 && nSubLen === nThisLen) { return this; }
+
+    if (bVariableLen) {
+        nRawSubOffset = nSubOffset < nThisLen ? this.makeIndex(nSubOffset) : nThisLen;
+        nRawSubLen = nSubLen ? this.makeIndex(nSubLen, nRawSubOffset) - nRawSubOffset : 0;
+    } else {
+        nRawSubOffset = nSubOffset;
+        nRawSubLen = nSubLen;
+    }
+
+    if (this.encoding === "UTF-16") {
+        nRawSubOffset <<= 1;
+    } else if (this.encoding === "UTF-32") {
+        nRawSubOffset <<= 2;
+    }
+
+    return new StringView(this.buffer, this.encoding, this.rawData.byteOffset + nRawSubOffset, nRawSubLen);
+
+};
+
+StringView.prototype.forEachChar = function (fCallback, oThat, nChrOffset, nChrLen) {
+
+    var aSource = this.rawData, nRawEnd, nRawIdx;
+
+    if (this.encoding === "UTF-8" || this.encoding === "UTF-16") {
+
+        var fGetInptChrSize, fGetInptChrCode;
+
+        if (this.encoding === "UTF-8") {
+            fGetInptChrSize = StringView.getUTF8CharLength;
+            fGetInptChrCode = StringView.loadUTF8CharCode;
+        } else if (this.encoding === "UTF-16") {
+            fGetInptChrSize = StringView.getUTF16CharLength;
+            fGetInptChrCode = StringView.loadUTF16CharCode;
+        }
+
+        nRawIdx = isFinite(nChrOffset) ? this.makeIndex(nChrOffset) : 0;
+        nRawEnd = isFinite(nChrLen) ? this.makeIndex(nChrLen, nRawIdx) : aSource.length;
+
+        for (var nChrCode, nChrIdx = 0; nRawIdx < nRawEnd; nChrIdx++) {
+            nChrCode = fGetInptChrCode(aSource, nRawIdx);
+            fCallback.call(oThat || null, nChrCode, nChrIdx, nRawIdx, aSource);
+            nRawIdx += fGetInptChrSize(nChrCode);
+        }
+
+    } else {
+
+        nRawIdx = isFinite(nChrOffset) ? nChrOffset : 0;
+        nRawEnd = isFinite(nChrLen) ? nChrLen + nRawIdx : aSource.length;
+
+        for (nRawIdx; nRawIdx < nRawEnd; nRawIdx++) {
+            fCallback.call(oThat || null, aSource[nRawIdx], nRawIdx, nRawIdx, aSource);
+        }
+
+    }
+
+};
+
+StringView.prototype.valueOf = StringView.prototype.toString = function () {
+
+    if (this.encoding !== "UTF-8" && this.encoding !== "UTF-16") {
+        /* ASCII, UTF-32 or BinaryString to DOMString */
+        return String.fromCharCode.apply(null, this.rawData);
+    }
+
+    var fGetCode, fGetIncr, sView = "";
+
+    if (this.encoding === "UTF-8") {
+        fGetIncr = StringView.getUTF8CharLength;
+        fGetCode = StringView.loadUTF8CharCode;
+    } else if (this.encoding === "UTF-16") {
+        fGetIncr = StringView.getUTF16CharLength;
+        fGetCode = StringView.loadUTF16CharCode;
+    }
+
+    for (var nChr, nLen = this.rawData.length, nIdx = 0; nIdx < nLen; nIdx += fGetIncr(nChr)) {
+        nChr = fGetCode(this.rawData, nIdx);
+        sView += String.fromCharCode(nChr);
+    }
+
+    return sView;
+
+};
