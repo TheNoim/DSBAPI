@@ -32,7 +32,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "browser": "browserify ./index.js --standalone DSBLib > ./browser/DSBLib.js && babel ./browser/DSBLib.js --out-file ./browser/DSBLib.js --presets=es2015 && uglifyjs ./browser/DSBLib.js --source-map-inline --support-ie8 --output ./browser/DSBLib.min.js",
+    "browser": "browserify ./index.js --standalone DSBLib > ./browser/DSBLib.js && babel ./browser/DSBLib.js --out-file ./browser/DSBLib.js --presets=es2015 && uglifyjs ./browser/DSBLib.js --support-ie8 --output ./browser/DSBLib.min.js",
     "test": "browserify ./index.js --standalone DSBLib > ./browser/DSBLib.js"
   }
 }
