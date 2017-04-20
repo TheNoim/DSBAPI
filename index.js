@@ -28,10 +28,10 @@ class DSB {
         this.jar = new tough.CookieJar();
 
         this.urls = {
-            "login": "http://mobile.dsbcontrol.de/Login.aspx",
-            "main": "http://mobile.dsbcontrol.de/",
+            "login": "https://www.dsbmobile.de/Login.aspx",
+            "main": "https://www.dsbmobile.de/",
             "Data": "http://www.dsbmobile.de/JsonHandlerWeb.ashx/GetData",
-            "default": "http://mobile.dsbcontrol.de/default.aspx",
+            "default": "https://www.dsbmobile.de/default.aspx",
             "loginV1": `https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/authid/${this.username}/${this.password}`,
             "timetables": "https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/timetables/",
             "news": "https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/news/"
