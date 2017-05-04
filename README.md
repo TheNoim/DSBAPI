@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/TheNoim/DSBAPI.svg?branch=master)](https://travis-ci.org/TheNoim/DSBAPI)
 ## Classes
 
 <dl>
