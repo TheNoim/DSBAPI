@@ -54,6 +54,4 @@ jspm_packages
 yarn.lock
 cache.json
 
-test.js
-
 .DS_Store

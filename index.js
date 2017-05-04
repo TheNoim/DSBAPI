@@ -181,7 +181,7 @@ class DSB {
         return new Promise((resolve, reject) => {
             request(self.urls.loginV1, {json: true}, (error, response, body) => {
                 if (!error && response.statusCode == 200) {
-                    if (body != "00000000-0000-0000-0000-000000000000") {
+                    if (body !== "00000000-0000-0000-0000-000000000000") {
                         resolve(body);
                     } else {
                         reject({statusCode: response.statusCode, body: body, message: "Wrong username or password"});
