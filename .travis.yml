@@ -3,6 +3,6 @@ sudo: false
 node_js:
   - "6.10.3"
 install:
-  - yarn install
+  - npm install
 script:
   - node test.js
