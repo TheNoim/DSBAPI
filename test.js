@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const USERNAME = process.env.DSBUSERNAME;
 const PASSWORD = process.env.PASSWORD;
 if (!USERNAME || !PASSWORD) {
@@ -11,8 +12,13 @@ const LIB = require('./index');
 const dsb = new LIB(USERNAME, PASSWORD);
 
 // Stage 1: API V2
-dsb.getData().then((data) => {
+dsb.getData().then(data => {
     if (!data) return Promise.reject('Stage 1 failed.');
+    if (data.Resultcode === null || data.Resultcode === undefined || data.Resultcode !== 0) return Promise.reject('Stage 1 failed. Resultcode is not 0');
+    if (!data.ResultMenuItems || !_.isArray(data.ResultMenuItems)) return Promise.reject('Stage 1 failed. ResultMenuItems is not an array');
+    if (data.ResultMenuItems.length === 0) return Promise.reject('Stage 1 failed. ResultMenuItems is empty.');
+    return Promise.resolve();
+}).then(() => {
     console.log('Stage 1 passed!');
     return Promise.resolve();
 }).then(() => {
