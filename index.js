@@ -2,7 +2,7 @@ const Promise = require('bluebird');
 const tough = require('tough-cookie');
 const request = require('request');
 let fs;
-if (typeof window === 'undefined'){
+if (typeof window === 'undefined') {
     fs = require('fs-extra');
 }
 const Encode = require('./DSBEncoding');
@@ -65,18 +65,14 @@ class DSB {
      */
     getData(Callback) {
         const self = this;
-        return new Promise((resolve, reject) => {
-            return self._validateLogin().then(login => {
-                if (login) {
+        return self._validateLogin().then(login => {
+            if (login) {
+                return self._getData();
+            } else {
+                return self._login().then(() => {
                     return self._getData();
-                } else {
-                    return self._login().then(() => {
-                        return self._getData();
-                    });
-                }
-            }).then(Data => {
-                resolve(Data);
-            }).catch(reject);
+                });
+            }
         });
     }
 
