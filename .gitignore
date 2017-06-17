@@ -54,3 +54,5 @@ jspm_packages
 cache.json
 
 .DS_Store
+
+_test.js

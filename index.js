@@ -6,7 +6,6 @@ if (typeof window === 'undefined'){
 }
 const Encode = require('./DSBEncoding');
 const Decode = require('./DSBDecode');
-const cheerio = require('cheerio');
 const Cookie = tough.Cookie;
 const oc = require('optional-callback');
 const async = require('async');
@@ -28,7 +27,7 @@ class DSB {
         this.jar = new tough.CookieJar();
 
         this.urls = {
-            "login": "https://www.dsbmobile.de/Login.aspx",
+            "login": "https://mobile.dsbcontrol.de/dsbmobilepage.aspx",
             "main": "https://www.dsbmobile.de/",
             "Data": "http://www.dsbmobile.de/JsonHandlerWeb.ashx/GetData",
             "default": "https://www.dsbmobile.de/default.aspx",
@@ -95,12 +94,12 @@ class DSB {
         const self = this;
         return new Promise((resolve, reject) => {
             request(self.urls.loginV1, {json: true}, (error, response, body) => {
-                if (!error && response.statusCode == 200) {
-                    if (body != "00000000-0000-0000-0000-000000000000") {
+                if (!error && response.statusCode === 200) {
+                    if (body !== "00000000-0000-0000-0000-000000000000") {
                         async.parallel({
                             timetables: (PCallback) => {
                                 request(self.urls.timetables + body, {json: true}, (error, response, body) => {
-                                    if (!error && response.statusCode == 200) {
+                                    if (!error && response.statusCode === 200) {
                                         PCallback(null, body);
                                     } else {
                                         PCallback(error || {statusCode: response.statusCode, body: body});
@@ -145,7 +144,7 @@ class DSB {
             async.parallel({
                 timetables: (PCallback) => {
                     request(self.urls.timetables + uuid, {json: true}, (error, response, body) => {
-                        if (!error && response.statusCode == 200) {
+                        if (!error && response.statusCode === 200) {
                             PCallback(null, body);
                         } else {
                             PCallback(error || {statusCode: response.statusCode, body: body});
@@ -154,7 +153,7 @@ class DSB {
                 },
                 news: (PCallback) => {
                     request(self.urls.news + uuid, {json: true}, (error, response, body) => {
-                        if (!error && response.statusCode == 200) {
+                        if (!error && response.statusCode === 200) {
                             PCallback(null, body);
                         } else {
                             PCallback(error || {statusCode: response.statusCode, body: body});
@@ -180,7 +179,7 @@ class DSB {
         const self = this;
         return new Promise((resolve, reject) => {
             request(self.urls.loginV1, {json: true}, (error, response, body) => {
-                if (!error && response.statusCode == 200) {
+                if (!error && response.statusCode === 200) {
                     if (body !== "00000000-0000-0000-0000-000000000000") {
                         resolve(body);
                     } else {
@@ -231,7 +230,7 @@ class DSB {
                 json: true,
                 body: data
             }, (error, response, body) => {
-                if (!error && response.statusCode == 200 || 302) {
+                if (!error && (response.statusCode === 200 || response.statusCode === 302)) {
                     resolve(Decode(response.body.d));
                 } else {
                     reject(error || {statusCode: response.statusCode, body: body});
@@ -247,52 +246,28 @@ class DSB {
     _login() {
         const self = this;
         return new Promise((resolve, reject) => {
-            request(this.urls.login, (error, response, body) => {
-                if (!error && response.statusCode == 200 || 302) {
+            request({
+                uri: self.urls.login,
+                method: "GET",
+                qs: {
+                    user: self.username,
+                    password: self.password
+                },
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36'
+                },
+                gzip: true,
+                removeRefererHeader: true,
+                followRedirect: false
+            }, (error, response, body) => {
+                if (!error && (response.statusCode === 200 || response.statusCode === 302)) {
                     for (let CookieI in response.headers['set-cookie']) {
                         if (response.headers['set-cookie'].hasOwnProperty(CookieI)) {
                             self.jar.setCookieSync(Cookie.parse(response.headers['set-cookie'][CookieI]), self.urls.main);
                         }
                     }
                     self._saveCookies();
-                    const $ = cheerio.load(body);
-                    const __VIEWSTATEGENERATOR = $("#__VIEWSTATEGENERATOR").attr('value') || "";
-                    const __EVENTTARGET = $("#__EVENTTARGET").attr('value') || "";
-                    const __EVENTARGUMENT = $("#__EVENTARGUMENT").attr('value') || "";
-                    const __EVENTVALIDATION = $("#__EVENTVALIDATION").attr('value') || "";
-                    const __VIEWSTATE = $("#__VIEWSTATE").attr('value') || "";
-                    const __LASTFOCUS = $("#__LASTFOCUS").attr('value') || "";
-                    request(self.urls.login, {
-                        method: "POST",
-                        headers: {
-                            Referer: self.urls.login
-                        },
-                        form: {
-                            __VIEWSTATEGENERATOR: __VIEWSTATEGENERATOR,
-                            __EVENTTARGET: __EVENTTARGET,
-                            __EVENTARGUMENT: __EVENTARGUMENT,
-                            __EVENTVALIDATION: __EVENTVALIDATION,
-                            __VIEWSTATE: __VIEWSTATE,
-                            __LASTFOCUS: __LASTFOCUS,
-                            txtUser: self.username,
-                            txtPass: self.password,
-                            ctl03: "Anmelden"
-                        }
-                    }, (error, response, body) => {
-                        if (!error && response.statusCode == 200 || 302) {
-                            for (let CookieIndex in response.headers['set-cookie']) {
-                                if (response.headers['set-cookie'].hasOwnProperty(CookieIndex)) {
-                                    self.jar.setCookieSync(Cookie.parse(response.headers['set-cookie'][CookieIndex]), self.urls.main);
-                                }
-                            }
-                            self._saveCookies();
-                            resolve();
-                        } else {
-                            reject(error || {statusCode: response.statusCode, body: body});
-                        }
-
-
-                    });
+                    resolve();
                 } else {
                     reject(error || {statusCode: response.statusCode, body: body});
                 }
@@ -326,7 +301,7 @@ class DSB {
                 },
                 followRedirect: false
             }, (error, response) => {
-                if (!error && response.statusCode == 200) {
+                if (!error && response.statusCode === 200) {
                     resolve(true);
                 } else {
                     resolve(false);
