@@ -1,8 +1,9 @@
 const Promise = require('bluebird');
 const tough = require('tough-cookie');
 const request = require('request');
+let fs;
 if (typeof window === 'undefined'){
-    const fs = require('fs-extra');
+    fs = require('fs-extra');
 }
 const Encode = require('./DSBEncoding');
 const Decode = require('./DSBDecode');
