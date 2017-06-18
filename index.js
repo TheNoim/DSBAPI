@@ -1,3 +1,5 @@
+"use strict";
+
 const Promise = require('bluebird');
 const tough = require('tough-cookie');
 const request = require('request');

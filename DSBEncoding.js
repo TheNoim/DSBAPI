@@ -1,3 +1,5 @@
+"use strict";
+
 const pako = require('pako');
 const a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 function btoa(b) {
