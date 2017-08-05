@@ -5,325 +5,351 @@ const tough = require('tough-cookie');
 const request = require('request');
 let fs;
 if (typeof window === 'undefined') {
-    fs = require('fs-extra');
+	fs = require('fs-extra');
 }
 const Encode = require('./DSBEncoding');
 const Decode = require('./DSBDecode');
 const Cookie = tough.Cookie;
 const oc = require('optional-callback');
 const async = require('async');
+const {EventEmitter} = require('events');
+const progress = require('request-progress');
+const percentage = require('percentage-calc');
 
-class DSB {
+class DSB extends EventEmitter {
 
-    /**
-     *
-     * @param {string} username The username for your school
-     * @param {string} password The password for your school
-     * @param {string} cookieJar=null Optional path to a file for caching the login cookies
-     */
-    constructor(username, password, cookieJar) {
+	/**
+	 *
+	 * @param {string} username The username for your school
+	 * @param {string} password The password for your school
+	 * @param {string} cookieJar=null Optional path to a file for caching the login cookies
+	 */
+	constructor(username, password, cookieJar) {
+		super();
 
-        this.username = username;
-        this.password = password;
+		this.username = username;
+		this.password = password;
 
-        this.cookieJarPath = cookieJar || null;
-        this.jar = new tough.CookieJar();
+		this.cookieJarPath = cookieJar || null;
+		this.jar = new tough.CookieJar();
 
-        this.urls = {
-            "login": "https://mobile.dsbcontrol.de/dsbmobilepage.aspx",
-            "main": "https://www.dsbmobile.de/",
-            "Data": "http://www.dsbmobile.de/JsonHandlerWeb.ashx/GetData",
-            "default": "https://www.dsbmobile.de/default.aspx",
-            "loginV1": `https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/authid/${this.username}/${this.password}`,
-            "timetables": "https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/timetables/",
-            "news": "https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/news/"
-        };
+		this.progress = 0;
 
-        this._login = this._login.bind(this);
-        this._validateLogin = this._validateLogin.bind(this);
-        this._loadCookies = this._loadCookies.bind(this);
-        this._saveCookies = this._saveCookies.bind(this);
-        this._getData = this._getData.bind(this);
-        this.getData = this.getData.bind(this);
-        this.getDataV1 = this.getDataV1.bind(this);
-        this.getDataWithUUIDV1 = this.getDataWithUUIDV1.bind(this);
-        this.getUUIDV1 = this.getUUIDV1.bind(this);
+		this.urls = {
+			"login": "https://mobile.dsbcontrol.de/dsbmobilepage.aspx",
+			"main": "https://www.dsbmobile.de/",
+			"Data": "http://www.dsbmobile.de/JsonHandlerWeb.ashx/GetData",
+			"default": "https://www.dsbmobile.de/default.aspx",
+			"loginV1": `https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/authid/${this.username}/${this.password}`,
+			"timetables": "https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/timetables/",
+			"news": "https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/news/"
+		};
 
-        this._login = oc(this._login);
-        this._validateLogin = oc(this._validateLogin);
-        this._getData = oc(this._getData);
-        this.getData = oc(this.getData);
-        this.getDataV1 = oc(this.getDataV1);
-        this.getDataWithUUIDV1 = oc(this.getDataWithUUIDV1);
-        this.getUUIDV1 = oc(this.getUUIDV1);
+		this._login = this._login.bind(this);
+		this._validateLogin = this._validateLogin.bind(this);
+		this._loadCookies = this._loadCookies.bind(this);
+		this._saveCookies = this._saveCookies.bind(this);
+		this._getData = this._getData.bind(this);
+		this.getData = this.getData.bind(this);
+		this.getDataV1 = this.getDataV1.bind(this);
+		this.getDataWithUUIDV1 = this.getDataWithUUIDV1.bind(this);
+		this.getUUIDV1 = this.getUUIDV1.bind(this);
 
-        this._loadCookies();
-    }
+		this._login = oc(this._login);
+		this._validateLogin = oc(this._validateLogin);
+		this._getData = oc(this._getData);
+		this.getData = oc(this.getData);
+		this.getDataV1 = oc(this.getDataV1);
+		this.getDataWithUUIDV1 = oc(this.getDataWithUUIDV1);
+		this.getUUIDV1 = oc(this.getUUIDV1);
 
-    /**
-     * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
-     * @description Get data from mobile.dsbcontrol.de (The API used by mobile.dsbcontrol.de and every APP)
-     * @return {Promise<Object>}
-     */
-    getData(Callback) {
-        const self = this;
-        return self._validateLogin().then(login => {
-            if (login) {
-                return self._getData();
-            } else {
-                return self._login().then(() => {
-                    return self._getData();
-                });
-            }
-        });
-    }
+		this._loadCookies();
+	}
 
-    /**
-     * @typedef {Object} V1Object
-     * @property {Array} news
-     * @property {Array} timetables
-     */
+	/**
+	 * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
+	 * @description Get data from mobile.dsbcontrol.de (The API used by mobile.dsbcontrol.de and every APP)
+	 * @return {Promise<Object>}
+	 */
+	getData(Callback) {
+		const self = this;
+		self.progress = 0;
+		self.emit('progress', 0);
+		return self._validateLogin().then(login => {
+			self.progress = 33;
+			self.emit('progress', self.progress);
+			if (login) {
+				self.progress = 66;
+				self.emit('progress', self.progress);
+				return self._getData();
+			} else {
+				return self._login().then(() => {
+					self.progress = 66;
+					self.emit('progress', self.progress);
+					return self._getData();
+				});
+			}
+		});
+	}
 
-    /**
-     * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
-     * @description Get the data from the old API (https://iphone.dsbcontrol.de/)
-     * @return {Promise<V1Object>}
-     */
-    getDataV1(Callback) {
-        const self = this;
-        return new Promise((resolve, reject) => {
-            request(self.urls.loginV1, {json: true}, (error, response, body) => {
-                if (!error && response.statusCode === 200) {
-                    if (body !== "00000000-0000-0000-0000-000000000000") {
-                        async.parallel({
-                            timetables: (PCallback) => {
-                                request(self.urls.timetables + body, {json: true}, (error, response, body) => {
-                                    if (!error && response.statusCode === 200) {
-                                        PCallback(null, body);
-                                    } else {
-                                        PCallback(error || {statusCode: response.statusCode, body: body});
-                                    }
-                                });
-                            },
-                            news: (PCallback) => {
-                                request(self.urls.news + body, {json: true}, (error, response, body) => {
-                                    if (!error && response.statusCode == 200) {
-                                        PCallback(null, body);
-                                    } else {
-                                        PCallback(error || {statusCode: response.statusCode, body: body});
-                                    }
-                                });
-                            }
-                        }, (error, result) => {
-                            if (error) {
-                                reject(error);
-                            } else {
-                                resolve(result);
-                            }
-                        });
-                    } else {
-                        reject({statusCode: response.statusCode, body: body, message: "Wrong username or password"});
-                    }
-                } else {
-                    reject(error || {statusCode: response.statusCode, body: body});
-                }
-            });
-        });
-    }
+	/**
+	 * @typedef {Object} V1Object
+	 * @property {Array} news
+	 * @property {Array} timetables
+	 */
 
-    /**
-     * @param {string} uuid
-     * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
-     * @description Get the data from the old API by given uuid (https://iphone.dsbcontrol.de/)
-     * @return {Promise<String>}
-     */
-    getDataWithUUIDV1(uuid, Callback) {
-        const self = this;
-        return new Promise((resolve, reject) => {
-            async.parallel({
-                timetables: (PCallback) => {
-                    request(self.urls.timetables + uuid, {json: true}, (error, response, body) => {
-                        if (!error && response.statusCode === 200) {
-                            PCallback(null, body);
-                        } else {
-                            PCallback(error || {statusCode: response.statusCode, body: body});
-                        }
-                    });
-                },
-                news: (PCallback) => {
-                    request(self.urls.news + uuid, {json: true}, (error, response, body) => {
-                        if (!error && response.statusCode === 200) {
-                            PCallback(null, body);
-                        } else {
-                            PCallback(error || {statusCode: response.statusCode, body: body});
-                        }
-                    });
-                }
-            }, (error, result) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    resolve(result);
-                }
-            });
-        });
-    }
+	/**
+	 * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
+	 * @description Get the data from the old API (https://iphone.dsbcontrol.de/)
+	 * @return {Promise<V1Object>}
+	 */
+	getDataV1(Callback) {
+		const self = this;
+		return new Promise((resolve, reject) => {
+			request(self.urls.loginV1, {json: true}, (error, response, body) => {
+				if (!error && response.statusCode === 200) {
+					if (body !== "00000000-0000-0000-0000-000000000000") {
+						async.parallel({
+							timetables: (PCallback) => {
+								request(self.urls.timetables + body, {json: true}, (error, response, body) => {
+									if (!error && response.statusCode === 200) {
+										PCallback(null, body);
+									} else {
+										PCallback(error || {statusCode: response.statusCode, body: body});
+									}
+								});
+							},
+							news: (PCallback) => {
+								request(self.urls.news + body, {json: true}, (error, response, body) => {
+									if (!error && response.statusCode == 200) {
+										PCallback(null, body);
+									} else {
+										PCallback(error || {statusCode: response.statusCode, body: body});
+									}
+								});
+							}
+						}, (error, result) => {
+							if (error) {
+								reject(error);
+							} else {
+								resolve(result);
+							}
+						});
+					} else {
+						reject({statusCode: response.statusCode, body: body, message: "Wrong username or password"});
+					}
+				} else {
+					reject(error || {statusCode: response.statusCode, body: body});
+				}
+			});
+		});
+	}
 
-    /**
-     * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
-     * @description Get the uuid from the old API (https://iphone.dsbcontrol.de/)
-     * @return {Promise<String>}
-     */
-    getUUIDV1(Callback) {
-        const self = this;
-        return new Promise((resolve, reject) => {
-            request(self.urls.loginV1, {json: true}, (error, response, body) => {
-                if (!error && response.statusCode === 200) {
-                    if (body !== "00000000-0000-0000-0000-000000000000") {
-                        resolve(body);
-                    } else {
-                        reject({statusCode: response.statusCode, body: body, message: "Wrong username or password"});
-                    }
-                } else {
-                    reject(error || {statusCode: response.statusCode, body: body});
-                }
-            });
-        });
-    }
+	/**
+	 * @param {string} uuid
+	 * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
+	 * @description Get the data from the old API by given uuid (https://iphone.dsbcontrol.de/)
+	 * @return {Promise<String>}
+	 */
+	getDataWithUUIDV1(uuid, Callback) {
+		const self = this;
+		return new Promise((resolve, reject) => {
+			async.parallel({
+				timetables: (PCallback) => {
+					request(self.urls.timetables + uuid, {json: true}, (error, response, body) => {
+						if (!error && response.statusCode === 200) {
+							PCallback(null, body);
+						} else {
+							PCallback(error || {statusCode: response.statusCode, body: body});
+						}
+					});
+				},
+				news: (PCallback) => {
+					request(self.urls.news + uuid, {json: true}, (error, response, body) => {
+						if (!error && response.statusCode === 200) {
+							PCallback(null, body);
+						} else {
+							PCallback(error || {statusCode: response.statusCode, body: body});
+						}
+					});
+				}
+			}, (error, result) => {
+				if (error) {
+					reject(error);
+				} else {
+					resolve(result);
+				}
+			});
+		});
+	}
 
-    /**
-     *
-     * @private
-     */
-    _getData() {
-        const self = this;
-        return new Promise((resolve, reject) => {
-            const data = {
-                req: {
-                    Data: Encode({
-                        UserId: "",
-                        UserPw: "",
-                        Abos: [],
-                        AppVersion: "2.3",
-                        Language: "de",
-                        AppId: "",
-                        Device: "WebApp",
-                        PushId: "",
-                        BundleId: "de.heinekingmedia.inhouse.dsbmobile.web",
-                        Date: new Date,
-                        LastUpdate: new Date,
-                        OsVersion: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
-                    }),
-                    DataType: 1
-                }
-            };
-            request(self.urls.Data, {
-                method: "POST",
-                gzip: true,
-                "X-Requested-With": "XMLHttpRequest",
-                headers: {
-                    Bundle_ID: "de.heinekingmedia.inhouse.dsbmobile.web",
-                    Referer: self.urls.main,
-                    Cookie: self.jar.getCookieStringSync(self.urls.main)
-                },
-                json: true,
-                body: data
-            }, (error, response, body) => {
-                if (!error && (response.statusCode === 200 || response.statusCode === 302)) {
-                    resolve(Decode(response.body.d));
-                } else {
-                    reject(error || {statusCode: response.statusCode, body: body});
-                }
-            });
-        });
-    }
+	/**
+	 * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
+	 * @description Get the uuid from the old API (https://iphone.dsbcontrol.de/)
+	 * @return {Promise<String>}
+	 */
+	getUUIDV1(Callback) {
+		const self = this;
+		return new Promise((resolve, reject) => {
+			request(self.urls.loginV1, {json: true}, (error, response, body) => {
+				if (!error && response.statusCode === 200) {
+					if (body !== "00000000-0000-0000-0000-000000000000") {
+						resolve(body);
+					} else {
+						reject({statusCode: response.statusCode, body: body, message: "Wrong username or password"});
+					}
+				} else {
+					reject(error || {statusCode: response.statusCode, body: body});
+				}
+			});
+		});
+	}
 
-    /**
-     *
-     * @private
-     */
-    _login() {
-        const self = this;
-        return new Promise((resolve, reject) => {
-            request({
-                uri: self.urls.login,
-                method: "GET",
-                qs: {
-                    user: self.username,
-                    password: self.password
-                },
-                headers: {
-                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36'
-                },
-                gzip: true,
-                removeRefererHeader: true,
-                followRedirect: false
-            }, (error, response, body) => {
-                if (!error && (response.statusCode === 200 || response.statusCode === 302)) {
-                    for (let CookieI in response.headers['set-cookie']) {
-                        if (response.headers['set-cookie'].hasOwnProperty(CookieI)) {
-                            self.jar.setCookieSync(Cookie.parse(response.headers['set-cookie'][CookieI]), self.urls.main);
-                        }
-                    }
-                    self._saveCookies();
-                    resolve();
-                } else {
-                    reject(error || {statusCode: response.statusCode, body: body});
-                }
-            });
-        });
-    }
+	/**
+	 *
+	 * @private
+	 */
+	_getData() {
+		const self = this;
+		return new Promise((resolve, reject) => {
+			const data = {
+				req: {
+					Data: Encode({
+						UserId: "",
+						UserPw: "",
+						Abos: [],
+						AppVersion: "2.3",
+						Language: "de",
+						AppId: "",
+						Device: "WebApp",
+						PushId: "",
+						BundleId: "de.heinekingmedia.inhouse.dsbmobile.web",
+						Date: new Date,
+						LastUpdate: new Date,
+						OsVersion: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+					}),
+					DataType: 1
+				}
+			};
+			progress(request(self.urls.Data, {
+				method: "POST",
+				gzip: true,
+				"X-Requested-With": "XMLHttpRequest",
+				headers: {
+					Bundle_ID: "de.heinekingmedia.inhouse.dsbmobile.web",
+					Referer: self.urls.main,
+					Cookie: self.jar.getCookieStringSync(self.urls.main)
+				},
+				json: true,
+				body: data
+			}, (error, response, body) => {
+				if (!error && (response.statusCode === 200 || response.statusCode === 302)) {
+					resolve(Decode(response.body.d));
+				} else {
+					reject(error || {statusCode: response.statusCode, body: body});
+				}
+			})).on('progress', function (state) {
+				self.progress = 66 + percentage.of(state.percent * 100, 33);
+				self.emit('progress', self.progress);
+			}).on('end', function () {
+				self.progress = 100;
+				self.emit('progress', self.progress);
+			});
+		});
+	}
 
-    /**
-     *
-     * @private
-     */
-    _saveCookies() {
-        if (!(typeof window === 'undefined'))return;
-        if (!this.cookieJarPath) return;
-        fs.writeJsonSync(this.cookieJarPath, this.jar.getSetCookieStringsSync(this.urls.main));
-    }
+	/**
+	 *
+	 * @private
+	 */
+	_login() {
+		const self = this;
+		return new Promise((resolve, reject) => {
+			progress(request({
+				uri: self.urls.login,
+				method: "GET",
+				qs: {
+					user: self.username,
+					password: self.password
+				},
+				headers: {
+					'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36'
+				},
+				gzip: true,
+				removeRefererHeader: true,
+				followRedirect: false
+			}, (error, response, body) => {
+				if (!error && (response.statusCode === 200 || response.statusCode === 302)) {
+					for (let CookieI in response.headers['set-cookie']) {
+						if (response.headers['set-cookie'].hasOwnProperty(CookieI)) {
+							self.jar.setCookieSync(Cookie.parse(response.headers['set-cookie'][CookieI]), self.urls.main);
+						}
+					}
+					self._saveCookies();
+					resolve();
+				} else {
+					reject(error || {statusCode: response.statusCode, body: body});
+				}
+			})).on('progress', function (state) {
+				self.progress = 33 + percentage.of(state.percent * 100, 33);
+				self.emit('progress', self.progress);
+			});
+		});
+	}
 
-    /**
-     *
-     * @private
-     */
-    _validateLogin() {
-        const self = this;
-        return new Promise((resolve, reject) => {
-            request(self.urls.default, {
-                headers: {
-                    Cookie: self.jar.getCookieStringSync(self.urls.main),
-                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
-                    "Cache-Control": "no-cache",
-                    "Pragma": "no-cache"
-                },
-                followRedirect: false
-            }, (error, response) => {
-                if (!error && response.statusCode === 200) {
-                    resolve(true);
-                } else {
-                    resolve(false);
-                }
-            });
-        });
-    }
+	/**
+	 *
+	 * @private
+	 */
+	_saveCookies() {
+		if (!(typeof window === 'undefined')) return;
+		if (!this.cookieJarPath) return;
+		fs.writeJsonSync(this.cookieJarPath, this.jar.getSetCookieStringsSync(this.urls.main));
+	}
 
-    /**
-     *
-     * @private
-     */
-    _loadCookies() {
-        if (!(typeof window === 'undefined'))return;
-        if (!this.cookieJarPath) return;
-        fs.ensureFileSync(this.cookieJarPath);
-        fs.accessSync(this.cookieJarPath, fs.constants.F_OK || fs.constants.R_OK || fs.constants.W_OK);
-        const cookies = fs.readJSONSync(this.cookieJarPath, {throws: false}) || [];
-        for (let I in cookies) {
-            if (!cookies.hasOwnProperty(I)) continue;
-            this.jar.setCookieSync(Cookie.parse(cookies[I]), this.urls.main);
-        }
-    }
+	/**
+	 *
+	 * @private
+	 */
+	_validateLogin() {
+		const self = this;
+		return new Promise((resolve, reject) => {
+			progress(request(self.urls.default, {
+				headers: {
+					Cookie: self.jar.getCookieStringSync(self.urls.main),
+					"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+					"Cache-Control": "no-cache",
+					"Pragma": "no-cache"
+				},
+				followRedirect: false
+			}, (error, response) => {
+				if (!error && response.statusCode === 200) {
+					resolve(true);
+				} else {
+					resolve(false);
+				}
+			})).on('progress', function (state) {
+				self.progress = percentage.of(state.percent * 100, 33);
+				self.emit('progress', self.progress);
+			});
+		});
+	}
+
+	/**
+	 *
+	 * @private
+	 */
+	_loadCookies() {
+		if (!(typeof window === 'undefined')) return;
+		if (!this.cookieJarPath) return;
+		fs.ensureFileSync(this.cookieJarPath);
+		fs.accessSync(this.cookieJarPath, fs.constants.F_OK || fs.constants.R_OK || fs.constants.W_OK);
+		const cookies = fs.readJSONSync(this.cookieJarPath, {throws: false}) || [];
+		for (let I in cookies) {
+			if (!cookies.hasOwnProperty(I)) continue;
+			this.jar.setCookieSync(Cookie.parse(cookies[I]), this.urls.main);
+		}
+	}
 }
 
 module.exports = DSB;
