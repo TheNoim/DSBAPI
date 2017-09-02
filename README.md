@@ -14,7 +14,7 @@ npm install dsbapi --save
 
 ### Read the Documentation
 
-##### [Link](https://dsb.noim.io/docs/dsbapi/3.0.0/)
+##### [http://noim.me/DSBAPI/dsbapi/3.0.0/](http://noim.me/DSBAPI/dsbapi/3.0.0/)
 
 ### In NodeJS
 
