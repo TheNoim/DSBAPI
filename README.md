@@ -57,6 +57,9 @@ getMyShit();
 
 Install it or download the index.browser.js file from the dist/ folder.
 
+##### Note:
+It will probably not work in a normal browser client because of CORS policy
+
 ```html
 <script src="location/to/index.browser.js"></script>
 <script>

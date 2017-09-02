@@ -9,25 +9,31 @@ if (!USERNAME || !PASSWORD) {
 
 console.log(`USERNAME: ${USERNAME} | PASSWORD: ${PASSWORD}`);
 
-const LIB = require('./index').default;
-const dsb = new LIB(USERNAME, PASSWORD);
+const DSB = require('./index.es');
+const dsb = new DSB(USERNAME, PASSWORD);
 
 const responseSchema = Joi.object().keys({
     "Resultcode": Joi.number().integer().min(0).max(0).required(),
     "ResultMenuItems": Joi.array().length(2).items(Joi.object().keys({
         "Index": Joi.number().integer().required(),
         "Title": Joi.string().required()
-    })).required()
+    }).unknown(true)).required()
 }).unknown(true);
 
 async function test() {
     const data = await dsb.fetch(console.log);
     const val = responseSchema.validate(data);
     if (val.error) throw new Error(val.error);
-    return {};
+    console.log("Passed very basic validation. Try to extract important data.");
+    DSB.findMethodInData('timetable', data);
+    DSB.findMethodInData('news', data);
+    DSB.findMethodInData('tiles', data);
 }
 
-test().then(jsome).catch(e => {
+test().then(() => {
+    console.log("Test passed.");
+    process.exit(0);
+}).catch(e => {
    console.error(e);
    process.exit(2);
 });
