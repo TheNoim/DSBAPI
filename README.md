@@ -1,93 +1,70 @@
 [![Build Status](https://travis-ci.org/TheNoim/DSBAPI.svg?branch=master)](https://travis-ci.org/TheNoim/DSBAPI)
-## Classes
 
-<dl>
-<dt><a href="#DSB">DSB</a></dt>
-<dd></dd>
-</dl>
+## Installation
 
-## Typedefs
+Use your favorite package manager for javascript
 
-<dl>
-<dt><a href="#V1Object">V1Object</a> : <code>Object</code></dt>
-<dd></dd>
-</dl>
+```bash
+yarn add dsbapi
+# Or
+npm install dsbapi --save
+```
 
-<a name="DSB"></a>
+## How to use:
 
-## DSB
-**Kind**: global class  
+### Read the Documentation
 
-* [DSB](#DSB)
-    * [new DSB(username, password, cookieJar)](#new_DSB_new)
-    * [.getData([Callback])](#DSB+getData) ⇒ <code>Promise.&lt;Object&gt;</code>
-    * [.getDataV1([Callback])](#DSB+getDataV1) ⇒ <code>[Promise.&lt;V1Object&gt;](#V1Object)</code>
-    * [.getDataWithUUIDV1(uuid, [Callback])](#DSB+getDataWithUUIDV1) ⇒ <code>Promise.&lt;String&gt;</code>
-    * [.getUUIDV1([Callback])](#DSB+getUUIDV1) ⇒ <code>Promise.&lt;String&gt;</code>
+##### [Link](https://dsb.noim.io/docs/dsbapi/3.0.0/)
 
-<a name="new_DSB_new"></a>
+### In NodeJS
 
-### new DSB(username, password, cookieJar)
+```javascript
+const DSB = require('dsbapi');
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| username | <code>string</code> |  | The username for your school |
-| password | <code>string</code> |  | The password for your school |
-| cookieJar | <code>string</code> | <code>null</code> | Optional path to a file for caching the login cookies |
+const dsb = new DSB('USERNAME', 'PASSWORD');
 
-<a name="DSB+getData"></a>
+dsb.fetch().then(data => {
+    const timetables = DSB.findMethodInData('timetable', data);
+    const tiles = DSB.findMethodInData('tiles', data);
 
-### dsB.getData([Callback]) ⇒ <code>Promise.&lt;Object&gt;</code>
-Get data from mobile.dsbcontrol.de (The API used by mobile.dsbcontrol.de and every APP)
+    // Work with it
+}).catch(e => {
+    // An error occurred :(
+    console.log(e);
+});
+```
 
-**Kind**: instance method of <code>[DSB](#DSB)</code>  
+Or with modern javascript
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| [Callback] | <code>function</code> | <code></code> | If you add a callback, no Promise will be returned. |
+```javascript
+import DSB from 'dsbapi';
 
-<a name="DSB+getDataV1"></a>
+const dsb = new DSB('USERNAME', 'PASSWORD')
 
-### dsB.getDataV1([Callback]) ⇒ <code>[Promise.&lt;V1Object&gt;](#V1Object)</code>
-Get the data from the old API (https://iphone.dsbcontrol.de/)
+async function getMyShit() {
+    const data = await dsb.fetch();
+    const timetables = DSB.findMethodInData('timetable', data);
+    const tiles = DSB.findMethodInData('tiles', data);
 
-**Kind**: instance method of <code>[DSB](#DSB)</code>  
+    // YEAH
+}
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| [Callback] | <code>function</code> | <code></code> | If you add a callback, no Promise will be returned. |
+getMyShit();
 
-<a name="DSB+getDataWithUUIDV1"></a>
+```
 
-### dsB.getDataWithUUIDV1(uuid, [Callback]) ⇒ <code>Promise.&lt;String&gt;</code>
-Get the data from the old API by given uuid (https://iphone.dsbcontrol.de/)
+### Browser
 
-**Kind**: instance method of <code>[DSB](#DSB)</code>  
+Install it or download the index.browser.js file from the dist/ folder.
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| uuid | <code>string</code> |  |  |
-| [Callback] | <code>function</code> | <code></code> | If you add a callback, no Promise will be returned. |
+##### Note:
+It will probably not work in a normal browser client because of CORS policy
 
-<a name="DSB+getUUIDV1"></a>
+```html
+<script src="location/to/index.browser.js"></script>
+<script>
+    const dsb = new DSB("USERNAME", "PASSWORD");
 
-### dsB.getUUIDV1([Callback]) ⇒ <code>Promise.&lt;String&gt;</code>
-Get the uuid from the old API (https://iphone.dsbcontrol.de/)
-
-**Kind**: instance method of <code>[DSB](#DSB)</code>  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| [Callback] | <code>function</code> | <code></code> | If you add a callback, no Promise will be returned. |
-
-<a name="V1Object"></a>
-
-## V1Object : <code>Object</code>
-**Kind**: global typedef  
-**Properties**
-
-| Name | Type |
-| --- | --- |
-| news | <code>Array</code> | 
-| timetables | <code>Array</code> | 
-
+    // ... go on
+</script>
+```
