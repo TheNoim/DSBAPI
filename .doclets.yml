@@ -1,0 +1,3 @@
+packageJson: package.json
+files:
+  - index.js

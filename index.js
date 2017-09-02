@@ -1,40 +1,24 @@
-"use strict";
-
-const Promise = require('bluebird');
-const tough = require('tough-cookie');
-const request = require('request');
-let fs;
-if (typeof window === 'undefined') {
-	fs = require('fs-extra');
-}
 const Encode = require('./DSBEncoding');
 const Decode = require('./DSBDecode');
-const Cookie = tough.Cookie;
-const oc = require('optional-callback');
-const async = require('async');
-const {EventEmitter} = require('events');
-const progress = require('request-progress');
 const percentage = require('percentage-calc');
 
-class DSB extends EventEmitter {
+/**
+ * Main Library class
+ */
+class DSB {
 
 	/**
 	 *
-	 * @param {string} username The username for your school
-	 * @param {string} password The password for your school
-	 * @param {string} cookieJar=null Optional path to a file for caching the login cookies
+	 * @param {String|Number} username
+	 * @param {String|Number} password
+	 * @param {String} [cookies=""] If you already have session cookies, you can add them here.
+	 * @param {String|Boolean} [cache=false] In the browser just a boolean and in node a path string. If you don't want to use any cache just use undefined, null or false.
+	 * @param {Axios} [axios=require('axios')] Pass your custom axios instance if you want.
 	 */
-	constructor(username, password, cookieJar) {
-		super();
-
+	constructor(username, password, cookies = "", cache = false, axios = require('axios')) {
 		this.username = username;
 		this.password = password;
-
-		this.cookieJarPath = cookieJar || null;
-		this.jar = new tough.CookieJar();
-
-		this.progress = 0;
-
+		this.axios = axios;
 		this.urls = {
 			"login": "https://mobile.dsbcontrol.de/dsbmobilepage.aspx",
 			"main": "https://www.dsbmobile.de/",
@@ -44,175 +28,27 @@ class DSB extends EventEmitter {
 			"timetables": "https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/timetables/",
 			"news": "https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/news/"
 		};
-
-		this._login = this._login.bind(this);
-		this._validateLogin = this._validateLogin.bind(this);
-		this._loadCookies = this._loadCookies.bind(this);
-		this._saveCookies = this._saveCookies.bind(this);
-		this._getData = this._getData.bind(this);
-		this.getData = this.getData.bind(this);
-		this.getDataV1 = this.getDataV1.bind(this);
-		this.getDataWithUUIDV1 = this.getDataWithUUIDV1.bind(this);
-		this.getUUIDV1 = this.getUUIDV1.bind(this);
-
-		this._login = oc(this._login);
-		this._validateLogin = oc(this._validateLogin);
-		this._getData = oc(this._getData);
-		this.getData = oc(this.getData);
-		this.getDataV1 = oc(this.getDataV1);
-		this.getDataWithUUIDV1 = oc(this.getDataWithUUIDV1);
-		this.getUUIDV1 = oc(this.getUUIDV1);
-
-		this._loadCookies();
+		this.cookies = cookies;
+		this.axios.defaults.headers.common['User-Agent'] = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36';
+		if (cache) this.cache = new DSBSessionStorageManager(cache, this.cookies);
 	}
 
 	/**
-	 * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
-	 * @description Get data from mobile.dsbcontrol.de (The API used by mobile.dsbcontrol.de and every APP)
-	 * @return {Promise<Object>}
-	 */
-	getData(Callback) {
-		const self = this;
-		self.progress = 0;
-		self.emit('progress', 0);
-		return self._validateLogin().then(login => {
-			self.progress = 33;
-			self.emit('progress', self.progress);
-			if (login) {
-				self.progress = 66;
-				self.emit('progress', self.progress);
-				return self._getData();
-			} else {
-				return self._login().then(() => {
-					self.progress = 66;
-					self.emit('progress', self.progress);
-					return self._getData();
-				});
-			}
-		});
-	}
-
-	/**
-	 * @typedef {Object} V1Object
-	 * @property {Array} news
-	 * @property {Array} timetables
+	 * @callback ProgressCallback
+	 * @param {Number} progress - A number between 0 and 100
 	 */
 
 	/**
-	 * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
-	 * @description Get the data from the old API (https://iphone.dsbcontrol.de/)
-	 * @return {Promise<V1Object>}
+	 * Fetch data
+	 * @param {ProgressCallback} [progress]
+	 * @returns {Promise.<Object>}
 	 */
-	getDataV1(Callback) {
-		const self = this;
-		return new Promise((resolve, reject) => {
-			request(self.urls.loginV1, {json: true}, (error, response, body) => {
-				if (!error && response.statusCode === 200) {
-					if (body !== "00000000-0000-0000-0000-000000000000") {
-						async.parallel({
-							timetables: (PCallback) => {
-								request(self.urls.timetables + body, {json: true}, (error, response, body) => {
-									if (!error && response.statusCode === 200) {
-										PCallback(null, body);
-									} else {
-										PCallback(error || {statusCode: response.statusCode, body: body});
-									}
-								});
-							},
-							news: (PCallback) => {
-								request(self.urls.news + body, {json: true}, (error, response, body) => {
-									if (!error && response.statusCode == 200) {
-										PCallback(null, body);
-									} else {
-										PCallback(error || {statusCode: response.statusCode, body: body});
-									}
-								});
-							}
-						}, (error, result) => {
-							if (error) {
-								reject(error);
-							} else {
-								resolve(result);
-							}
-						});
-					} else {
-						reject({statusCode: response.statusCode, body: body, message: "Wrong username or password"});
-					}
-				} else {
-					reject(error || {statusCode: response.statusCode, body: body});
-				}
-			});
-		});
-	}
-
-	/**
-	 * @param {string} uuid
-	 * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
-	 * @description Get the data from the old API by given uuid (https://iphone.dsbcontrol.de/)
-	 * @return {Promise<String>}
-	 */
-	getDataWithUUIDV1(uuid, Callback) {
-		const self = this;
-		return new Promise((resolve, reject) => {
-			async.parallel({
-				timetables: (PCallback) => {
-					request(self.urls.timetables + uuid, {json: true}, (error, response, body) => {
-						if (!error && response.statusCode === 200) {
-							PCallback(null, body);
-						} else {
-							PCallback(error || {statusCode: response.statusCode, body: body});
-						}
-					});
-				},
-				news: (PCallback) => {
-					request(self.urls.news + uuid, {json: true}, (error, response, body) => {
-						if (!error && response.statusCode === 200) {
-							PCallback(null, body);
-						} else {
-							PCallback(error || {statusCode: response.statusCode, body: body});
-						}
-					});
-				}
-			}, (error, result) => {
-				if (error) {
-					reject(error);
-				} else {
-					resolve(result);
-				}
-			});
-		});
-	}
-
-	/**
-	 * @param {Function} [Callback=null] If you add a callback, no Promise will be returned.
-	 * @description Get the uuid from the old API (https://iphone.dsbcontrol.de/)
-	 * @return {Promise<String>}
-	 */
-	getUUIDV1(Callback) {
-		const self = this;
-		return new Promise((resolve, reject) => {
-			request(self.urls.loginV1, {json: true}, (error, response, body) => {
-				if (!error && response.statusCode === 200) {
-					if (body !== "00000000-0000-0000-0000-000000000000") {
-						resolve(body);
-					} else {
-						reject({statusCode: response.statusCode, body: body, message: "Wrong username or password"});
-					}
-				} else {
-					reject(error || {statusCode: response.statusCode, body: body});
-				}
-			});
-		});
-	}
-
-	/**
-	 *
-	 * @private
-	 */
-	_getData() {
-		const self = this;
-		return new Promise((resolve, reject) => {
-			const data = {
+	async fetch(progress = () => {}) {
+		const cookies = await this._getSession(progress);
+		// Progress State: 3
+		const response = await this.axios({
+			method: "POST",
+			data: {
 				req: {
 					Data: Encode({
 						UserId: "",
@@ -230,126 +66,279 @@ class DSB extends EventEmitter {
 					}),
 					DataType: 1
 				}
-			};
-			progress(request(self.urls.Data, {
-				method: "POST",
-				gzip: true,
-				"X-Requested-With": "XMLHttpRequest",
-				headers: {
-					Bundle_ID: "de.heinekingmedia.inhouse.dsbmobile.web",
-					Referer: self.urls.main,
-					Cookie: self.jar.getCookieStringSync(self.urls.main)
-				},
-				json: true,
-				body: data
-			}, (error, response, body) => {
-				if (!error && (response.statusCode === 200 || response.statusCode === 302)) {
-					resolve(Decode(response.body.d));
-				} else {
-					reject(error || {statusCode: response.statusCode, body: body});
-				}
-			})).on('progress', function (state) {
-				self.progress = 66 + percentage.of(state.percent * 100, 33);
-				self.emit('progress', self.progress);
-			}).on('end', function () {
-				self.progress = 100;
-				self.emit('progress', self.progress);
-			});
+			},
+			url: this.urls.Data,
+			headers: {
+				Bundle_ID: "de.heinekingmedia.inhouse.dsbmobile.web",
+				Referer: this.urls.main,
+				Cookie: cookies,
+				"X-Requested-With": "XMLHttpRequest"
+			},
+			onUploadProgress(e) {console.log(JSON.stringify(e))},
+			onDownloadProgress(e) {console.log(JSON.stringify(e))}
 		});
+		if (!response.data.d) throw new Error("Invalid data.");
+		progress(percentage.from(4, 5));
+		const decoded = Decode(response.data.d);
+		progress(percentage.from(5, 5));
+		return decoded;
 	}
 
 	/**
-	 *
+	 * Fetch data from the original iphone api (Only news and timetables supported)
+	 * @param {ProgressCallback} [progress]
+	 * @returns {Promise.<Object>}
+	 */
+	async fetchV1(progress = () => {}) {
+		let currentProgress = 0;
+		const loginV1Response = await this.axios({
+			method: "GET",
+			url: this.urls.loginV1
+		});
+		if (loginV1Response.data === "00000000-0000-0000-0000-000000000000") throw new Error("Login failed.");
+		const id = loginV1Response.data;
+		currentProgress++;
+		progress(percentage.from(currentProgress, 5));
+		const data = await Promise.all([
+			this.axios(this.urls.timetables + id).then(response => {
+				currentProgress++;
+				progress(percentage.from(currentProgress, 5));
+				return Promise.resolve({"timetables": response.data})
+			}),
+			this.axios(this.urls.news + id).then(response => {
+				currentProgress++;
+				progress(percentage.from(currentProgress, 5));
+				return Promise.resolve({"news": response.data})
+			})
+		]);
+		currentProgress++;
+		progress(percentage.from(currentProgress, 5));
+		let newData = {};
+		for (let fragment of data) {
+			for (let key in fragment) {
+				if (fragment.hasOwnProperty(key)) {
+					newData[key] = fragment[key];
+				}
+			}
+		}
+		currentProgress++;
+		progress(percentage.from(currentProgress, 5));
+		return newData;
+	}
+
+	/**
+	 * Login with username and password
+	 * @param {String|Number} [username=this.username]
+	 * @param {String|Number} [password=this.password]
+	 * @returns {Promise.<String>}
 	 * @private
 	 */
-	_login() {
-		const self = this;
-		return new Promise((resolve, reject) => {
-			progress(request({
-				uri: self.urls.login,
+	async _login(username = this.username, password = this.password) {
+		const response = await this.axios({
+			method: "GET",
+			url: this.urls.login,
+			params: {
+				user: username,
+				password: password
+			},
+			validateStatus(status) {
+				return (status === 200 || status === 302);
+			},
+			maxRedirects: 0,
+			onUploadProgress(e) {console.log(JSON.stringify(e))},
+			onDownloadProgress(e) {console.log(JSON.stringify(e))}
+		});
+		if (!response.headers['set-cookie']) throw new Error("Login failed. Returned no cookies.");
+		this.cookies = response.headers['set-cookie'].join('; ');
+		return this.cookies;
+	}
+
+	/**
+	 * Checks if dsb session cookie is valid
+	 * @param {String} [cookies=this.cookies]
+	 * @returns {Promise.<boolean>}
+	 * @private
+	 */
+	async _checkCookies(cookies = this.cookies) {
+		let returnValue = false;
+		try {
+			returnValue = !!await this.axios({
 				method: "GET",
-				qs: {
-					user: self.username,
-					password: self.password
+				url: this.urls.default,
+				validateStatus(status) {
+					return status === 200;
 				},
+				maxRedirects: 0,
 				headers: {
-					'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36'
-				},
-				gzip: true,
-				removeRefererHeader: true,
-				followRedirect: false
-			}, (error, response, body) => {
-				if (!error && (response.statusCode === 200 || response.statusCode === 302)) {
-					for (let CookieI in response.headers['set-cookie']) {
-						if (response.headers['set-cookie'].hasOwnProperty(CookieI)) {
-							self.jar.setCookieSync(Cookie.parse(response.headers['set-cookie'][CookieI]), self.urls.main);
-						}
-					}
-					self._saveCookies();
-					resolve();
-				} else {
-					reject(error || {statusCode: response.statusCode, body: body});
-				}
-			})).on('progress', function (state) {
-				self.progress = 33 + percentage.of(state.percent * 100, 33);
-				self.emit('progress', self.progress);
-			});
-		});
-	}
-
-	/**
-	 *
-	 * @private
-	 */
-	_saveCookies() {
-		if (!(typeof window === 'undefined')) return;
-		if (!this.cookieJarPath) return;
-		fs.writeJsonSync(this.cookieJarPath, this.jar.getSetCookieStringsSync(this.urls.main));
-	}
-
-	/**
-	 *
-	 * @private
-	 */
-	_validateLogin() {
-		const self = this;
-		return new Promise((resolve, reject) => {
-			progress(request(self.urls.default, {
-				headers: {
-					Cookie: self.jar.getCookieStringSync(self.urls.main),
-					"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+					Cookie: cookies,
 					"Cache-Control": "no-cache",
-					"Pragma": "no-cache"
-				},
-				followRedirect: false
-			}, (error, response) => {
-				if (!error && response.statusCode === 200) {
-					resolve(true);
-				} else {
-					resolve(false);
+					Pragma: "no-cache"
 				}
-			})).on('progress', function (state) {
-				self.progress = percentage.of(state.percent * 100, 33);
-				self.emit('progress', self.progress);
 			});
-		});
+		} catch (e) {
+			return false;
+		} finally {
+			return returnValue;
+		}
 	}
 
 	/**
-	 *
+	 * Get a valid session
+	 * @param {Function} [progress]
+	 * @returns {Promise.<String>}
 	 * @private
 	 */
-	_loadCookies() {
-		if (!(typeof window === 'undefined')) return;
-		if (!this.cookieJarPath) return;
-		fs.ensureFileSync(this.cookieJarPath);
-		fs.accessSync(this.cookieJarPath, fs.constants.F_OK || fs.constants.R_OK || fs.constants.W_OK);
-		const cookies = fs.readJSONSync(this.cookieJarPath, {throws: false}) || [];
-		for (let I in cookies) {
-			if (!cookies.hasOwnProperty(I)) continue;
-			this.jar.setCookieSync(Cookie.parse(cookies[I]), this.urls.main);
+	async _getSession(progress = () => {}) {
+		let returnValue;
+		try {
+			const cookies = this.cookies ? this.cookies : await this.cache.get();
+			progress(percentage.from(1, 5));
+			if (await this._checkCookies(cookies)) {
+				returnValue = cookies;
+				progress(percentage.from(3, 5));
+			} else {
+				returnValue = await this._login();
+				progress(percentage.from(2, 5));
+				this.cache ? await this.cache.set(returnValue) : this.cookies = returnValue;
+				progress(percentage.from(3, 5));
+			}
+		} catch (e) {
+			returnValue = await this._login();
+			progress(percentage.from(2, 5));
+			this.cache ? await this.cache.set(returnValue) : this.cookies = returnValue;
+			progress(percentage.from(3, 5));
+		} finally {
+			return returnValue;
+		}
+	}
+
+	/**
+	 * [Experimental] Try to get just the important data from the data you get back from fetch()
+	 * @param {String} method - The method name to search for (z.B tiles or timetable)
+	 * @param {Object} data - Data returned by fetch()
+	 * @returns {Object}
+	 */
+	static findMethodInData(method, data) {
+		for (let key in data) {
+			if (!data.hasOwnProperty(key)) continue;
+			if (key === "MethodName") {
+				if (data[key] === method) {
+					if (typeof data["Root"] === "object" && Array.isArray(data["Root"]["Childs"])) {
+						let transformData = [];
+						for (let o of data["Root"]["Childs"]) {
+							let newObject = {};
+							newObject.title = o.Title;
+							newObject.id = o.Id;
+							newObject.date = o.Date;
+							if (o["Childs"].length === 1) {
+								newObject.url = o["Childs"][0]["Detail"];
+								newObject.preview = o["Childs"][0]["Preview"];
+								newObject.secondTitle = o["Childs"][0]["Title"];
+							} else {
+								newObject.objects = [];
+								for (let objectOfArray of o["Childs"]) {
+									newObject.objects.push({
+										id: objectOfArray.Id,
+										url: objectOfArray.Detail,
+										preview: objectOfArray.Preview,
+										title: objectOfArray.Title,
+										date: objectOfArray.Date
+									});
+								}
+							}
+							transformData.push(newObject);
+						}
+						return {
+							method: method,
+							data: transformData
+						};
+					}
+				}
+			}
+			if (Array.isArray(data[key]) || typeof data[key] === 'object') {
+				const find = DSB.findMethodInData(method, data[key]);
+				if (find) return find;
+			}
 		}
 	}
 }
 
-module.exports = DSB;
+class DSBSessionStorageManager {
+
+	/**
+	 * Class to store the dsb session
+	 * @param [path=""]
+	 * @param [cookies=""]
+	 */
+	constructor(path = "", cookies = "") {
+		this.path = path;
+		this.cookies = cookies;
+		this.fs = DSBSessionStorageManager.isNode() ? require('fs') : undefined;
+	}
+
+	/**
+	 * Retrieves session from cache.
+	 * @returns {Promise.<String>}
+	 */
+	async get() {
+		if (DSBSessionStorageManager.isNode()) {
+			this.cookies = await new Promise((resolve, reject) => {
+				this.fs.readFile(this.path, (err, data) => {
+					if (err) return reject(err);
+					if (typeof data !== "string") {
+						let value;
+						try {
+							value = data.toString();
+						} catch (e) {
+							return reject(e);
+						} finally {
+							return resolve(value);
+						}
+					} else {
+						return resolve(data);
+					}
+				});
+			});
+			return this.cookies;
+		} else {
+			if (window.localStorage) {
+				return window.localStorage.getItem("DSBSession");
+			} else {
+				return this.cookies;
+			}
+		}
+	}
+
+	/**
+	 * Sets the session in the cache.
+	 * @param value
+	 * @returns {Promise.<void>}
+	 */
+	async set(value = "") {
+		this.cookies = value;
+		if (DSBSessionStorageManager.isNode()) {
+			try {
+				await new Promise((resolve, reject) => {
+					this.fs.writeFile(this.path, value, (err) => {
+						if (err) return reject(err);
+						return resolve();
+					});
+				});
+			} catch (e) {}
+		} else {
+			if (window.localStorage) {
+				return window.localStorage.setItem("DSBSession", value);
+			}
+		}
+	}
+
+	/**
+	 * Checks if this module is running in a browser env or node env.
+	 * @returns {boolean}
+	 */
+	static isNode() {
+		return Object.prototype.toString.call(global.process) === '[object process]';
+	}
+}
+
+export default DSB;

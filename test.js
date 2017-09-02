@@ -1,4 +1,5 @@
-const _ = require('lodash');
+const jsome = require('jsome');
+const Joi = require('joi');
 const USERNAME = process.env.DSBUSERNAME;
 const PASSWORD = process.env.PASSWORD;
 if (!USERNAME || !PASSWORD) {
@@ -8,43 +9,25 @@ if (!USERNAME || !PASSWORD) {
 
 console.log(`USERNAME: ${USERNAME} | PASSWORD: ${PASSWORD}`);
 
-const LIB = require('./index');
+const LIB = require('./index').default;
 const dsb = new LIB(USERNAME, PASSWORD);
 
-// Stage 1: API V2
-dsb.getData().then(data => {
-    if (!data) return Promise.reject('Stage 1 failed.');
-    if (data.Resultcode === null || data.Resultcode === undefined || data.Resultcode !== 0) return Promise.reject('Stage 1 failed. Resultcode is not 0');
-    if (!data.ResultMenuItems || !_.isArray(data.ResultMenuItems)) return Promise.reject('Stage 1 failed. ResultMenuItems is not an array');
-    if (data.ResultMenuItems.length === 0) return Promise.reject('Stage 1 failed. ResultMenuItems is empty.');
-    return Promise.resolve();
-}).then(() => {
-    console.log('Stage 1 passed!');
-    return Promise.resolve();
-}).then(() => {
-    // Stage 2: Get UUID
-    return dsb.getUUIDV1();
-}).then(uuid => {
-    if (!uuid) return Promise.reject('Stage 2 failed.');
-    console.log('Stage 2 passed!');
-    // Stage 3: Get data v1 with uuid
-    return dsb.getDataWithUUIDV1(uuid);
-}).then(data => {
-    if (!data) return Promise.reject('Stage 3 failed.');
-    console.log('Stage 3 passed!');
-    return Promise.resolve();
-}).then(() => {
-    // Stage 4: Get api v1
-    return dsb.getDataV1();
-}).then(data => {
-    if (!data) return Promise.reject('Stage 4 failed.');
-    console.log('Stage 4 passed!');
-    return Promise.resolve();
-}).then(() => {
-    console.log('All stages passed!');
-    process.exit(0);
-}).catch(e => {
-    console.error(`Something went wrong.`);
-    console.error(e);
-    process.exit(2);
+const responseSchema = Joi.object().keys({
+    "Resultcode": Joi.number().integer().min(0).max(0).required(),
+    "ResultMenuItems": Joi.array().length(2).items(Joi.object().keys({
+        "Index": Joi.number().integer().required(),
+        "Title": Joi.string().required()
+    })).required()
+}).unknown(true);
+
+async function test() {
+    const data = await dsb.fetch(console.log);
+    const val = responseSchema.validate(data);
+    if (val.error) throw new Error(val.error);
+    return {};
+}
+
+test().then(jsome).catch(e => {
+   console.error(e);
+   process.exit(2);
 });
