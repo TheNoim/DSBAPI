@@ -341,4 +341,5 @@ class DSBSessionStorageManager {
 	}
 }
 
-export default DSB;
+module.exports = DSB;
+export { DSB, DSBSessionStorageManager};

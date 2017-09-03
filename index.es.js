@@ -3,12 +3,41 @@
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+exports.DSBSessionStorageManager = exports.DSB = undefined;
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _typeof2 = require('babel-runtime/helpers/typeof');
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _typeof3 = _interopRequireDefault(_typeof2);
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _getIterator2 = require('babel-runtime/core-js/get-iterator');
+
+var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+var _promise = require('babel-runtime/core-js/promise');
+
+var _promise2 = _interopRequireDefault(_promise);
+
+var _regenerator = require('babel-runtime/regenerator');
+
+var _regenerator2 = _interopRequireDefault(_regenerator);
+
+var _stringify = require('babel-runtime/core-js/json/stringify');
+
+var _stringify2 = _interopRequireDefault(_stringify);
+
+var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');
+
+var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Encode = require('./DSBEncoding');
 var Decode = require('./DSBDecode');
@@ -32,8 +61,7 @@ var DSB = function () {
 		var cookies = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "";
 		var cache = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
 		var axios = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : require('axios');
-
-		_classCallCheck(this, DSB);
+		(0, _classCallCheck3.default)(this, DSB);
 
 		this.username = username;
 		this.password = password;
@@ -64,54 +92,89 @@ var DSB = function () {
   */
 
 
-	_createClass(DSB, [{
+	(0, _createClass3.default)(DSB, [{
 		key: 'fetch',
-		value: async function fetch() {
-			var progress = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {};
+		value: function () {
+			var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee() {
+				var progress = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {};
+				var cookies, response, decoded;
+				return _regenerator2.default.wrap(function _callee$(_context) {
+					while (1) {
+						switch (_context.prev = _context.next) {
+							case 0:
+								_context.next = 2;
+								return this._getSession(progress);
 
-			var cookies = await this._getSession(progress);
-			// Progress State: 3
-			var response = await this.axios({
-				method: "POST",
-				data: {
-					req: {
-						Data: Encode({
-							UserId: "",
-							UserPw: "",
-							Abos: [],
-							AppVersion: "2.3",
-							Language: "de",
-							AppId: "",
-							Device: "WebApp",
-							PushId: "",
-							BundleId: "de.heinekingmedia.inhouse.dsbmobile.web",
-							Date: new Date(),
-							LastUpdate: new Date(),
-							OsVersion: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
-						}),
-						DataType: 1
+							case 2:
+								cookies = _context.sent;
+								_context.next = 5;
+								return this.axios({
+									method: "POST",
+									data: {
+										req: {
+											Data: Encode({
+												UserId: "",
+												UserPw: "",
+												Abos: [],
+												AppVersion: "2.3",
+												Language: "de",
+												AppId: "",
+												Device: "WebApp",
+												PushId: "",
+												BundleId: "de.heinekingmedia.inhouse.dsbmobile.web",
+												Date: new Date(),
+												LastUpdate: new Date(),
+												OsVersion: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+											}),
+											DataType: 1
+										}
+									},
+									url: this.urls.Data,
+									headers: {
+										Bundle_ID: "de.heinekingmedia.inhouse.dsbmobile.web",
+										Referer: this.urls.main,
+										Cookie: cookies,
+										"X-Requested-With": "XMLHttpRequest"
+									},
+									onUploadProgress: function onUploadProgress(e) {
+										console.log((0, _stringify2.default)(e));
+									},
+									onDownloadProgress: function onDownloadProgress(e) {
+										console.log((0, _stringify2.default)(e));
+									}
+								});
+
+							case 5:
+								response = _context.sent;
+
+								if (response.data.d) {
+									_context.next = 8;
+									break;
+								}
+
+								throw new Error("Invalid data.");
+
+							case 8:
+								progress(percentage.from(4, 5));
+								decoded = Decode(response.data.d);
+
+								progress(percentage.from(5, 5));
+								return _context.abrupt('return', decoded);
+
+							case 12:
+							case 'end':
+								return _context.stop();
+						}
 					}
-				},
-				url: this.urls.Data,
-				headers: {
-					Bundle_ID: "de.heinekingmedia.inhouse.dsbmobile.web",
-					Referer: this.urls.main,
-					Cookie: cookies,
-					"X-Requested-With": "XMLHttpRequest"
-				},
-				onUploadProgress: function onUploadProgress(e) {
-					console.log(JSON.stringify(e));
-				},
-				onDownloadProgress: function onDownloadProgress(e) {
-					console.log(JSON.stringify(e));
-				}
-			});
-			if (!response.data.d) throw new Error("Invalid data.");
-			progress(percentage.from(4, 5));
-			var decoded = Decode(response.data.d);
-			progress(percentage.from(5, 5));
-			return decoded;
-		}
+				}, _callee, this);
+			}));
+
+			function fetch() {
+				return _ref.apply(this, arguments);
+			}
+
+			return fetch;
+		}()
 
 		/**
    * Fetch data from the original iphone api (Only news and timetables supported)
@@ -121,63 +184,121 @@ var DSB = function () {
 
 	}, {
 		key: 'fetchV1',
-		value: async function fetchV1() {
-			var progress = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {};
+		value: function () {
+			var _ref2 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee2() {
+				var progress = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {};
 
-			var currentProgress = 0;
-			var loginV1Response = await this.axios({
-				method: "GET",
-				url: this.urls.loginV1
-			});
-			if (loginV1Response.data === "00000000-0000-0000-0000-000000000000") throw new Error("Login failed.");
-			var id = loginV1Response.data;
-			currentProgress++;
-			progress(percentage.from(currentProgress, 5));
-			var data = await Promise.all([this.axios(this.urls.timetables + id).then(function (response) {
-				currentProgress++;
-				progress(percentage.from(currentProgress, 5));
-				return Promise.resolve({ "timetables": response.data });
-			}), this.axios(this.urls.news + id).then(function (response) {
-				currentProgress++;
-				progress(percentage.from(currentProgress, 5));
-				return Promise.resolve({ "news": response.data });
-			})]);
-			currentProgress++;
-			progress(percentage.from(currentProgress, 5));
-			var newData = {};
-			var _iteratorNormalCompletion = true;
-			var _didIteratorError = false;
-			var _iteratorError = undefined;
+				var currentProgress, loginV1Response, id, data, newData, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, fragment, key;
 
-			try {
-				for (var _iterator = data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-					var fragment = _step.value;
+				return _regenerator2.default.wrap(function _callee2$(_context2) {
+					while (1) {
+						switch (_context2.prev = _context2.next) {
+							case 0:
+								currentProgress = 0;
+								_context2.next = 3;
+								return this.axios({
+									method: "GET",
+									url: this.urls.loginV1
+								});
 
-					for (var key in fragment) {
-						if (fragment.hasOwnProperty(key)) {
-							newData[key] = fragment[key];
+							case 3:
+								loginV1Response = _context2.sent;
+
+								if (!(loginV1Response.data === "00000000-0000-0000-0000-000000000000")) {
+									_context2.next = 6;
+									break;
+								}
+
+								throw new Error("Login failed.");
+
+							case 6:
+								id = loginV1Response.data;
+
+								currentProgress++;
+								progress(percentage.from(currentProgress, 5));
+								_context2.next = 11;
+								return _promise2.default.all([this.axios(this.urls.timetables + id).then(function (response) {
+									currentProgress++;
+									progress(percentage.from(currentProgress, 5));
+									return _promise2.default.resolve({ "timetables": response.data });
+								}), this.axios(this.urls.news + id).then(function (response) {
+									currentProgress++;
+									progress(percentage.from(currentProgress, 5));
+									return _promise2.default.resolve({ "news": response.data });
+								})]);
+
+							case 11:
+								data = _context2.sent;
+
+								currentProgress++;
+								progress(percentage.from(currentProgress, 5));
+								newData = {};
+								_iteratorNormalCompletion = true;
+								_didIteratorError = false;
+								_iteratorError = undefined;
+								_context2.prev = 18;
+
+								for (_iterator = (0, _getIterator3.default)(data); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+									fragment = _step.value;
+
+									for (key in fragment) {
+										if (fragment.hasOwnProperty(key)) {
+											newData[key] = fragment[key];
+										}
+									}
+								}
+								_context2.next = 26;
+								break;
+
+							case 22:
+								_context2.prev = 22;
+								_context2.t0 = _context2['catch'](18);
+								_didIteratorError = true;
+								_iteratorError = _context2.t0;
+
+							case 26:
+								_context2.prev = 26;
+								_context2.prev = 27;
+
+								if (!_iteratorNormalCompletion && _iterator.return) {
+									_iterator.return();
+								}
+
+							case 29:
+								_context2.prev = 29;
+
+								if (!_didIteratorError) {
+									_context2.next = 32;
+									break;
+								}
+
+								throw _iteratorError;
+
+							case 32:
+								return _context2.finish(29);
+
+							case 33:
+								return _context2.finish(26);
+
+							case 34:
+								currentProgress++;
+								progress(percentage.from(currentProgress, 5));
+								return _context2.abrupt('return', newData);
+
+							case 37:
+							case 'end':
+								return _context2.stop();
 						}
 					}
-				}
-			} catch (err) {
-				_didIteratorError = true;
-				_iteratorError = err;
-			} finally {
-				try {
-					if (!_iteratorNormalCompletion && _iterator.return) {
-						_iterator.return();
-					}
-				} finally {
-					if (_didIteratorError) {
-						throw _iteratorError;
-					}
-				}
+				}, _callee2, this, [[18, 22, 26, 34], [27,, 29, 33]]);
+			}));
+
+			function fetchV1() {
+				return _ref2.apply(this, arguments);
 			}
 
-			currentProgress++;
-			progress(percentage.from(currentProgress, 5));
-			return newData;
-		}
+			return fetchV1;
+		}()
 
 		/**
    * Login with username and password
@@ -189,33 +310,64 @@ var DSB = function () {
 
 	}, {
 		key: '_login',
-		value: async function _login() {
-			var username = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.username;
-			var password = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.password;
+		value: function () {
+			var _ref3 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee3() {
+				var username = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.username;
+				var password = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.password;
+				var response;
+				return _regenerator2.default.wrap(function _callee3$(_context3) {
+					while (1) {
+						switch (_context3.prev = _context3.next) {
+							case 0:
+								_context3.next = 2;
+								return this.axios({
+									method: "GET",
+									url: this.urls.login,
+									params: {
+										user: username,
+										password: password
+									},
+									validateStatus: function validateStatus(status) {
+										return status === 200 || status === 302;
+									},
 
-			var response = await this.axios({
-				method: "GET",
-				url: this.urls.login,
-				params: {
-					user: username,
-					password: password
-				},
-				validateStatus: function validateStatus(status) {
-					return status === 200 || status === 302;
-				},
+									maxRedirects: 0,
+									onUploadProgress: function onUploadProgress(e) {
+										console.log((0, _stringify2.default)(e));
+									},
+									onDownloadProgress: function onDownloadProgress(e) {
+										console.log((0, _stringify2.default)(e));
+									}
+								});
 
-				maxRedirects: 0,
-				onUploadProgress: function onUploadProgress(e) {
-					console.log(JSON.stringify(e));
-				},
-				onDownloadProgress: function onDownloadProgress(e) {
-					console.log(JSON.stringify(e));
-				}
-			});
-			if (!response.headers['set-cookie']) throw new Error("Login failed. Returned no cookies.");
-			this.cookies = response.headers['set-cookie'].join('; ');
-			return this.cookies;
-		}
+							case 2:
+								response = _context3.sent;
+
+								if (response.headers['set-cookie']) {
+									_context3.next = 5;
+									break;
+								}
+
+								throw new Error("Login failed. Returned no cookies.");
+
+							case 5:
+								this.cookies = response.headers['set-cookie'].join('; ');
+								return _context3.abrupt('return', this.cookies);
+
+							case 7:
+							case 'end':
+								return _context3.stop();
+						}
+					}
+				}, _callee3, this);
+			}));
+
+			function _login() {
+				return _ref3.apply(this, arguments);
+			}
+
+			return _login;
+		}()
 
 		/**
    * Checks if dsb session cookie is valid
@@ -226,31 +378,60 @@ var DSB = function () {
 
 	}, {
 		key: '_checkCookies',
-		value: async function _checkCookies() {
-			var cookies = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.cookies;
+		value: function () {
+			var _ref4 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee4() {
+				var cookies = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.cookies;
+				var returnValue;
+				return _regenerator2.default.wrap(function _callee4$(_context4) {
+					while (1) {
+						switch (_context4.prev = _context4.next) {
+							case 0:
+								returnValue = false;
+								_context4.prev = 1;
+								_context4.next = 4;
+								return this.axios({
+									method: "GET",
+									url: this.urls.default,
+									validateStatus: function validateStatus(status) {
+										return status === 200;
+									},
 
-			var returnValue = false;
-			try {
-				returnValue = !!(await this.axios({
-					method: "GET",
-					url: this.urls.default,
-					validateStatus: function validateStatus(status) {
-						return status === 200;
-					},
+									maxRedirects: 0,
+									headers: {
+										Cookie: cookies,
+										"Cache-Control": "no-cache",
+										Pragma: "no-cache"
+									}
+								});
 
-					maxRedirects: 0,
-					headers: {
-						Cookie: cookies,
-						"Cache-Control": "no-cache",
-						Pragma: "no-cache"
+							case 4:
+								returnValue = !!_context4.sent;
+								_context4.next = 10;
+								break;
+
+							case 7:
+								_context4.prev = 7;
+								_context4.t0 = _context4['catch'](1);
+								return _context4.abrupt('return', false);
+
+							case 10:
+								_context4.prev = 10;
+								return _context4.abrupt('return', returnValue);
+
+							case 13:
+							case 'end':
+								return _context4.stop();
+						}
 					}
-				}));
-			} catch (e) {
-				return false;
-			} finally {
-				return returnValue;
+				}, _callee4, this, [[1, 7, 10, 13]]);
+			}));
+
+			function _checkCookies() {
+				return _ref4.apply(this, arguments);
 			}
-		}
+
+			return _checkCookies;
+		}()
 
 		/**
    * Get a valid session
@@ -261,31 +442,129 @@ var DSB = function () {
 
 	}, {
 		key: '_getSession',
-		value: async function _getSession() {
-			var progress = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {};
+		value: function () {
+			var _ref5 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee5() {
+				var progress = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {};
+				var returnValue, cookies;
+				return _regenerator2.default.wrap(function _callee5$(_context5) {
+					while (1) {
+						switch (_context5.prev = _context5.next) {
+							case 0:
+								returnValue = void 0;
+								_context5.prev = 1;
 
-			var returnValue = void 0;
-			try {
-				var cookies = this.cookies ? this.cookies : await this.cache.get();
-				progress(percentage.from(1, 5));
-				if (await this._checkCookies(cookies)) {
-					returnValue = cookies;
-					progress(percentage.from(3, 5));
-				} else {
-					returnValue = await this._login();
-					progress(percentage.from(2, 5));
-					this.cache ? await this.cache.set(returnValue) : this.cookies = returnValue;
-					progress(percentage.from(3, 5));
-				}
-			} catch (e) {
-				returnValue = await this._login();
-				progress(percentage.from(2, 5));
-				this.cache ? await this.cache.set(returnValue) : this.cookies = returnValue;
-				progress(percentage.from(3, 5));
-			} finally {
-				return returnValue;
+								if (!this.cookies) {
+									_context5.next = 6;
+									break;
+								}
+
+								_context5.t0 = this.cookies;
+								_context5.next = 9;
+								break;
+
+							case 6:
+								_context5.next = 8;
+								return this.cache.get();
+
+							case 8:
+								_context5.t0 = _context5.sent;
+
+							case 9:
+								cookies = _context5.t0;
+
+								progress(percentage.from(1, 5));
+								_context5.next = 13;
+								return this._checkCookies(cookies);
+
+							case 13:
+								if (!_context5.sent) {
+									_context5.next = 18;
+									break;
+								}
+
+								returnValue = cookies;
+								progress(percentage.from(3, 5));
+								_context5.next = 29;
+								break;
+
+							case 18:
+								_context5.next = 20;
+								return this._login();
+
+							case 20:
+								returnValue = _context5.sent;
+
+								progress(percentage.from(2, 5));
+
+								if (!this.cache) {
+									_context5.next = 27;
+									break;
+								}
+
+								_context5.next = 25;
+								return this.cache.set(returnValue);
+
+							case 25:
+								_context5.next = 28;
+								break;
+
+							case 27:
+								this.cookies = returnValue;
+
+							case 28:
+								progress(percentage.from(3, 5));
+
+							case 29:
+								_context5.next = 44;
+								break;
+
+							case 31:
+								_context5.prev = 31;
+								_context5.t1 = _context5['catch'](1);
+								_context5.next = 35;
+								return this._login();
+
+							case 35:
+								returnValue = _context5.sent;
+
+								progress(percentage.from(2, 5));
+
+								if (!this.cache) {
+									_context5.next = 42;
+									break;
+								}
+
+								_context5.next = 40;
+								return this.cache.set(returnValue);
+
+							case 40:
+								_context5.next = 43;
+								break;
+
+							case 42:
+								this.cookies = returnValue;
+
+							case 43:
+								progress(percentage.from(3, 5));
+
+							case 44:
+								_context5.prev = 44;
+								return _context5.abrupt('return', returnValue);
+
+							case 47:
+							case 'end':
+								return _context5.stop();
+						}
+					}
+				}, _callee5, this, [[1, 31, 44, 47]]);
+			}));
+
+			function _getSession() {
+				return _ref5.apply(this, arguments);
 			}
-		}
+
+			return _getSession;
+		}()
 
 		/**
    * [Experimental] Try to get just the important data from the data you get back from fetch()
@@ -301,14 +580,14 @@ var DSB = function () {
 				if (!data.hasOwnProperty(key)) continue;
 				if (key === "MethodName") {
 					if (data[key] === method) {
-						if (_typeof(data["Root"]) === "object" && Array.isArray(data["Root"]["Childs"])) {
+						if ((0, _typeof3.default)(data["Root"]) === "object" && Array.isArray(data["Root"]["Childs"])) {
 							var transformData = [];
 							var _iteratorNormalCompletion2 = true;
 							var _didIteratorError2 = false;
 							var _iteratorError2 = undefined;
 
 							try {
-								for (var _iterator2 = data["Root"]["Childs"][Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+								for (var _iterator2 = (0, _getIterator3.default)(data["Root"]["Childs"]), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 									var o = _step2.value;
 
 									var newObject = {};
@@ -326,7 +605,7 @@ var DSB = function () {
 										var _iteratorError3 = undefined;
 
 										try {
-											for (var _iterator3 = o["Childs"][Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+											for (var _iterator3 = (0, _getIterator3.default)(o["Childs"]), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
 												var objectOfArray = _step3.value;
 
 												newObject.objects.push({
@@ -376,14 +655,13 @@ var DSB = function () {
 						}
 					}
 				}
-				if (Array.isArray(data[key]) || _typeof(data[key]) === 'object') {
+				if (Array.isArray(data[key]) || (0, _typeof3.default)(data[key]) === 'object') {
 					var find = DSB.findMethodInData(method, data[key]);
 					if (find) return find;
 				}
 			}
 		}
 	}]);
-
 	return DSB;
 }();
 
@@ -397,8 +675,7 @@ var DSBSessionStorageManager = function () {
 	function DSBSessionStorageManager() {
 		var path = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
 		var cookies = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
-
-		_classCallCheck(this, DSBSessionStorageManager);
+		(0, _classCallCheck3.default)(this, DSBSessionStorageManager);
 
 		this.path = path;
 		this.cookies = cookies;
@@ -411,38 +688,69 @@ var DSBSessionStorageManager = function () {
   */
 
 
-	_createClass(DSBSessionStorageManager, [{
+	(0, _createClass3.default)(DSBSessionStorageManager, [{
 		key: 'get',
-		value: async function get() {
-			var _this = this;
+		value: function () {
+			var _ref6 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee6() {
+				var _this = this;
 
-			if (DSBSessionStorageManager.isNode()) {
-				this.cookies = await new Promise(function (resolve, reject) {
-					_this.fs.readFile(_this.path, function (err, data) {
-						if (err) return reject(err);
-						if (typeof data !== "string") {
-							var value = void 0;
-							try {
-								value = data.toString();
-							} catch (e) {
-								return reject(e);
-							} finally {
-								return resolve(value);
-							}
-						} else {
-							return resolve(data);
+				return _regenerator2.default.wrap(function _callee6$(_context6) {
+					while (1) {
+						switch (_context6.prev = _context6.next) {
+							case 0:
+								if (!DSBSessionStorageManager.isNode()) {
+									_context6.next = 7;
+									break;
+								}
+
+								_context6.next = 3;
+								return new _promise2.default(function (resolve, reject) {
+									_this.fs.readFile(_this.path, function (err, data) {
+										if (err) return reject(err);
+										if (typeof data !== "string") {
+											var value = void 0;
+											try {
+												value = data.toString();
+											} catch (e) {
+												return reject(e);
+											} finally {
+												return resolve(value);
+											}
+										} else {
+											return resolve(data);
+										}
+									});
+								});
+
+							case 3:
+								this.cookies = _context6.sent;
+								return _context6.abrupt('return', this.cookies);
+
+							case 7:
+								if (!window.localStorage) {
+									_context6.next = 11;
+									break;
+								}
+
+								return _context6.abrupt('return', window.localStorage.getItem("DSBSession"));
+
+							case 11:
+								return _context6.abrupt('return', this.cookies);
+
+							case 12:
+							case 'end':
+								return _context6.stop();
 						}
-					});
-				});
-				return this.cookies;
-			} else {
-				if (window.localStorage) {
-					return window.localStorage.getItem("DSBSession");
-				} else {
-					return this.cookies;
-				}
+					}
+				}, _callee6, this);
+			}));
+
+			function get() {
+				return _ref6.apply(this, arguments);
 			}
-		}
+
+			return get;
+		}()
 
 		/**
    * Sets the session in the cache.
@@ -452,27 +760,65 @@ var DSBSessionStorageManager = function () {
 
 	}, {
 		key: 'set',
-		value: async function set() {
-			var _this2 = this;
+		value: function () {
+			var _ref7 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee7() {
+				var _this2 = this;
 
-			var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+				var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+				return _regenerator2.default.wrap(function _callee7$(_context7) {
+					while (1) {
+						switch (_context7.prev = _context7.next) {
+							case 0:
+								this.cookies = value;
 
-			this.cookies = value;
-			if (DSBSessionStorageManager.isNode()) {
-				try {
-					await new Promise(function (resolve, reject) {
-						_this2.fs.writeFile(_this2.path, value, function (err) {
-							if (err) return reject(err);
-							return resolve();
-						});
-					});
-				} catch (e) {}
-			} else {
-				if (window.localStorage) {
-					return window.localStorage.setItem("DSBSession", value);
-				}
+								if (!DSBSessionStorageManager.isNode()) {
+									_context7.next = 11;
+									break;
+								}
+
+								_context7.prev = 2;
+								_context7.next = 5;
+								return new _promise2.default(function (resolve, reject) {
+									_this2.fs.writeFile(_this2.path, value, function (err) {
+										if (err) return reject(err);
+										return resolve();
+									});
+								});
+
+							case 5:
+								_context7.next = 9;
+								break;
+
+							case 7:
+								_context7.prev = 7;
+								_context7.t0 = _context7['catch'](2);
+
+							case 9:
+								_context7.next = 13;
+								break;
+
+							case 11:
+								if (!window.localStorage) {
+									_context7.next = 13;
+									break;
+								}
+
+								return _context7.abrupt('return', window.localStorage.setItem("DSBSession", value));
+
+							case 13:
+							case 'end':
+								return _context7.stop();
+						}
+					}
+				}, _callee7, this, [[2, 7]]);
+			}));
+
+			function set() {
+				return _ref7.apply(this, arguments);
 			}
-		}
+
+			return set;
+		}()
 
 		/**
    * Checks if this module is running in a browser env or node env.
@@ -485,10 +831,10 @@ var DSBSessionStorageManager = function () {
 			return Object.prototype.toString.call(global.process) === '[object process]';
 		}
 	}]);
-
 	return DSBSessionStorageManager;
 }();
 
-exports.default = DSB;
-module.exports = exports['default'];
+module.exports = DSB;
+exports.DSB = DSB;
+exports.DSBSessionStorageManager = DSBSessionStorageManager;
 
