@@ -40,7 +40,7 @@
     "api",
     "mobile"
   ],
-  "license": "MIT",
+  "license": "Apache-2.0",
   "scripts": {
     "test": "mocha --compilers js:babel-register",
     "generate-doc": "jsdoc --configure ./.jsdoc.json --verbose index.js",
