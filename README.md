@@ -10,6 +10,8 @@ yarn add dsbapi
 npm install dsbapi --save
 ```
 
+_Note: Requires `node >= 8`_
+
 ## How to use:
 
 ### Read the Documentation
@@ -23,15 +25,17 @@ const DSB = require('dsbapi');
 
 const dsb = new DSB('USERNAME', 'PASSWORD');
 
-dsb.fetch().then(data => {
-    const timetables = DSB.findMethodInData('timetable', data);
-    const tiles = DSB.findMethodInData('tiles', data);
+dsb.fetch()
+	.then(data => {
+		const timetables = DSB.findMethodInData('timetable', data);
+		const tiles = DSB.findMethodInData('tiles', data);
 
-    // Work with it
-}).catch(e => {
-    // An error occurred :(
-    console.log(e);
-});
+		// Work with it
+	})
+	.catch(e => {
+		// An error occurred :(
+		console.log(e);
+	});
 ```
 
 Or with modern javascript
@@ -39,18 +43,17 @@ Or with modern javascript
 ```javascript
 import DSB from 'dsbapi';
 
-const dsb = new DSB('USERNAME', 'PASSWORD')
+const dsb = new DSB('USERNAME', 'PASSWORD');
 
 async function getMyShit() {
-    const data = await dsb.fetch();
-    const timetables = DSB.findMethodInData('timetable', data);
-    const tiles = DSB.findMethodInData('tiles', data);
+	const data = await dsb.fetch();
+	const timetables = DSB.findMethodInData('timetable', data);
+	const tiles = DSB.findMethodInData('tiles', data);
 
-    // YEAH
+	// YEAH
 }
 
 getMyShit();
-
 ```
 
 ### Browser
@@ -58,6 +61,7 @@ getMyShit();
 Install it or download the index.browser.js file from the dist/ folder.
 
 ##### Note:
+
 It will probably not work in a normal browser client because of CORS policy
 
 ```html
