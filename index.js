@@ -6,7 +6,6 @@ const percentage = require('percentage-calc');
  * Main Library class
  */
 class DSB {
-
 	/**
 	 *
 	 * @param {String|Number} username
@@ -15,22 +14,33 @@ class DSB {
 	 * @param {String|Boolean} [cache=false] In the browser just a boolean and in node a path string. If you don't want to use any cache just use undefined, null or false.
 	 * @param {Axios} [axios=require('axios')] Pass your custom axios instance if you want.
 	 */
-	constructor(username, password, cookies = "", cache = false, axios = require('axios')) {
+	constructor(
+		username,
+		password,
+		cookies = '',
+		cache = false,
+		axios = require('axios')
+	) {
 		this.username = username;
 		this.password = password;
 		this.axios = axios;
 		this.urls = {
-			"login": "https://mobile.dsbcontrol.de/dsbmobilepage.aspx",
-			"main": "https://www.dsbmobile.de/",
-			"Data": "http://www.dsbmobile.de/JsonHandlerWeb.ashx/GetData",
-			"default": "https://www.dsbmobile.de/default.aspx",
-			"loginV1": `https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/authid/${this.username}/${this.password}`,
-			"timetables": "https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/timetables/",
-			"news": "https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/news/"
+			login: 'https://mobile.dsbcontrol.de/dsbmobilepage.aspx',
+			main: 'https://www.dsbmobile.de/',
+			Data: 'http://www.dsbmobile.de/JsonHandlerWeb.ashx/GetData',
+			default: 'https://www.dsbmobile.de/default.aspx',
+			loginV1: `https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/authid/${
+				this.username
+			}/${this.password}`,
+			timetables:
+				'https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/timetables/',
+			news: 'https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/news/'
 		};
 		this.cookies = cookies;
-		this.axios.defaults.headers.common['User-Agent'] = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36';
-		if (cache) this.cache = new DSBSessionStorageManager(cache, this.cookies);
+		this.axios.defaults.headers.common['User-Agent'] =
+			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36';
+		if (cache)
+			this.cache = new DSBSessionStorageManager(cache, this.cookies);
 	}
 
 	/**
@@ -47,37 +57,42 @@ class DSB {
 		const cookies = await this._getSession(progress);
 		// Progress State: 3
 		const response = await this.axios({
-			method: "POST",
+			method: 'POST',
 			data: {
 				req: {
 					Data: Encode({
-						UserId: "",
-						UserPw: "",
+						UserId: '',
+						UserPw: '',
 						Abos: [],
-						AppVersion: "2.3",
-						Language: "de",
-						AppId: "",
-						Device: "WebApp",
-						PushId: "",
-						BundleId: "de.heinekingmedia.inhouse.dsbmobile.web",
-						Date: new Date,
-						LastUpdate: new Date,
-						OsVersion: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+						AppVersion: '2.3',
+						Language: 'de',
+						AppId: '',
+						Device: 'WebApp',
+						PushId: '',
+						BundleId: 'de.heinekingmedia.inhouse.dsbmobile.web',
+						Date: new Date(),
+						LastUpdate: new Date(),
+						OsVersion:
+							'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36'
 					}),
 					DataType: 1
 				}
 			},
 			url: this.urls.Data,
 			headers: {
-				Bundle_ID: "de.heinekingmedia.inhouse.dsbmobile.web",
+				Bundle_ID: 'de.heinekingmedia.inhouse.dsbmobile.web',
 				Referer: this.urls.main,
 				Cookie: cookies,
-				"X-Requested-With": "XMLHttpRequest"
+				'X-Requested-With': 'XMLHttpRequest'
 			},
-			onUploadProgress(e) {console.log(JSON.stringify(e))},
-			onDownloadProgress(e) {console.log(JSON.stringify(e))}
+			onUploadProgress(e) {
+				console.log(JSON.stringify(e));
+			},
+			onDownloadProgress(e) {
+				console.log(JSON.stringify(e));
+			}
 		});
-		if (!response.data.d) throw new Error("Invalid data.");
+		if (!response.data.d) throw new Error('Invalid data.');
 		progress(percentage.from(4, 5));
 		const decoded = Decode(response.data.d);
 		progress(percentage.from(5, 5));
@@ -92,10 +107,11 @@ class DSB {
 	async fetchV1(progress = () => {}) {
 		let currentProgress = 0;
 		const loginV1Response = await this.axios({
-			method: "GET",
+			method: 'GET',
 			url: this.urls.loginV1
 		});
-		if (loginV1Response.data === "00000000-0000-0000-0000-000000000000") throw new Error("Login failed.");
+		if (loginV1Response.data === '00000000-0000-0000-0000-000000000000')
+			throw new Error('Login failed.');
 		const id = loginV1Response.data;
 		currentProgress++;
 		progress(percentage.from(currentProgress, 5));
@@ -103,12 +119,12 @@ class DSB {
 			this.axios(this.urls.timetables + id).then(response => {
 				currentProgress++;
 				progress(percentage.from(currentProgress, 5));
-				return Promise.resolve({"timetables": response.data})
+				return Promise.resolve({ timetables: response.data });
 			}),
 			this.axios(this.urls.news + id).then(response => {
 				currentProgress++;
 				progress(percentage.from(currentProgress, 5));
-				return Promise.resolve({"news": response.data})
+				return Promise.resolve({ news: response.data });
 			})
 		]);
 		currentProgress++;
@@ -135,20 +151,25 @@ class DSB {
 	 */
 	async _login(username = this.username, password = this.password) {
 		const response = await this.axios({
-			method: "GET",
+			method: 'GET',
 			url: this.urls.login,
 			params: {
 				user: username,
 				password: password
 			},
 			validateStatus(status) {
-				return (status === 200 || status === 302);
+				return status === 200 || status === 302;
 			},
 			maxRedirects: 0,
-			onUploadProgress(e) {console.log(JSON.stringify(e))},
-			onDownloadProgress(e) {console.log(JSON.stringify(e))}
+			onUploadProgress(e) {
+				console.log(JSON.stringify(e));
+			},
+			onDownloadProgress(e) {
+				console.log(JSON.stringify(e));
+			}
 		});
-		if (!response.headers['set-cookie']) throw new Error("Login failed. Returned no cookies.");
+		if (!response.headers['set-cookie'])
+			throw new Error('Login failed. Returned no cookies.');
 		this.cookies = response.headers['set-cookie'].join('; ');
 		return this.cookies;
 	}
@@ -162,8 +183,8 @@ class DSB {
 	async _checkCookies(cookies = this.cookies) {
 		let returnValue = false;
 		try {
-			returnValue = !!await this.axios({
-				method: "GET",
+			returnValue = !!(await this.axios({
+				method: 'GET',
 				url: this.urls.default,
 				validateStatus(status) {
 					return status === 200;
@@ -171,10 +192,10 @@ class DSB {
 				maxRedirects: 0,
 				headers: {
 					Cookie: cookies,
-					"Cache-Control": "no-cache",
-					Pragma: "no-cache"
+					'Cache-Control': 'no-cache',
+					Pragma: 'no-cache'
 				}
-			});
+			}));
 		} catch (e) {
 			return false;
 		} finally {
@@ -191,7 +212,9 @@ class DSB {
 	async _getSession(progress = () => {}) {
 		let returnValue;
 		try {
-			const cookies = this.cookies ? this.cookies : await this.cache.get();
+			const cookies = this.cookies
+				? this.cookies
+				: await this.cache.get();
 			progress(percentage.from(1, 5));
 			if (await this._checkCookies(cookies)) {
 				returnValue = cookies;
@@ -199,13 +222,17 @@ class DSB {
 			} else {
 				returnValue = await this._login();
 				progress(percentage.from(2, 5));
-				this.cache ? await this.cache.set(returnValue) : this.cookies = returnValue;
+				this.cache
+					? await this.cache.set(returnValue)
+					: (this.cookies = returnValue);
 				progress(percentage.from(3, 5));
 			}
 		} catch (e) {
 			returnValue = await this._login();
 			progress(percentage.from(2, 5));
-			this.cache ? await this.cache.set(returnValue) : this.cookies = returnValue;
+			this.cache
+				? await this.cache.set(returnValue)
+				: (this.cookies = returnValue);
 			progress(percentage.from(3, 5));
 		} finally {
 			return returnValue;
@@ -221,22 +248,25 @@ class DSB {
 	static findMethodInData(method, data) {
 		for (let key in data) {
 			if (!data.hasOwnProperty(key)) continue;
-			if (key === "MethodName") {
+			if (key === 'MethodName') {
 				if (data[key] === method) {
-					if (typeof data["Root"] === "object" && Array.isArray(data["Root"]["Childs"])) {
+					if (
+						typeof data['Root'] === 'object' &&
+						Array.isArray(data['Root']['Childs'])
+					) {
 						let transformData = [];
-						for (let o of data["Root"]["Childs"]) {
+						for (let o of data['Root']['Childs']) {
 							let newObject = {};
 							newObject.title = o.Title;
 							newObject.id = o.Id;
 							newObject.date = o.Date;
-							if (o["Childs"].length === 1) {
-								newObject.url = o["Childs"][0]["Detail"];
-								newObject.preview = o["Childs"][0]["Preview"];
-								newObject.secondTitle = o["Childs"][0]["Title"];
+							if (o['Childs'].length === 1) {
+								newObject.url = o['Childs'][0]['Detail'];
+								newObject.preview = o['Childs'][0]['Preview'];
+								newObject.secondTitle = o['Childs'][0]['Title'];
 							} else {
 								newObject.objects = [];
-								for (let objectOfArray of o["Childs"]) {
+								for (let objectOfArray of o['Childs']) {
 									newObject.objects.push({
 										id: objectOfArray.Id,
 										url: objectOfArray.Detail,
@@ -264,13 +294,12 @@ class DSB {
 }
 
 class DSBSessionStorageManager {
-
 	/**
 	 * Class to store the dsb session
 	 * @param [path=""]
 	 * @param [cookies=""]
 	 */
-	constructor(path = "", cookies = "") {
+	constructor(path = '', cookies = '') {
 		this.path = path;
 		this.cookies = cookies;
 		this.fs = DSBSessionStorageManager.isNode() ? require('fs') : undefined;
@@ -285,7 +314,7 @@ class DSBSessionStorageManager {
 			this.cookies = await new Promise((resolve, reject) => {
 				this.fs.readFile(this.path, (err, data) => {
 					if (err) return reject(err);
-					if (typeof data !== "string") {
+					if (typeof data !== 'string') {
 						let value;
 						try {
 							value = data.toString();
@@ -302,7 +331,7 @@ class DSBSessionStorageManager {
 			return this.cookies;
 		} else {
 			if (window.localStorage) {
-				return window.localStorage.getItem("DSBSession");
+				return window.localStorage.getItem('DSBSession');
 			} else {
 				return this.cookies;
 			}
@@ -314,12 +343,12 @@ class DSBSessionStorageManager {
 	 * @param value
 	 * @returns {Promise.<void>}
 	 */
-	async set(value = "") {
+	async set(value = '') {
 		this.cookies = value;
 		if (DSBSessionStorageManager.isNode()) {
 			try {
 				await new Promise((resolve, reject) => {
-					this.fs.writeFile(this.path, value, (err) => {
+					this.fs.writeFile(this.path, value, err => {
 						if (err) return reject(err);
 						return resolve();
 					});
@@ -327,7 +356,7 @@ class DSBSessionStorageManager {
 			} catch (e) {}
 		} else {
 			if (window.localStorage) {
-				return window.localStorage.setItem("DSBSession", value);
+				return window.localStorage.setItem('DSBSession', value);
 			}
 		}
 	}
@@ -337,9 +366,11 @@ class DSBSessionStorageManager {
 	 * @returns {boolean}
 	 */
 	static isNode() {
-		return Object.prototype.toString.call(global.process) === '[object process]';
+		return (
+			Object.prototype.toString.call(global.process) ===
+			'[object process]'
+		);
 	}
 }
 
 module.exports = DSB;
-export { DSB, DSBSessionStorageManager};
