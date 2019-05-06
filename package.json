@@ -1,35 +1,39 @@
 {
-	"name": "dsbapi",
-	"dependencies": {
-		"axios": "^0.18.0",
-		"pako": "^1.0.4",
-		"percentage-calc": "^0.0.1"
-	},
-	"devDependencies": {
-		"babel-register": "^6.26.0",
-		"chai": "^4.1.2",
-		"joi": "^14.0.6",
-		"jsdoc": "^3.5.4",
-		"jsome": "^2.3.26",
-		"minami": "^1.2.3",
-		"mocha": "^6.0.0"
-	},
-	"version": "3.1.0",
-	"description": "An api for mobile.dsbcontrol.de",
-	"author": "Nils Bergmann <nilsbergmann@noim.io>",
-	"main": "index.es.js",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/TheNoim/DSBAPI.git"
-	},
-	"keywords": [
-		"dsb",
-		"api",
-		"mobile"
-	],
-	"license": "Apache-2.0",
-	"scripts": {
-		"test": "mocha --timeout 7000",
-		"generate-doc": "jsdoc --configure ./.jsdoc.json --verbose index.js"
-	}
+  "name": "dsbapi",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "pako": "^1.0.4",
+    "percentage-calc": "^0.0.1",
+    "snyk": "^1.161.1"
+  },
+  "devDependencies": {
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "joi": "^14.0.6",
+    "jsdoc": "^3.5.4",
+    "jsome": "^2.3.26",
+    "minami": "^1.2.3",
+    "mocha": "^6.0.0"
+  },
+  "version": "3.1.0",
+  "description": "An api for mobile.dsbcontrol.de",
+  "author": "Nils Bergmann <nilsbergmann@noim.io>",
+  "main": "index.es.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheNoim/DSBAPI.git"
+  },
+  "keywords": [
+    "dsb",
+    "api",
+    "mobile"
+  ],
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "mocha --timeout 7000",
+    "generate-doc": "jsdoc --configure ./.jsdoc.json --verbose index.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
