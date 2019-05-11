@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/TheNoim/DSBAPI.svg?branch=master)](https://travis-ci.org/TheNoim/DSBAPI) [![Greenkeeper badge](https://badges.greenkeeper.io/TheNoim/DSBAPI.svg)](https://greenkeeper.io/)
+[![Actions Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/TheNoim/DSBAPI)](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/results/TheNoim/DSBAPI) [![Greenkeeper badge](https://badges.greenkeeper.io/TheNoim/DSBAPI.svg)](https://greenkeeper.io/)
 
 ## Installation
 
@@ -67,8 +67,8 @@ It will probably not work in a normal browser client because of CORS policy
 ```html
 <script src="location/to/index.browser.js"></script>
 <script>
-    const dsb = new DSB("USERNAME", "PASSWORD");
+	const dsb = new DSB('USERNAME', 'PASSWORD');
 
-    // ... go on
+	// ... go on
 </script>
 ```
