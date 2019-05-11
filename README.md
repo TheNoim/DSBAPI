@@ -1,4 +1,4 @@
-[![Actions Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/TheNoim/DSBAPI)](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/results/TheNoim/DSBAPI) [![Greenkeeper badge](https://badges.greenkeeper.io/TheNoim/DSBAPI.svg)](https://greenkeeper.io/)
+![Build Status](https://action-badges.now.sh/TheNoim/DSBAPI) [![Greenkeeper badge](https://badges.greenkeeper.io/TheNoim/DSBAPI.svg)](https://greenkeeper.io/)
 
 ## Installation
 

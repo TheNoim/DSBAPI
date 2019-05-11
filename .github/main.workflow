@@ -10,7 +10,7 @@ action "Install" {
 
 action "Run Tests" {
   uses = "Borales/actions-yarn@master"
-  needs = ["not-tag-filter", "Install"]
+  needs = ["Install"]
   args = "test"
   secrets = ["DSBUSERNAME", "PASSWORD"]
 }
@@ -27,7 +27,7 @@ workflow "Run Test on pull request" {
 
 workflow "Release" {
   resolves = ["Publish"]
-  on = "push"
+  on = "release"
 }
 
 action "Publish" {
@@ -39,7 +39,7 @@ action "Publish" {
 
 action "Generate Docs" {
   uses = "Borales/actions-yarn@master"
-  needs = ["tag-filter"]
+  needs = ["Install"]
   args = "generate-doc"
 }
 
@@ -50,14 +50,4 @@ action "Update Docs" {
     BUILD_DIR = "docs/"
   }
   secrets = ["GH_PAT"]
-}
-
-action "tag-filter" {
-  uses = "actions/bin/filter@master"
-  args = "tag"
-}
-
-action "not-tag-filter" {
-  uses = "actions/bin/filter@master"
-  args = "not tag"
 }
