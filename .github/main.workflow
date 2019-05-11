@@ -1,21 +1,16 @@
-workflow "Run daily tests" {
+workflow "Daily Test" {
   on = "schedule(20 0 * * *)"
-  resolves = ["Run Tests"]
+  resolves = ["Generate Docs"]
 }
 
-workflow "Test on Push" {
-  on = "push"
-  resolves = ["Run Tests"]
-}
-
-workflow "Run Test on pull request" {
-  resolves = ["Run Tests"]
+workflow "Pull Test" {
+  resolves = ["Generate Docs"]
   on = "pull_request"
 }
 
-workflow "Release" {
+workflow "Push Test" {
+  on = "push"
   resolves = ["Publish"]
-  on = "release"
 }
 
 action "Install" {
@@ -36,24 +31,30 @@ action "Run Tests" {
   secrets = ["DSBUSERNAME", "PASSWORD"]
 }
 
-action "Publish" {
-  uses = "Borales/actions-yarn@master"
-  needs = ["Build", "Update Docs"]
-  args = "publish --access public"
-  secrets = ["NPM_AUTH_TOKEN"]
-}
-
 action "Generate Docs" {
   uses = "Borales/actions-yarn@master"
-  needs = ["Build"]
+  needs = ["Run Tests"]
   args = "generate-doc"
 }
 
+action "Tag" {
+  needs = "Generate Docs"
+  uses = "actions/bin/filter@master"
+  args = "tag"
+}
+
 action "Update Docs" {
-  needs = ["Generate Docs"]
+  needs = ["Tag"]
   uses = "maxheld83/ghpages@v0.2.1"
   env = {
     BUILD_DIR = "docs/"
   }
   secrets = ["GH_PAT"]
+}
+
+action "Publish" {
+  uses = "Borales/actions-yarn@master"
+  needs = ["Update Docs"]
+  args = "publish --access public"
+  secrets = ["NPM_AUTH_TOKEN"]
 }
