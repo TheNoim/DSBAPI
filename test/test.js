@@ -6,7 +6,7 @@ const assert = chai.assert;
 chai.should();
 
 describe('Library', function() {
-	const DSB = require('../index');
+	const DSB = require('../dist/index');
 
 	it('should return a function', function() {
 		DSB.should.be.a('function');
@@ -19,7 +19,7 @@ describe('Library', function() {
 });
 
 describe('DSB Instance', function() {
-	const DSB = require('../index');
+	const DSB = require('../dist/index');
 	const dsb = new DSB(process.env.DSBUSERNAME, process.env.PASSWORD);
 
 	it('should be a instanceof DSB', function() {
@@ -43,7 +43,7 @@ describe('DSB Instance', function() {
 });
 
 describe('functions', function() {
-	const DSB = require('../index');
+	const DSB = require('../dist/index');
 	const dsb = new DSB(process.env.DSBUSERNAME, process.env.PASSWORD);
 
 	it('should not throw', function(done) {
@@ -98,7 +98,7 @@ describe('functions', function() {
 });
 
 describe('functions v1', function() {
-	const DSB = require('../index');
+	const DSB = require('../dist/index');
 	const dsb = new DSB(process.env.DSBUSERNAME, process.env.PASSWORD);
 
 	it('should not throw', function(done) {

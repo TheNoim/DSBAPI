@@ -56,3 +56,7 @@ cache.json
 .DS_Store
 
 _test.js
+
+docs/
+
+dist/

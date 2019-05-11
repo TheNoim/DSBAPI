@@ -16,7 +16,7 @@ _Note: Requires `node >= 8`_
 
 ### Read the Documentation
 
-##### [http://noim.me/DSBAPI/dsbapi/3.0.0/](http://noim.me/DSBAPI/dsbapi/3.0.0/)
+##### [http://noim.me/DSBAPI/dsbapi/](http://noim.me/DSBAPI/dsbapi/)
 
 ### In NodeJS
 

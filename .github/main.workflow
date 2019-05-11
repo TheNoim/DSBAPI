@@ -8,9 +8,15 @@ action "Install" {
   args = "install"
 }
 
+action "Build" {
+  uses = "Borales/actions-yarn@master"
+  args = "build"
+  needs = ["Install"]
+}
+
 action "Run Tests" {
   uses = "Borales/actions-yarn@master"
-  needs = ["Install"]
+  needs = ["Build"]
   args = "test"
   secrets = ["DSBUSERNAME", "PASSWORD"]
 }
@@ -32,14 +38,14 @@ workflow "Release" {
 
 action "Publish" {
   uses = "Borales/actions-yarn@master"
-  needs = ["Install", "Update Docs"]
+  needs = ["Build", "Update Docs"]
   args = "publish --access public"
   secrets = ["NPM_AUTH_TOKEN"]
 }
 
 action "Generate Docs" {
   uses = "Borales/actions-yarn@master"
-  needs = ["Install"]
+  needs = ["Build"]
   args = "generate-doc"
 }
 

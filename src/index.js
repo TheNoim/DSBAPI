@@ -1,11 +1,11 @@
-const Encode = require('./DSBEncoding');
-const Decode = require('./DSBDecode');
-const percentage = require('percentage-calc');
+import Encode from './DSBEncoding';
+import Decode from './DSBDecode';
+import percentage from 'percentage-calc';
 
 /**
  * Main Library class
  */
-class DSB {
+export default class DSB {
 	/**
 	 *
 	 * @param {String|Number} username
@@ -21,9 +21,21 @@ class DSB {
 		cache = false,
 		axios = require('axios')
 	) {
+		/**
+		 * @private
+		 */
 		this.username = username;
+		/**
+		 * @private
+		 */
 		this.password = password;
+		/**
+		 * @private
+		 */
 		this.axios = axios;
+		/**
+		 * @private
+		 */
 		this.urls = {
 			login: 'https://mobile.dsbcontrol.de/dsbmobilepage.aspx',
 			main: 'https://www.dsbmobile.de/',
@@ -36,11 +48,21 @@ class DSB {
 				'https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/timetables/',
 			news: 'https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/news/'
 		};
+		/**
+		 * @private
+		 */
 		this.cookies = cookies;
+		/**
+		 * @private
+		 */
 		this.axios.defaults.headers.common['User-Agent'] =
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36';
-		if (cache)
+		if (cache) {
+			/**
+			 * @private
+			 */
 			this.cache = new DSBSessionStorageManager(cache, this.cookies);
+		}
 	}
 
 	/**
@@ -372,5 +394,3 @@ class DSBSessionStorageManager {
 		);
 	}
 }
-
-module.exports = DSB;
