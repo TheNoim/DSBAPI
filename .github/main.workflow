@@ -3,6 +3,21 @@ workflow "Run daily tests" {
   resolves = ["Run Tests"]
 }
 
+workflow "Test on Push" {
+  on = "push"
+  resolves = ["Run Tests"]
+}
+
+workflow "Run Test on pull request" {
+  resolves = ["Run Tests"]
+  on = "pull_request"
+}
+
+workflow "Release" {
+  resolves = ["Publish"]
+  on = "release"
+}
+
 action "Install" {
   uses = "Borales/actions-yarn@master"
   args = "install"
@@ -19,21 +34,6 @@ action "Run Tests" {
   needs = ["Build"]
   args = "test"
   secrets = ["DSBUSERNAME", "PASSWORD"]
-}
-
-workflow "Test on Push" {
-  on = "push"
-  resolves = ["Run Tests"]
-}
-
-workflow "Run Test on pull request" {
-  resolves = ["Run Tests"]
-  on = "pull_request"
-}
-
-workflow "Release" {
-  resolves = ["Publish"]
-  on = "release"
 }
 
 action "Publish" {
