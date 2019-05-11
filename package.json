@@ -36,8 +36,8 @@
 		"test": "mocha --timeout 7000",
 		"generate-doc": "esdoc",
 		"build": "rollup src/index.js --format umd --name \"dsbapi\" --file ./dist/index.js",
-		"patch": "npm version patch && git push && git push --tags",
-		"minor": "npm version minor && git push && git push --tags",
-		"major": "npm version major && git push && git push --tags"
+		"patch": "npm version patch && git push --follow-tags",
+		"minor": "npm version minor && git push --follow-tags",
+		"major": "npm version major && git push --follow-tags"
 	}
 }
