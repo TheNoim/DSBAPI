@@ -34,7 +34,7 @@
 	"license": "Apache-2.0",
 	"scripts": {
 		"test": "mocha --timeout 7000",
-		"generate-doc": "jsdoc --configure ./.jsdoc.json --verbose index.js",
+		"generate-doc": "esdoc",
 		"build": "rollup src/index.js --format umd --name \"dsbapi\" --file ./dist/index.js",
 		"patch": "npm version patch && git push && git push --tags",
 		"minor": "npm version minor && git push && git push --tags",
