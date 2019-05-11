@@ -27,12 +27,12 @@ workflow "Run Test on pull request" {
 
 workflow "Release" {
   resolves = ["Publish"]
-  on = "release"
+  on = "push"
 }
 
 action "Publish" {
   uses = "Borales/actions-yarn@master"
-  needs = ["Install", "Update Docs"]
+  needs = ["tag-filter", "Install", "Update Docs"]
   args = "publish --access public"
   secrets = ["NPM_AUTH_TOKEN"]
 }
@@ -50,4 +50,9 @@ action "Update Docs" {
     BUILD_DIR = "docs/"
   }
   secrets = ["GH_PAT"]
+}
+
+action "tag-filter" {
+  uses = "actions/bin/filter@master"
+  args = "tag"
 }
