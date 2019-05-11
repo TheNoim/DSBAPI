@@ -14,3 +14,8 @@ action "Run Tests" {
   args = "test"
   secrets = ["DSBUSERNAME", "PASSWORD"]
 }
+
+workflow "Test on Push" {
+  on = "push"
+  resolves = ["Run Tests"]
+}
