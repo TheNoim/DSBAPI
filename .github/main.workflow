@@ -19,3 +19,8 @@ workflow "Test on Push" {
   on = "push"
   resolves = ["Run Tests"]
 }
+
+workflow "Run Test on pull request" {
+  resolves = ["Run Tests"]
+  on = "pull_request"
+}
