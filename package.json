@@ -16,7 +16,7 @@
 		"jsome": "^2.3.26",
 		"minami": "^1.2.3",
 		"mocha": "^6.0.0",
-		"rollup": "1.12.3"
+		"rollup": "1.12.4"
 	},
 	"version": "3.2.5",
 	"description": "An api for mobile.dsbcontrol.de",
