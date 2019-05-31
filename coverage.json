@@ -1,0 +1,49 @@
+{
+  "coverage": "45.45%",
+  "expectCount": 44,
+  "actualCount": 20,
+  "files": {
+    "src/DSBDecode.js": {
+      "expectCount": 18,
+      "actualCount": 1,
+      "undocumentLines": [
+        3,
+        36,
+        410,
+        446,
+        491,
+        505,
+        516,
+        531,
+        537,
+        551,
+        567,
+        599,
+        631,
+        654,
+        722,
+        739,
+        796
+      ]
+    },
+    "src/DSBEncoding.js": {
+      "expectCount": 4,
+      "actualCount": 1,
+      "undocumentLines": [
+        3,
+        4,
+        20
+      ]
+    },
+    "src/index.js": {
+      "expectCount": 22,
+      "actualCount": 18,
+      "undocumentLines": [
+        318,
+        325,
+        326,
+        327
+      ]
+    }
+  }
+}

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/index.js | dsbapi</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="An api for mobile.dsbcontrol.de"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="dsbapi"><meta property="twitter:description" content="An api for mobile.dsbcontrol.de"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/TheNoim/DSBAPI.git"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/index.js~DSB.html">DSB</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Encode from &apos;./DSBEncoding&apos;;
+import Decode from &apos;./DSBDecode&apos;;
+import percentage from &apos;percentage-calc&apos;;
+
+/**
+ * Main Library class
+ */
+export default class DSB {
+	/**
+	 *
+	 * @param {String|Number} username
+	 * @param {String|Number} password
+	 * @param {String} [cookies=&quot;&quot;] If you already have session cookies, you can add them here.
+	 * @param {String|Boolean} [cache=false] In the browser just a boolean and in node a path string. If you don&apos;t want to use any cache just use undefined, null or false.
+	 * @param {Axios} [axios=require(&apos;axios&apos;)] Pass your custom axios instance if you want.
+	 */
+	constructor(
+		username,
+		password,
+		cookies = &apos;&apos;,
+		cache = false,
+		axios = require(&apos;axios&apos;)
+	) {
+		/**
+		 * @private
+		 */
+		this.username = username;
+		/**
+		 * @private
+		 */
+		this.password = password;
+		/**
+		 * @private
+		 */
+		this.axios = axios;
+		/**
+		 * @private
+		 */
+		this.urls = {
+			login: &apos;https://mobile.dsbcontrol.de/dsbmobilepage.aspx&apos;,
+			main: &apos;https://www.dsbmobile.de/&apos;,
+			Data: &apos;http://www.dsbmobile.de/JsonHandlerWeb.ashx/GetData&apos;,
+			default: &apos;https://www.dsbmobile.de/default.aspx&apos;,
+			loginV1: `https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/authid/${
+				this.username
+			}/${this.password}`,
+			timetables:
+				&apos;https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/timetables/&apos;,
+			news: &apos;https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/news/&apos;
+		};
+		/**
+		 * @private
+		 */
+		this.cookies = cookies;
+		/**
+		 * @private
+		 */
+		this.axios.defaults.headers.common[&apos;User-Agent&apos;] =
+			&apos;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36&apos;;
+		if (cache) {
+			/**
+			 * @private
+			 */
+			this.cache = new DSBSessionStorageManager(cache, this.cookies);
+		}
+	}
+
+	/**
+	 * @callback ProgressCallback
+	 * @param {Number} progress - A number between 0 and 100
+	 */
+
+	/**
+	 * Fetch data
+	 * @param {ProgressCallback} [progress]
+	 * @returns {Promise.&lt;Object&gt;}
+	 */
+	async fetch(progress = () =&gt; {}) {
+		const cookies = await this._getSession(progress);
+		// Progress State: 3
+		const response = await this.axios({
+			method: &apos;POST&apos;,
+			data: {
+				req: {
+					Data: Encode({
+						UserId: &apos;&apos;,
+						UserPw: &apos;&apos;,
+						Abos: [],
+						AppVersion: &apos;2.3&apos;,
+						Language: &apos;de&apos;,
+						AppId: &apos;&apos;,
+						Device: &apos;WebApp&apos;,
+						PushId: &apos;&apos;,
+						BundleId: &apos;de.heinekingmedia.inhouse.dsbmobile.web&apos;,
+						Date: new Date(),
+						LastUpdate: new Date(),
+						OsVersion:
+							&apos;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36&apos;
+					}),
+					DataType: 1
+				}
+			},
+			url: this.urls.Data,
+			headers: {
+				Bundle_ID: &apos;de.heinekingmedia.inhouse.dsbmobile.web&apos;,
+				Referer: this.urls.main,
+				Cookie: cookies,
+				&apos;X-Requested-With&apos;: &apos;XMLHttpRequest&apos;
+			},
+			onUploadProgress(e) {
+				console.log(JSON.stringify(e));
+			},
+			onDownloadProgress(e) {
+				console.log(JSON.stringify(e));
+			}
+		});
+		if (!response.data.d) throw new Error(&apos;Invalid data.&apos;);
+		progress(percentage.from(4, 5));
+		const decoded = Decode(response.data.d);
+		progress(percentage.from(5, 5));
+		return decoded;
+	}
+
+	/**
+	 * Fetch data from the original iphone api (Only news and timetables supported)
+	 * @param {ProgressCallback} [progress]
+	 * @returns {Promise.&lt;Object&gt;}
+	 */
+	async fetchV1(progress = () =&gt; {}) {
+		let currentProgress = 0;
+		const loginV1Response = await this.axios({
+			method: &apos;GET&apos;,
+			url: this.urls.loginV1
+		});
+		if (loginV1Response.data === &apos;00000000-0000-0000-0000-000000000000&apos;)
+			throw new Error(&apos;Login failed.&apos;);
+		const id = loginV1Response.data;
+		currentProgress++;
+		progress(percentage.from(currentProgress, 5));
+		const data = await Promise.all([
+			this.axios(this.urls.timetables + id).then(response =&gt; {
+				currentProgress++;
+				progress(percentage.from(currentProgress, 5));
+				return Promise.resolve({ timetables: response.data });
+			}),
+			this.axios(this.urls.news + id).then(response =&gt; {
+				currentProgress++;
+				progress(percentage.from(currentProgress, 5));
+				return Promise.resolve({ news: response.data });
+			})
+		]);
+		currentProgress++;
+		progress(percentage.from(currentProgress, 5));
+		let newData = {};
+		for (let fragment of data) {
+			for (let key in fragment) {
+				if (fragment.hasOwnProperty(key)) {
+					newData[key] = fragment[key];
+				}
+			}
+		}
+		currentProgress++;
+		progress(percentage.from(currentProgress, 5));
+		return newData;
+	}
+
+	/**
+	 * Login with username and password
+	 * @param {String|Number} [username=this.username]
+	 * @param {String|Number} [password=this.password]
+	 * @returns {Promise.&lt;String&gt;}
+	 * @private
+	 */
+	async _login(username = this.username, password = this.password) {
+		const response = await this.axios({
+			method: &apos;GET&apos;,
+			url: this.urls.login,
+			params: {
+				user: username,
+				password: password
+			},
+			validateStatus(status) {
+				return status === 200 || status === 302;
+			},
+			maxRedirects: 0,
+			onUploadProgress(e) {
+				console.log(JSON.stringify(e));
+			},
+			onDownloadProgress(e) {
+				console.log(JSON.stringify(e));
+			}
+		});
+		if (!response.headers[&apos;set-cookie&apos;])
+			throw new Error(&apos;Login failed. Returned no cookies.&apos;);
+		this.cookies = response.headers[&apos;set-cookie&apos;].join(&apos;; &apos;);
+		return this.cookies;
+	}
+
+	/**
+	 * Checks if dsb session cookie is valid
+	 * @param {String} [cookies=this.cookies]
+	 * @returns {Promise.&lt;boolean&gt;}
+	 * @private
+	 */
+	async _checkCookies(cookies = this.cookies) {
+		let returnValue = false;
+		try {
+			returnValue = !!(await this.axios({
+				method: &apos;GET&apos;,
+				url: this.urls.default,
+				validateStatus(status) {
+					return status === 200;
+				},
+				maxRedirects: 0,
+				headers: {
+					Cookie: cookies,
+					&apos;Cache-Control&apos;: &apos;no-cache&apos;,
+					Pragma: &apos;no-cache&apos;
+				}
+			}));
+		} catch (e) {
+			return false;
+		} finally {
+			return returnValue;
+		}
+	}
+
+	/**
+	 * Get a valid session
+	 * @param {Function} [progress]
+	 * @returns {Promise.&lt;String&gt;}
+	 * @private
+	 */
+	async _getSession(progress = () =&gt; {}) {
+		let returnValue;
+		try {
+			const cookies = this.cookies
+				? this.cookies
+				: await this.cache.get();
+			progress(percentage.from(1, 5));
+			if (await this._checkCookies(cookies)) {
+				returnValue = cookies;
+				progress(percentage.from(3, 5));
+			} else {
+				returnValue = await this._login();
+				progress(percentage.from(2, 5));
+				this.cache
+					? await this.cache.set(returnValue)
+					: (this.cookies = returnValue);
+				progress(percentage.from(3, 5));
+			}
+		} catch (e) {
+			returnValue = await this._login();
+			progress(percentage.from(2, 5));
+			this.cache
+				? await this.cache.set(returnValue)
+				: (this.cookies = returnValue);
+			progress(percentage.from(3, 5));
+		} finally {
+			return returnValue;
+		}
+	}
+
+	/**
+	 * [Experimental] Try to get just the important data from the data you get back from fetch()
+	 * @param {String} method - The method name to search for (z.B tiles or timetable)
+	 * @param {Object} data - Data returned by fetch()
+	 * @returns {Object}
+	 */
+	static findMethodInData(method, data) {
+		for (let key in data) {
+			if (!data.hasOwnProperty(key)) continue;
+			if (key === &apos;MethodName&apos;) {
+				if (data[key] === method) {
+					if (
+						typeof data[&apos;Root&apos;] === &apos;object&apos; &amp;&amp;
+						Array.isArray(data[&apos;Root&apos;][&apos;Childs&apos;])
+					) {
+						let transformData = [];
+						for (let o of data[&apos;Root&apos;][&apos;Childs&apos;]) {
+							let newObject = {};
+							newObject.title = o.Title;
+							newObject.id = o.Id;
+							newObject.date = o.Date;
+							if (o[&apos;Childs&apos;].length === 1) {
+								newObject.url = o[&apos;Childs&apos;][0][&apos;Detail&apos;];
+								newObject.preview = o[&apos;Childs&apos;][0][&apos;Preview&apos;];
+								newObject.secondTitle = o[&apos;Childs&apos;][0][&apos;Title&apos;];
+							} else {
+								newObject.objects = [];
+								for (let objectOfArray of o[&apos;Childs&apos;]) {
+									newObject.objects.push({
+										id: objectOfArray.Id,
+										url: objectOfArray.Detail,
+										preview: objectOfArray.Preview,
+										title: objectOfArray.Title,
+										date: objectOfArray.Date
+									});
+								}
+							}
+							transformData.push(newObject);
+						}
+						return {
+							method: method,
+							data: transformData
+						};
+					}
+				}
+			}
+			if (Array.isArray(data[key]) || typeof data[key] === &apos;object&apos;) {
+				const find = DSB.findMethodInData(method, data[key]);
+				if (find) return find;
+			}
+		}
+	}
+}
+
+class DSBSessionStorageManager {
+	/**
+	 * Class to store the dsb session
+	 * @param [path=&quot;&quot;]
+	 * @param [cookies=&quot;&quot;]
+	 */
+	constructor(path = &apos;&apos;, cookies = &apos;&apos;) {
+		this.path = path;
+		this.cookies = cookies;
+		this.fs = DSBSessionStorageManager.isNode() ? require(&apos;fs&apos;) : undefined;
+	}
+
+	/**
+	 * Retrieves session from cache.
+	 * @returns {Promise.&lt;String&gt;}
+	 */
+	async get() {
+		if (DSBSessionStorageManager.isNode()) {
+			this.cookies = await new Promise((resolve, reject) =&gt; {
+				this.fs.readFile(this.path, (err, data) =&gt; {
+					if (err) return reject(err);
+					if (typeof data !== &apos;string&apos;) {
+						let value;
+						try {
+							value = data.toString();
+						} catch (e) {
+							return reject(e);
+						} finally {
+							return resolve(value);
+						}
+					} else {
+						return resolve(data);
+					}
+				});
+			});
+			return this.cookies;
+		} else {
+			if (window.localStorage) {
+				return window.localStorage.getItem(&apos;DSBSession&apos;);
+			} else {
+				return this.cookies;
+			}
+		}
+	}
+
+	/**
+	 * Sets the session in the cache.
+	 * @param value
+	 * @returns {Promise.&lt;void&gt;}
+	 */
+	async set(value = &apos;&apos;) {
+		this.cookies = value;
+		if (DSBSessionStorageManager.isNode()) {
+			try {
+				await new Promise((resolve, reject) =&gt; {
+					this.fs.writeFile(this.path, value, err =&gt; {
+						if (err) return reject(err);
+						return resolve();
+					});
+				});
+			} catch (e) {}
+		} else {
+			if (window.localStorage) {
+				return window.localStorage.setItem(&apos;DSBSession&apos;, value);
+			}
+		}
+	}
+
+	/**
+	 * Checks if this module is running in a browser env or node env.
+	 * @returns {boolean}
+	 */
+	static isNode() {
+		return (
+			Object.prototype.toString.call(global.process) ===
+			&apos;[object process]&apos;
+		);
+	}
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

@@ -1,0 +1,2063 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 49,
+    "kind": "external",
+    "name": "http~ClientRequest",
+    "externalLink": "https://nodejs.org/dist/latest/docs/api/http.html#http_class_http_clientrequest",
+    "memberof": "src/.external-nodejs.js",
+    "static": true,
+    "longname": "src/.external-nodejs.js~http~ClientRequest",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 50,
+    "kind": "file",
+    "name": "src/DSBDecode.js",
+    "content": "import pako from 'pako';\n\nfunction atob(a) {\n\tfor (\n\t\tvar b,\n\t\t\tc,\n\t\t\td =\n\t\t\t\t'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',\n\t\t\te = String(a).replace(/=+$/, ''),\n\t\t\tf = 0,\n\t\t\tg = 0,\n\t\t\th = '';\n\t\t(c = e.charAt(g++));\n\t\t~c && ((b = f % 4 ? 64 * b + c : c), f++ % 4)\n\t\t\t? (h += String.fromCharCode(255 & (b >> ((-2 * f) & 6))))\n\t\t\t: 0\n\t)\n\t\tc = d.indexOf(c);\n\treturn h;\n}\n\n/**\n *\n * @private\n * @param {*} ToDecode\n */\nexport default function(ToDecode) {\n\tvar b = StringView.base64ToBytes(ToDecode),\n\t\tc = pako.inflate(b),\n\t\td = new StringView(c),\n\t\te = d.toString(),\n\t\tf = JSON.parse(e);\n\treturn f;\n}\n\nfunction StringView(\n\tvInput,\n\tsEncoding /* optional (default: UTF-8) */,\n\tnOffset /* optional */,\n\tnLength /* optional */\n) {\n\tvar fTAView,\n\t\taWhole,\n\t\taRaw,\n\t\tfPutOutptCode,\n\t\tfGetOutptChrSize,\n\t\tnInptLen,\n\t\tnStartIdx = isFinite(nOffset) ? nOffset : 0,\n\t\tnTranscrType = 15;\n\n\tif (sEncoding) {\n\t\tthis.encoding = sEncoding.toString();\n\t}\n\n\tencSwitch: switch (this.encoding) {\n\t\tcase 'UTF-8':\n\t\t\tfPutOutptCode = StringView.putUTF8CharCode;\n\t\t\tfGetOutptChrSize = StringView.getUTF8CharLength;\n\t\t\tfTAView = Uint8Array;\n\t\t\tbreak encSwitch;\n\t\tcase 'UTF-16':\n\t\t\tfPutOutptCode = StringView.putUTF16CharCode;\n\t\t\tfGetOutptChrSize = StringView.getUTF16CharLength;\n\t\t\tfTAView = Uint16Array;\n\t\t\tbreak encSwitch;\n\t\tcase 'UTF-32':\n\t\t\tfTAView = Uint32Array;\n\t\t\tnTranscrType &= 14;\n\t\t\tbreak encSwitch;\n\t\tdefault:\n\t\t\t/* case \"ASCII\", or case \"BinaryString\" or unknown cases */\n\t\t\tfTAView = Uint8Array;\n\t\t\tnTranscrType &= 14;\n\t}\n\n\ttypeSwitch: switch (typeof vInput) {\n\t\tcase 'string':\n\t\t\t/* the input argument is a primitive string: a new buffer will be created. */\n\t\t\tnTranscrType &= 7;\n\t\t\tbreak typeSwitch;\n\t\tcase 'object':\n\t\t\tclassSwitch: switch (vInput.constructor) {\n\t\t\t\tcase StringView:\n\t\t\t\t\t/* the input argument is a stringView: a new buffer will be created. */\n\t\t\t\t\tnTranscrType &= 3;\n\t\t\t\t\tbreak typeSwitch;\n\t\t\t\tcase String:\n\t\t\t\t\t/* the input argument is an objectified string: a new buffer will be created. */\n\t\t\t\t\tnTranscrType &= 7;\n\t\t\t\t\tbreak typeSwitch;\n\t\t\t\tcase ArrayBuffer:\n\t\t\t\t\t/* the input argument is an arrayBuffer: the buffer will be shared. */\n\t\t\t\t\taWhole = new fTAView(vInput);\n\t\t\t\t\tnInptLen =\n\t\t\t\t\t\tthis.encoding === 'UTF-32'\n\t\t\t\t\t\t\t? vInput.byteLength >>> 2\n\t\t\t\t\t\t\t: this.encoding === 'UTF-16'\n\t\t\t\t\t\t\t? vInput.byteLength >>> 1\n\t\t\t\t\t\t\t: vInput.byteLength;\n\t\t\t\t\taRaw =\n\t\t\t\t\t\tnStartIdx === 0 &&\n\t\t\t\t\t\t(!isFinite(nLength) || nLength === nInptLen)\n\t\t\t\t\t\t\t? aWhole\n\t\t\t\t\t\t\t: new fTAView(\n\t\t\t\t\t\t\t\t\tvInput,\n\t\t\t\t\t\t\t\t\tnStartIdx,\n\t\t\t\t\t\t\t\t\t!isFinite(nLength)\n\t\t\t\t\t\t\t\t\t\t? nInptLen - nStartIdx\n\t\t\t\t\t\t\t\t\t\t: nLength\n\t\t\t\t\t\t\t  );\n\n\t\t\t\t\tbreak typeSwitch;\n\t\t\t\tcase Uint32Array:\n\t\t\t\tcase Uint16Array:\n\t\t\t\tcase Uint8Array:\n\t\t\t\t\t/* the input argument is a typedArray: the buffer, and possibly the array itself, will be shared. */\n\t\t\t\t\tfTAView = vInput.constructor;\n\t\t\t\t\tnInptLen = vInput.length;\n\t\t\t\t\taWhole =\n\t\t\t\t\t\tvInput.byteOffset === 0 &&\n\t\t\t\t\t\tvInput.length ===\n\t\t\t\t\t\t\t(fTAView === Uint32Array\n\t\t\t\t\t\t\t\t? vInput.buffer.byteLength >>> 2\n\t\t\t\t\t\t\t\t: fTAView === Uint16Array\n\t\t\t\t\t\t\t\t? vInput.buffer.byteLength >>> 1\n\t\t\t\t\t\t\t\t: vInput.buffer.byteLength)\n\t\t\t\t\t\t\t? vInput\n\t\t\t\t\t\t\t: new fTAView(vInput.buffer);\n\t\t\t\t\taRaw =\n\t\t\t\t\t\tnStartIdx === 0 &&\n\t\t\t\t\t\t(!isFinite(nLength) || nLength === nInptLen)\n\t\t\t\t\t\t\t? vInput\n\t\t\t\t\t\t\t: vInput.subarray(\n\t\t\t\t\t\t\t\t\tnStartIdx,\n\t\t\t\t\t\t\t\t\tisFinite(nLength)\n\t\t\t\t\t\t\t\t\t\t? nStartIdx + nLength\n\t\t\t\t\t\t\t\t\t\t: nInptLen\n\t\t\t\t\t\t\t  );\n\n\t\t\t\t\tbreak typeSwitch;\n\t\t\t\tdefault:\n\t\t\t\t\t/* the input argument is an array or another serializable object: a new typedArray will be created. */\n\t\t\t\t\taWhole = new fTAView(vInput);\n\t\t\t\t\tnInptLen = aWhole.length;\n\t\t\t\t\taRaw =\n\t\t\t\t\t\tnStartIdx === 0 &&\n\t\t\t\t\t\t(!isFinite(nLength) || nLength === nInptLen)\n\t\t\t\t\t\t\t? aWhole\n\t\t\t\t\t\t\t: aWhole.subarray(\n\t\t\t\t\t\t\t\t\tnStartIdx,\n\t\t\t\t\t\t\t\t\tisFinite(nLength)\n\t\t\t\t\t\t\t\t\t\t? nStartIdx + nLength\n\t\t\t\t\t\t\t\t\t\t: nInptLen\n\t\t\t\t\t\t\t  );\n\t\t\t}\n\t\t\tbreak typeSwitch;\n\t\tdefault:\n\t\t\t/* the input argument is a number, a boolean or a function: a new typedArray will be created. */\n\t\t\taWhole = aRaw = new fTAView(Number(vInput) || 0);\n\t}\n\n\tif (nTranscrType < 8) {\n\t\tvar vSource,\n\t\t\tnOutptLen,\n\t\t\tnCharStart,\n\t\t\tnCharEnd,\n\t\t\tnEndIdx,\n\t\t\tfGetInptChrSize,\n\t\t\tfGetInptChrCode;\n\n\t\tif (nTranscrType & 4) {\n\t\t\t/* input is string */\n\n\t\t\tvSource = vInput;\n\t\t\tnOutptLen = nInptLen = vSource.length;\n\t\t\tnTranscrType ^= this.encoding === 'UTF-32' ? 0 : 2;\n\t\t\t/* ...or...: nTranscrType ^= Number(this.encoding !== \"UTF-32\") << 1; */\n\t\t\tnStartIdx = nCharStart = nOffset\n\t\t\t\t? Math.max((nOutptLen + nOffset) % nOutptLen, 0)\n\t\t\t\t: 0;\n\t\t\tnEndIdx = nCharEnd =\n\t\t\t\t(Number.isInteger(nLength)\n\t\t\t\t\t? Math.min(Math.max(nLength, 0) + nStartIdx, nOutptLen)\n\t\t\t\t\t: nOutptLen) - 1;\n\t\t} else {\n\t\t\t/* input is stringView */\n\n\t\t\tvSource = vInput.rawData;\n\t\t\tnInptLen = vInput.makeIndex();\n\t\t\tnStartIdx = nCharStart = nOffset\n\t\t\t\t? Math.max((nInptLen + nOffset) % nInptLen, 0)\n\t\t\t\t: 0;\n\t\t\tnOutptLen = Number.isInteger(nLength)\n\t\t\t\t? Math.min(Math.max(nLength, 0), nInptLen - nCharStart)\n\t\t\t\t: nInptLen;\n\t\t\tnEndIdx = nCharEnd = nOutptLen + nCharStart;\n\n\t\t\tif (vInput.encoding === 'UTF-8') {\n\t\t\t\tfGetInptChrSize = StringView.getUTF8CharLength;\n\t\t\t\tfGetInptChrCode = StringView.loadUTF8CharCode;\n\t\t\t} else if (vInput.encoding === 'UTF-16') {\n\t\t\t\tfGetInptChrSize = StringView.getUTF16CharLength;\n\t\t\t\tfGetInptChrCode = StringView.loadUTF16CharCode;\n\t\t\t} else {\n\t\t\t\tnTranscrType &= 1;\n\t\t\t}\n\t\t}\n\n\t\tif (\n\t\t\tnOutptLen === 0 ||\n\t\t\t(nTranscrType < 4 &&\n\t\t\t\tvSource.encoding === this.encoding &&\n\t\t\t\tnCharStart === 0 &&\n\t\t\t\tnOutptLen === nInptLen)\n\t\t) {\n\t\t\t/* the encoding is the same, the length too and the offset is 0... or the input is empty! */\n\n\t\t\tnTranscrType = 7;\n\t\t}\n\n\t\tconversionSwitch: switch (nTranscrType) {\n\t\t\tcase 0:\n\t\t\t\t/* both the source and the new StringView have a fixed-length encoding... */\n\n\t\t\t\taWhole = new fTAView(nOutptLen);\n\t\t\t\tfor (\n\t\t\t\t\tvar nOutptIdx = 0;\n\t\t\t\t\tnOutptIdx < nOutptLen;\n\t\t\t\t\taWhole[nOutptIdx] = vSource[nStartIdx + nOutptIdx++]\n\t\t\t\t);\n\t\t\t\tbreak conversionSwitch;\n\n\t\t\tcase 1:\n\t\t\t\t/* the source has a fixed-length encoding but the new StringView has a variable-length encoding... */\n\n\t\t\t\t/* mapping... */\n\n\t\t\t\tnOutptLen = 0;\n\n\t\t\t\tfor (var nInptIdx = nStartIdx; nInptIdx < nEndIdx; nInptIdx++) {\n\t\t\t\t\tnOutptLen += fGetOutptChrSize(vSource[nInptIdx]);\n\t\t\t\t}\n\n\t\t\t\taWhole = new fTAView(nOutptLen);\n\n\t\t\t\t/* transcription of the source... */\n\n\t\t\t\tfor (\n\t\t\t\t\tvar nInptIdx = nStartIdx, nOutptIdx = 0;\n\t\t\t\t\tnOutptIdx < nOutptLen;\n\t\t\t\t\tnInptIdx++\n\t\t\t\t) {\n\t\t\t\t\tnOutptIdx = fPutOutptCode(\n\t\t\t\t\t\taWhole,\n\t\t\t\t\t\tvSource[nInptIdx],\n\t\t\t\t\t\tnOutptIdx\n\t\t\t\t\t);\n\t\t\t\t}\n\n\t\t\t\tbreak conversionSwitch;\n\n\t\t\tcase 2:\n\t\t\t\t/* the source has a variable-length encoding but the new StringView has a fixed-length encoding... */\n\n\t\t\t\t/* mapping... */\n\n\t\t\t\tnStartIdx = 0;\n\n\t\t\t\tvar nChrCode;\n\n\t\t\t\tfor (nChrIdx = 0; nChrIdx < nCharStart; nChrIdx++) {\n\t\t\t\t\tnChrCode = fGetInptChrCode(vSource, nStartIdx);\n\t\t\t\t\tnStartIdx += fGetInptChrSize(nChrCode);\n\t\t\t\t}\n\n\t\t\t\taWhole = new fTAView(nOutptLen);\n\n\t\t\t\t/* transcription of the source... */\n\n\t\t\t\tfor (\n\t\t\t\t\tvar nInptIdx = nStartIdx, nOutptIdx = 0;\n\t\t\t\t\tnOutptIdx < nOutptLen;\n\t\t\t\t\tnInptIdx += fGetInptChrSize(nChrCode), nOutptIdx++\n\t\t\t\t) {\n\t\t\t\t\tnChrCode = fGetInptChrCode(vSource, nInptIdx);\n\t\t\t\t\taWhole[nOutptIdx] = nChrCode;\n\t\t\t\t}\n\n\t\t\t\tbreak conversionSwitch;\n\n\t\t\tcase 3:\n\t\t\t\t/* both the source and the new StringView have a variable-length encoding... */\n\n\t\t\t\t/* mapping... */\n\n\t\t\t\tnOutptLen = 0;\n\n\t\t\t\tvar nChrCode;\n\n\t\t\t\tfor (\n\t\t\t\t\tvar nChrIdx = 0, nInptIdx = 0;\n\t\t\t\t\tnChrIdx < nCharEnd;\n\t\t\t\t\tnInptIdx += fGetInptChrSize(nChrCode)\n\t\t\t\t) {\n\t\t\t\t\tnChrCode = fGetInptChrCode(vSource, nInptIdx);\n\t\t\t\t\tif (nChrIdx === nCharStart) {\n\t\t\t\t\t\tnStartIdx = nInptIdx;\n\t\t\t\t\t}\n\t\t\t\t\tif (++nChrIdx > nCharStart) {\n\t\t\t\t\t\tnOutptLen += fGetOutptChrSize(nChrCode);\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\taWhole = new fTAView(nOutptLen);\n\n\t\t\t\t/* transcription... */\n\n\t\t\t\tfor (\n\t\t\t\t\tvar nInptIdx = nStartIdx, nOutptIdx = 0;\n\t\t\t\t\tnOutptIdx < nOutptLen;\n\t\t\t\t\tnInptIdx += fGetInptChrSize(nChrCode)\n\t\t\t\t) {\n\t\t\t\t\tnChrCode = fGetInptChrCode(vSource, nInptIdx);\n\t\t\t\t\tnOutptIdx = fPutOutptCode(aWhole, nChrCode, nOutptIdx);\n\t\t\t\t}\n\n\t\t\t\tbreak conversionSwitch;\n\n\t\t\tcase 4:\n\t\t\t\t/* DOMString to ASCII or BinaryString or other unknown encodings */\n\n\t\t\t\taWhole = new fTAView(nOutptLen);\n\n\t\t\t\t/* transcription... */\n\n\t\t\t\tfor (var nIdx = 0; nIdx < nOutptLen; nIdx++) {\n\t\t\t\t\taWhole[nIdx] = vSource.charCodeAt(nIdx) & 0xff;\n\t\t\t\t}\n\n\t\t\t\tbreak conversionSwitch;\n\n\t\t\tcase 5:\n\t\t\t\t/* DOMString to UTF-8 or to UTF-16 */\n\n\t\t\t\t/* mapping... */\n\n\t\t\t\tnOutptLen = 0;\n\n\t\t\t\tfor (var nMapIdx = 0; nMapIdx < nInptLen; nMapIdx++) {\n\t\t\t\t\tif (nMapIdx === nCharStart) {\n\t\t\t\t\t\tnStartIdx = nOutptLen;\n\t\t\t\t\t}\n\t\t\t\t\tnOutptLen += fGetOutptChrSize(vSource.charCodeAt(nMapIdx));\n\t\t\t\t\tif (nMapIdx === nCharEnd) {\n\t\t\t\t\t\tnEndIdx = nOutptLen;\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\taWhole = new fTAView(nOutptLen);\n\n\t\t\t\t/* transcription... */\n\n\t\t\t\tfor (\n\t\t\t\t\tvar nOutptIdx = 0, nChrIdx = 0;\n\t\t\t\t\tnOutptIdx < nOutptLen;\n\t\t\t\t\tnChrIdx++\n\t\t\t\t) {\n\t\t\t\t\tnOutptIdx = fPutOutptCode(\n\t\t\t\t\t\taWhole,\n\t\t\t\t\t\tvSource.charCodeAt(nChrIdx),\n\t\t\t\t\t\tnOutptIdx\n\t\t\t\t\t);\n\t\t\t\t}\n\n\t\t\t\tbreak conversionSwitch;\n\n\t\t\tcase 6:\n\t\t\t\t/* DOMString to UTF-32 */\n\n\t\t\t\taWhole = new fTAView(nOutptLen);\n\n\t\t\t\t/* transcription... */\n\n\t\t\t\tfor (var nIdx = 0; nIdx < nOutptLen; nIdx++) {\n\t\t\t\t\taWhole[nIdx] = vSource.charCodeAt(nIdx);\n\t\t\t\t}\n\n\t\t\t\tbreak conversionSwitch;\n\n\t\t\tcase 7:\n\t\t\t\taWhole = new fTAView(nOutptLen ? vSource : 0);\n\t\t\t\tbreak conversionSwitch;\n\t\t}\n\n\t\taRaw =\n\t\t\tnTranscrType > 3 && (nStartIdx > 0 || nEndIdx < aWhole.length - 1)\n\t\t\t\t? aWhole.subarray(nStartIdx, nEndIdx)\n\t\t\t\t: aWhole;\n\t}\n\n\tthis.buffer = aWhole.buffer;\n\tthis.bufferView = aWhole;\n\tthis.rawData = aRaw;\n\n\tObject.freeze(this);\n}\n\n/* CONSTRUCTOR'S METHODS */\n\nStringView.loadUTF8CharCode = function(aChars, nIdx) {\n\tvar nLen = aChars.length,\n\t\tnPart = aChars[nIdx];\n\n\treturn nPart > 251 && nPart < 254 && nIdx + 5 < nLen\n\t\t? /* (nPart - 252 << 30) may be not safe in ECMAScript! So...: */\n\t\t  /* six bytes */ (nPart - 252) * 1073741824 +\n\t\t\t\t((aChars[nIdx + 1] - 128) << 24) +\n\t\t\t\t((aChars[nIdx + 2] - 128) << 18) +\n\t\t\t\t((aChars[nIdx + 3] - 128) << 12) +\n\t\t\t\t((aChars[nIdx + 4] - 128) << 6) +\n\t\t\t\taChars[nIdx + 5] -\n\t\t\t\t128\n\t\t: nPart > 247 && nPart < 252 && nIdx + 4 < nLen\n\t\t? /* five bytes */ ((nPart - 248) << 24) +\n\t\t  ((aChars[nIdx + 1] - 128) << 18) +\n\t\t  ((aChars[nIdx + 2] - 128) << 12) +\n\t\t  ((aChars[nIdx + 3] - 128) << 6) +\n\t\t  aChars[nIdx + 4] -\n\t\t  128\n\t\t: nPart > 239 && nPart < 248 && nIdx + 3 < nLen\n\t\t? /* four bytes */ ((nPart - 240) << 18) +\n\t\t  ((aChars[nIdx + 1] - 128) << 12) +\n\t\t  ((aChars[nIdx + 2] - 128) << 6) +\n\t\t  aChars[nIdx + 3] -\n\t\t  128\n\t\t: nPart > 223 && nPart < 240 && nIdx + 2 < nLen\n\t\t? /* three bytes */ ((nPart - 224) << 12) +\n\t\t  ((aChars[nIdx + 1] - 128) << 6) +\n\t\t  aChars[nIdx + 2] -\n\t\t  128\n\t\t: nPart > 191 && nPart < 224 && nIdx + 1 < nLen\n\t\t? /* two bytes */ ((nPart - 192) << 6) + aChars[nIdx + 1] - 128\n\t\t: /* one byte */ nPart;\n};\n\nStringView.putUTF8CharCode = function(aTarget, nChar, nPutAt) {\n\tvar nIdx = nPutAt;\n\n\tif (nChar < 0x80 /* 128 */) {\n\t\t/* one byte */\n\t\taTarget[nIdx++] = nChar;\n\t} else if (nChar < 0x800 /* 2048 */) {\n\t\t/* two bytes */\n\t\taTarget[nIdx++] = 0xc0 /* 192 */ + (nChar >>> 6);\n\t\taTarget[nIdx++] = 0x80 /* 128 */ + (nChar & 0x3f) /* 63 */;\n\t} else if (nChar < 0x10000 /* 65536 */) {\n\t\t/* three bytes */\n\t\taTarget[nIdx++] = 0xe0 /* 224 */ + (nChar >>> 12);\n\t\taTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 6) & 0x3f) /* 63 */;\n\t\taTarget[nIdx++] = 0x80 /* 128 */ + (nChar & 0x3f) /* 63 */;\n\t} else if (nChar < 0x200000 /* 2097152 */) {\n\t\t/* four bytes */\n\t\taTarget[nIdx++] = 0xf0 /* 240 */ + (nChar >>> 18);\n\t\taTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 12) & 0x3f) /* 63 */;\n\t\taTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 6) & 0x3f) /* 63 */;\n\t\taTarget[nIdx++] = 0x80 /* 128 */ + (nChar & 0x3f) /* 63 */;\n\t} else if (nChar < 0x4000000 /* 67108864 */) {\n\t\t/* five bytes */\n\t\taTarget[nIdx++] = 0xf8 /* 248 */ + (nChar >>> 24);\n\t\taTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 18) & 0x3f) /* 63 */;\n\t\taTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 12) & 0x3f) /* 63 */;\n\t\taTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 6) & 0x3f) /* 63 */;\n\t\taTarget[nIdx++] = 0x80 /* 128 */ + (nChar & 0x3f) /* 63 */;\n\t} /* if (nChar <= 0x7fffffff) */ else {\n\t\t/* 2147483647 */\n\t\t/* six bytes */\n\t\taTarget[nIdx++] =\n\t\t\t0xfc /* 252 */ +\n\t\t\t/* (nChar >>> 30) may be not safe in ECMAScript! So...: */ nChar /\n\t\t\t\t1073741824;\n\t\taTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 24) & 0x3f) /* 63 */;\n\t\taTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 18) & 0x3f) /* 63 */;\n\t\taTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 12) & 0x3f) /* 63 */;\n\t\taTarget[nIdx++] = 0x80 /* 128 */ + ((nChar >>> 6) & 0x3f) /* 63 */;\n\t\taTarget[nIdx++] = 0x80 /* 128 */ + (nChar & 0x3f) /* 63 */;\n\t}\n\n\treturn nIdx;\n};\n\nStringView.getUTF8CharLength = function(nChar) {\n\treturn nChar < 0x80\n\t\t? 1\n\t\t: nChar < 0x800\n\t\t? 2\n\t\t: nChar < 0x10000\n\t\t? 3\n\t\t: nChar < 0x200000\n\t\t? 4\n\t\t: nChar < 0x4000000\n\t\t? 5\n\t\t: 6;\n};\n\nStringView.loadUTF16CharCode = function(aChars, nIdx) {\n\t/* UTF-16 to DOMString decoding algorithm */\n\tvar nFrstChr = aChars[nIdx];\n\n\treturn nFrstChr > 0xd7bf /* 55231 */ && nIdx + 1 < aChars.length\n\t\t? ((nFrstChr - 0xd800) /* 55296 */ << 10) +\n\t\t\t\taChars[nIdx + 1] +\n\t\t\t\t0x2400 /* 9216 */\n\t\t: nFrstChr;\n};\n\nStringView.putUTF16CharCode = function(aTarget, nChar, nPutAt) {\n\tvar nIdx = nPutAt;\n\n\tif (nChar < 0x10000 /* 65536 */) {\n\t\t/* one element */\n\t\taTarget[nIdx++] = nChar;\n\t} else {\n\t\t/* two elements */\n\t\taTarget[nIdx++] = 0xd7c0 /* 55232 */ + (nChar >>> 10);\n\t\taTarget[nIdx++] = 0xdc00 /* 56320 */ + (nChar & 0x3ff) /* 1023 */;\n\t}\n\n\treturn nIdx;\n};\n\nStringView.getUTF16CharLength = function(nChar) {\n\treturn nChar < 0x10000 ? 1 : 2;\n};\n\n/* Array of bytes to base64 string decoding */\n\nStringView.b64ToUint6 = function(nChr) {\n\treturn nChr > 64 && nChr < 91\n\t\t? nChr - 65\n\t\t: nChr > 96 && nChr < 123\n\t\t? nChr - 71\n\t\t: nChr > 47 && nChr < 58\n\t\t? nChr + 4\n\t\t: nChr === 43\n\t\t? 62\n\t\t: nChr === 47\n\t\t? 63\n\t\t: 0;\n};\n\nStringView.uint6ToB64 = function(nUint6) {\n\treturn nUint6 < 26\n\t\t? nUint6 + 65\n\t\t: nUint6 < 52\n\t\t? nUint6 + 71\n\t\t: nUint6 < 62\n\t\t? nUint6 - 4\n\t\t: nUint6 === 62\n\t\t? 43\n\t\t: nUint6 === 63\n\t\t? 47\n\t\t: 65;\n};\n\n/* Base64 string to array encoding */\n\nStringView.bytesToBase64 = function(aBytes) {\n\tvar eqLen = (3 - (aBytes.length % 3)) % 3,\n\t\tsB64Enc = '';\n\n\tfor (\n\t\tvar nMod3, nLen = aBytes.length, nUint24 = 0, nIdx = 0;\n\t\tnIdx < nLen;\n\t\tnIdx++\n\t) {\n\t\tnMod3 = nIdx % 3;\n\t\t/* Uncomment the following line in order to split the output in lines 76-character long: */\n\t\t/*\n         if (nIdx > 0 && (nIdx * 4 / 3) % 76 === 0) { sB64Enc += \"\\r\\n\"; }\n         */\n\t\tnUint24 |= aBytes[nIdx] << ((16 >>> nMod3) & 24);\n\t\tif (nMod3 === 2 || aBytes.length - nIdx === 1) {\n\t\t\tsB64Enc += String.fromCharCode(\n\t\t\t\tStringView.uint6ToB64((nUint24 >>> 18) & 63),\n\t\t\t\tStringView.uint6ToB64((nUint24 >>> 12) & 63),\n\t\t\t\tStringView.uint6ToB64((nUint24 >>> 6) & 63),\n\t\t\t\tStringView.uint6ToB64(nUint24 & 63)\n\t\t\t);\n\t\t\tnUint24 = 0;\n\t\t}\n\t}\n\n\treturn eqLen === 0\n\t\t? sB64Enc\n\t\t: sB64Enc.substring(0, sB64Enc.length - eqLen) +\n\t\t\t\t(eqLen === 1 ? '=' : '==');\n};\n\nStringView.base64ToBytes = function(sBase64, nBlockBytes) {\n\tvar sB64Enc = sBase64.replace(/[^A-Za-z0-9\\+\\/]/g, ''),\n\t\tnInLen = sB64Enc.length,\n\t\tnOutLen = nBlockBytes\n\t\t\t? Math.ceil(((nInLen * 3 + 1) >>> 2) / nBlockBytes) * nBlockBytes\n\t\t\t: (nInLen * 3 + 1) >>> 2,\n\t\taBytes = new Uint8Array(nOutLen);\n\n\tfor (\n\t\tvar nMod3, nMod4, nUint24 = 0, nOutIdx = 0, nInIdx = 0;\n\t\tnInIdx < nInLen;\n\t\tnInIdx++\n\t) {\n\t\tnMod4 = nInIdx & 3;\n\t\tnUint24 |=\n\t\t\tStringView.b64ToUint6(sB64Enc.charCodeAt(nInIdx)) <<\n\t\t\t(18 - 6 * nMod4);\n\t\tif (nMod4 === 3 || nInLen - nInIdx === 1) {\n\t\t\tfor (\n\t\t\t\tnMod3 = 0;\n\t\t\t\tnMod3 < 3 && nOutIdx < nOutLen;\n\t\t\t\tnMod3++, nOutIdx++\n\t\t\t) {\n\t\t\t\taBytes[nOutIdx] = (nUint24 >>> ((16 >>> nMod3) & 24)) & 255;\n\t\t\t}\n\t\t\tnUint24 = 0;\n\t\t}\n\t}\n\n\treturn aBytes;\n};\n\nStringView.makeFromBase64 = function(\n\tsB64Inpt,\n\tsEncoding,\n\tnByteOffset,\n\tnLength\n) {\n\treturn new StringView(\n\t\tsEncoding === 'UTF-16' || sEncoding === 'UTF-32'\n\t\t\t? StringView.base64ToBytes(sB64Inpt, sEncoding === 'UTF-16' ? 2 : 4)\n\t\t\t\t\t.buffer\n\t\t\t: StringView.base64ToBytes(sB64Inpt),\n\t\tsEncoding,\n\t\tnByteOffset,\n\t\tnLength\n\t);\n};\n\n/* DEFAULT VALUES */\n\nStringView.prototype.encoding = 'UTF-8'; /* Default encoding... */\n\n/* INSTANCES' METHODS */\n\nStringView.prototype.makeIndex = function(nChrLength, nStartFrom) {\n\tvar aTarget = this.rawData,\n\t\tnChrEnd,\n\t\tnRawLength = aTarget.length,\n\t\tnStartIdx = nStartFrom || 0,\n\t\tnIdxEnd = nStartIdx,\n\t\tnStopAtChr = isNaN(nChrLength) ? Infinity : nChrLength;\n\n\tif (nChrLength + 1 > aTarget.length) {\n\t\tthrow new RangeError(\n\t\t\t\"StringView.prototype.makeIndex - The offset can't be major than the length of the array - 1.\"\n\t\t);\n\t}\n\n\tswitch (this.encoding) {\n\t\tcase 'UTF-8':\n\t\t\tvar nPart;\n\n\t\t\tfor (\n\t\t\t\tnChrEnd = 0;\n\t\t\t\tnIdxEnd < nRawLength && nChrEnd < nStopAtChr;\n\t\t\t\tnChrEnd++\n\t\t\t) {\n\t\t\t\tnPart = aTarget[nIdxEnd];\n\t\t\t\tnIdxEnd +=\n\t\t\t\t\tnPart > 251 && nPart < 254 && nIdxEnd + 5 < nRawLength\n\t\t\t\t\t\t? 6\n\t\t\t\t\t\t: nPart > 247 && nPart < 252 && nIdxEnd + 4 < nRawLength\n\t\t\t\t\t\t? 5\n\t\t\t\t\t\t: nPart > 239 && nPart < 248 && nIdxEnd + 3 < nRawLength\n\t\t\t\t\t\t? 4\n\t\t\t\t\t\t: nPart > 223 && nPart < 240 && nIdxEnd + 2 < nRawLength\n\t\t\t\t\t\t? 3\n\t\t\t\t\t\t: nPart > 191 && nPart < 224 && nIdxEnd + 1 < nRawLength\n\t\t\t\t\t\t? 2\n\t\t\t\t\t\t: 1;\n\t\t\t}\n\n\t\t\tbreak;\n\n\t\tcase 'UTF-16':\n\t\t\tfor (\n\t\t\t\tnChrEnd = nStartIdx;\n\t\t\t\tnIdxEnd < nRawLength && nChrEnd < nStopAtChr;\n\t\t\t\tnChrEnd++\n\t\t\t) {\n\t\t\t\tnIdxEnd +=\n\t\t\t\t\taTarget[nIdxEnd] > 0xd7bf /* 55231 */ &&\n\t\t\t\t\tnIdxEnd + 1 < aTarget.length\n\t\t\t\t\t\t? 2\n\t\t\t\t\t\t: 1;\n\t\t\t}\n\n\t\t\tbreak;\n\n\t\tdefault:\n\t\t\tnIdxEnd = nChrEnd = isFinite(nChrLength)\n\t\t\t\t? nChrLength\n\t\t\t\t: nRawLength - 1;\n\t}\n\n\tif (nChrLength) {\n\t\treturn nIdxEnd;\n\t}\n\n\treturn nChrEnd;\n};\n\nStringView.prototype.toBase64 = function(bWholeBuffer) {\n\treturn StringView.bytesToBase64(\n\t\tbWholeBuffer\n\t\t\t? this.bufferView.constructor === Uint8Array\n\t\t\t\t? this.bufferView\n\t\t\t\t: new Uint8Array(this.buffer)\n\t\t\t: this.rawData.constructor === Uint8Array\n\t\t\t? this.rawData\n\t\t\t: new Uint8Array(\n\t\t\t\t\tthis.buffer,\n\t\t\t\t\tthis.rawData.byteOffset,\n\t\t\t\t\tthis.rawData.length <<\n\t\t\t\t\t\t(this.rawData.constructor === Uint16Array ? 1 : 2)\n\t\t\t  )\n\t);\n};\n\nStringView.prototype.subview = function(\n\tnCharOffset /* optional */,\n\tnCharLength /* optional */\n) {\n\tvar nRawSubLen,\n\t\tnRawSubOffset,\n\t\tnSubOffset,\n\t\tnSubLen,\n\t\tbVariableLen = this.encoding === 'UTF-8' || this.encoding === 'UTF-16',\n\t\tnThisLen,\n\t\tnRawLen = this.rawData.length;\n\n\tif (nRawLen === 0) {\n\t\treturn new StringView(this.buffer, this.encoding);\n\t}\n\n\tnThisLen = bVariableLen ? this.makeIndex() : nRawLen;\n\tnSubOffset = nCharOffset\n\t\t? nCharOffset + 1 > nThisLen\n\t\t\t? nThisLen\n\t\t\t: Math.max((nThisLen + nCharOffset) % nThisLen, 0)\n\t\t: 0;\n\tnSubLen = Number.isInteger(nCharLength)\n\t\t? Math.max(nCharLength, 0) + nSubOffset > nThisLen\n\t\t\t? nThisLen - nSubOffset\n\t\t\t: nCharLength\n\t\t: nThisLen - nSubOffset;\n\n\tif (nSubOffset === 0 && nSubLen === nThisLen) {\n\t\treturn this;\n\t}\n\n\tif (bVariableLen) {\n\t\tnRawSubOffset =\n\t\t\tnSubOffset < nThisLen ? this.makeIndex(nSubOffset) : nThisLen;\n\t\tnRawSubLen = nSubLen\n\t\t\t? this.makeIndex(nSubLen, nRawSubOffset) - nRawSubOffset\n\t\t\t: 0;\n\t} else {\n\t\tnRawSubOffset = nSubOffset;\n\t\tnRawSubLen = nSubLen;\n\t}\n\n\tif (this.encoding === 'UTF-16') {\n\t\tnRawSubOffset <<= 1;\n\t} else if (this.encoding === 'UTF-32') {\n\t\tnRawSubOffset <<= 2;\n\t}\n\n\treturn new StringView(\n\t\tthis.buffer,\n\t\tthis.encoding,\n\t\tthis.rawData.byteOffset + nRawSubOffset,\n\t\tnRawSubLen\n\t);\n};\n\nStringView.prototype.forEachChar = function(\n\tfCallback,\n\toThat,\n\tnChrOffset,\n\tnChrLen\n) {\n\tvar aSource = this.rawData,\n\t\tnRawEnd,\n\t\tnRawIdx;\n\n\tif (this.encoding === 'UTF-8' || this.encoding === 'UTF-16') {\n\t\tvar fGetInptChrSize, fGetInptChrCode;\n\n\t\tif (this.encoding === 'UTF-8') {\n\t\t\tfGetInptChrSize = StringView.getUTF8CharLength;\n\t\t\tfGetInptChrCode = StringView.loadUTF8CharCode;\n\t\t} else if (this.encoding === 'UTF-16') {\n\t\t\tfGetInptChrSize = StringView.getUTF16CharLength;\n\t\t\tfGetInptChrCode = StringView.loadUTF16CharCode;\n\t\t}\n\n\t\tnRawIdx = isFinite(nChrOffset) ? this.makeIndex(nChrOffset) : 0;\n\t\tnRawEnd = isFinite(nChrLen)\n\t\t\t? this.makeIndex(nChrLen, nRawIdx)\n\t\t\t: aSource.length;\n\n\t\tfor (var nChrCode, nChrIdx = 0; nRawIdx < nRawEnd; nChrIdx++) {\n\t\t\tnChrCode = fGetInptChrCode(aSource, nRawIdx);\n\t\t\tfCallback.call(oThat || null, nChrCode, nChrIdx, nRawIdx, aSource);\n\t\t\tnRawIdx += fGetInptChrSize(nChrCode);\n\t\t}\n\t} else {\n\t\tnRawIdx = isFinite(nChrOffset) ? nChrOffset : 0;\n\t\tnRawEnd = isFinite(nChrLen) ? nChrLen + nRawIdx : aSource.length;\n\n\t\tfor (nRawIdx; nRawIdx < nRawEnd; nRawIdx++) {\n\t\t\tfCallback.call(\n\t\t\t\toThat || null,\n\t\t\t\taSource[nRawIdx],\n\t\t\t\tnRawIdx,\n\t\t\t\tnRawIdx,\n\t\t\t\taSource\n\t\t\t);\n\t\t}\n\t}\n};\n\nStringView.prototype.valueOf = StringView.prototype.toString = function() {\n\tif (this.encoding !== 'UTF-8' && this.encoding !== 'UTF-16') {\n\t\t/* ASCII, UTF-32 or BinaryString to DOMString */\n\t\treturn String.fromCharCode.apply(null, this.rawData);\n\t}\n\n\tvar fGetCode,\n\t\tfGetIncr,\n\t\tsView = '';\n\n\tif (this.encoding === 'UTF-8') {\n\t\tfGetIncr = StringView.getUTF8CharLength;\n\t\tfGetCode = StringView.loadUTF8CharCode;\n\t} else if (this.encoding === 'UTF-16') {\n\t\tfGetIncr = StringView.getUTF16CharLength;\n\t\tfGetCode = StringView.loadUTF16CharCode;\n\t}\n\n\tfor (\n\t\tvar nChr, nLen = this.rawData.length, nIdx = 0;\n\t\tnIdx < nLen;\n\t\tnIdx += fGetIncr(nChr)\n\t) {\n\t\tnChr = fGetCode(this.rawData, nIdx);\n\t\tsView += String.fromCharCode(nChr);\n\t}\n\n\treturn sView;\n};\n",
+    "static": true,
+    "longname": "/github/workspace/src/DSBDecode.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 51,
+    "kind": "function",
+    "name": "atob",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~atob",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "params": [
+      {
+        "name": "a",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 52,
+    "kind": "function",
+    "name": "DSBDecode",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~DSBDecode",
+    "access": "private",
+    "export": true,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": "DSBDecode",
+    "description": "",
+    "lineNumber": 27,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "ToDecode",
+        "description": ""
+      }
+    ],
+    "ignore": true,
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "function",
+    "name": "StringView",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~StringView",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 36,
+    "undocument": true,
+    "params": [
+      {
+        "name": "vInput",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "sEncoding",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "nOffset",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "nLength",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 54,
+    "kind": "function",
+    "name": "loadUTF8CharCode",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~loadUTF8CharCode",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 410,
+    "undocument": true,
+    "params": [
+      {
+        "name": "aChars",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "nIdx",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 55,
+    "kind": "function",
+    "name": "putUTF8CharCode",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~putUTF8CharCode",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 446,
+    "undocument": true,
+    "params": [
+      {
+        "name": "aTarget",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "nChar",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "nPutAt",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 56,
+    "kind": "function",
+    "name": "getUTF8CharLength",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~getUTF8CharLength",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 491,
+    "undocument": true,
+    "params": [
+      {
+        "name": "nChar",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 57,
+    "kind": "function",
+    "name": "loadUTF16CharCode",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~loadUTF16CharCode",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 505,
+    "undocument": true,
+    "params": [
+      {
+        "name": "aChars",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "nIdx",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 58,
+    "kind": "function",
+    "name": "putUTF16CharCode",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~putUTF16CharCode",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 516,
+    "undocument": true,
+    "params": [
+      {
+        "name": "aTarget",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "nChar",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "nPutAt",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 59,
+    "kind": "function",
+    "name": "getUTF16CharLength",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~getUTF16CharLength",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 531,
+    "undocument": true,
+    "params": [
+      {
+        "name": "nChar",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 60,
+    "kind": "function",
+    "name": "b64ToUint6",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~b64ToUint6",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 537,
+    "undocument": true,
+    "params": [
+      {
+        "name": "nChr",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 61,
+    "kind": "function",
+    "name": "uint6ToB64",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~uint6ToB64",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 551,
+    "undocument": true,
+    "params": [
+      {
+        "name": "nUint6",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 62,
+    "kind": "function",
+    "name": "bytesToBase64",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~bytesToBase64",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 567,
+    "undocument": true,
+    "params": [
+      {
+        "name": "aBytes",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 63,
+    "kind": "function",
+    "name": "base64ToBytes",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~base64ToBytes",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 599,
+    "undocument": true,
+    "params": [
+      {
+        "name": "sBase64",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "nBlockBytes",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 64,
+    "kind": "function",
+    "name": "makeFromBase64",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~makeFromBase64",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 631,
+    "undocument": true,
+    "params": [
+      {
+        "name": "sB64Inpt",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "sEncoding",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "nByteOffset",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "nLength",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 65,
+    "kind": "function",
+    "name": "makeIndex",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~makeIndex",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 654,
+    "undocument": true,
+    "params": [
+      {
+        "name": "nChrLength",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "nStartFrom",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 66,
+    "kind": "function",
+    "name": "toBase64",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~toBase64",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 722,
+    "undocument": true,
+    "params": [
+      {
+        "name": "bWholeBuffer",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 67,
+    "kind": "function",
+    "name": "subview",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~subview",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 739,
+    "undocument": true,
+    "params": [
+      {
+        "name": "nCharOffset",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "nCharLength",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 68,
+    "kind": "function",
+    "name": "forEachChar",
+    "memberof": "src/DSBDecode.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBDecode.js~forEachChar",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBDecode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 796,
+    "undocument": true,
+    "params": [
+      {
+        "name": "fCallback",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "oThat",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "nChrOffset",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "nChrLen",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 69,
+    "kind": "file",
+    "name": "src/DSBEncoding.js",
+    "content": "import pako from 'pako';\n\nconst a = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';\nfunction btoa(b) {\n\tlet c,\n\t\td,\n\t\te = '';\n\tfor (c = 0, d = b.length; d > c; c += 3) {\n\t\tconst f = 255 & b.charCodeAt(c),\n\t\t\tg = 255 & b.charCodeAt(c + 1),\n\t\t\th = 255 & b.charCodeAt(c + 2),\n\t\t\ti = f >> 2,\n\t\t\tj = ((3 & f) << 4) | (g >> 4),\n\t\t\tk = d > c + 1 ? ((15 & g) << 2) | (h >> 6) : 64,\n\t\t\tl = d > c + 2 ? 63 & h : 64;\n\t\te += a.charAt(i) + a.charAt(j) + a.charAt(k) + a.charAt(l);\n\t}\n\treturn e;\n}\nfunction atob(a) {\n\tfor (\n\t\tvar b,\n\t\t\tc,\n\t\t\td =\n\t\t\t\t'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',\n\t\t\te = String(a).replace(/=+$/, ''),\n\t\t\tf = 0,\n\t\t\tg = 0,\n\t\t\th = '';\n\t\t(c = e.charAt(g++));\n\t\t~c && ((b = f % 4 ? 64 * b + c : c), f++ % 4)\n\t\t\t? (h += String.fromCharCode(255 & (b >> ((-2 * f) & 6))))\n\t\t\t: 0\n\t)\n\t\tc = d.indexOf(c);\n\treturn h;\n}\n\n/**\n *\n * @private\n * @param {*} ObjectToEncode\n */\nexport default function(ObjectToEncode) {\n\tlet b = pako.deflate(JSON.stringify(ObjectToEncode), {\n\t\tto: 'string',\n\t\tgzip: !0\n\t});\n\treturn (b = btoa(b));\n}\n",
+    "static": true,
+    "longname": "/github/workspace/src/DSBEncoding.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 70,
+    "kind": "variable",
+    "name": "a",
+    "memberof": "src/DSBEncoding.js",
+    "static": true,
+    "longname": "src/DSBEncoding.js~a",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBEncoding.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 71,
+    "kind": "function",
+    "name": "btoa",
+    "memberof": "src/DSBEncoding.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBEncoding.js~btoa",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBEncoding.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "params": [
+      {
+        "name": "b",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 72,
+    "kind": "function",
+    "name": "atob",
+    "memberof": "src/DSBEncoding.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBEncoding.js~atob",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/DSBEncoding.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "params": [
+      {
+        "name": "a",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 73,
+    "kind": "function",
+    "name": "DSBEncoding",
+    "memberof": "src/DSBEncoding.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/DSBEncoding.js~DSBEncoding",
+    "access": "private",
+    "export": true,
+    "importPath": "dsbapi/src/DSBEncoding.js",
+    "importStyle": "DSBEncoding",
+    "description": "",
+    "lineNumber": 44,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "ObjectToEncode",
+        "description": ""
+      }
+    ],
+    "ignore": true,
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 74,
+    "kind": "file",
+    "name": "src/index.js",
+    "content": "import Encode from './DSBEncoding';\nimport Decode from './DSBDecode';\nimport percentage from 'percentage-calc';\n\n/**\n * Main Library class\n */\nexport default class DSB {\n\t/**\n\t *\n\t * @param {String|Number} username\n\t * @param {String|Number} password\n\t * @param {String} [cookies=\"\"] If you already have session cookies, you can add them here.\n\t * @param {String|Boolean} [cache=false] In the browser just a boolean and in node a path string. If you don't want to use any cache just use undefined, null or false.\n\t * @param {Axios} [axios=require('axios')] Pass your custom axios instance if you want.\n\t */\n\tconstructor(\n\t\tusername,\n\t\tpassword,\n\t\tcookies = '',\n\t\tcache = false,\n\t\taxios = require('axios')\n\t) {\n\t\t/**\n\t\t * @private\n\t\t */\n\t\tthis.username = username;\n\t\t/**\n\t\t * @private\n\t\t */\n\t\tthis.password = password;\n\t\t/**\n\t\t * @private\n\t\t */\n\t\tthis.axios = axios;\n\t\t/**\n\t\t * @private\n\t\t */\n\t\tthis.urls = {\n\t\t\tlogin: 'https://mobile.dsbcontrol.de/dsbmobilepage.aspx',\n\t\t\tmain: 'https://www.dsbmobile.de/',\n\t\t\tData: 'http://www.dsbmobile.de/JsonHandlerWeb.ashx/GetData',\n\t\t\tdefault: 'https://www.dsbmobile.de/default.aspx',\n\t\t\tloginV1: `https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/authid/${\n\t\t\t\tthis.username\n\t\t\t}/${this.password}`,\n\t\t\ttimetables:\n\t\t\t\t'https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/timetables/',\n\t\t\tnews: 'https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/news/'\n\t\t};\n\t\t/**\n\t\t * @private\n\t\t */\n\t\tthis.cookies = cookies;\n\t\t/**\n\t\t * @private\n\t\t */\n\t\tthis.axios.defaults.headers.common['User-Agent'] =\n\t\t\t'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36';\n\t\tif (cache) {\n\t\t\t/**\n\t\t\t * @private\n\t\t\t */\n\t\t\tthis.cache = new DSBSessionStorageManager(cache, this.cookies);\n\t\t}\n\t}\n\n\t/**\n\t * @callback ProgressCallback\n\t * @param {Number} progress - A number between 0 and 100\n\t */\n\n\t/**\n\t * Fetch data\n\t * @param {ProgressCallback} [progress]\n\t * @returns {Promise.<Object>}\n\t */\n\tasync fetch(progress = () => {}) {\n\t\tconst cookies = await this._getSession(progress);\n\t\t// Progress State: 3\n\t\tconst response = await this.axios({\n\t\t\tmethod: 'POST',\n\t\t\tdata: {\n\t\t\t\treq: {\n\t\t\t\t\tData: Encode({\n\t\t\t\t\t\tUserId: '',\n\t\t\t\t\t\tUserPw: '',\n\t\t\t\t\t\tAbos: [],\n\t\t\t\t\t\tAppVersion: '2.3',\n\t\t\t\t\t\tLanguage: 'de',\n\t\t\t\t\t\tAppId: '',\n\t\t\t\t\t\tDevice: 'WebApp',\n\t\t\t\t\t\tPushId: '',\n\t\t\t\t\t\tBundleId: 'de.heinekingmedia.inhouse.dsbmobile.web',\n\t\t\t\t\t\tDate: new Date(),\n\t\t\t\t\t\tLastUpdate: new Date(),\n\t\t\t\t\t\tOsVersion:\n\t\t\t\t\t\t\t'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36'\n\t\t\t\t\t}),\n\t\t\t\t\tDataType: 1\n\t\t\t\t}\n\t\t\t},\n\t\t\turl: this.urls.Data,\n\t\t\theaders: {\n\t\t\t\tBundle_ID: 'de.heinekingmedia.inhouse.dsbmobile.web',\n\t\t\t\tReferer: this.urls.main,\n\t\t\t\tCookie: cookies,\n\t\t\t\t'X-Requested-With': 'XMLHttpRequest'\n\t\t\t},\n\t\t\tonUploadProgress(e) {\n\t\t\t\tconsole.log(JSON.stringify(e));\n\t\t\t},\n\t\t\tonDownloadProgress(e) {\n\t\t\t\tconsole.log(JSON.stringify(e));\n\t\t\t}\n\t\t});\n\t\tif (!response.data.d) throw new Error('Invalid data.');\n\t\tprogress(percentage.from(4, 5));\n\t\tconst decoded = Decode(response.data.d);\n\t\tprogress(percentage.from(5, 5));\n\t\treturn decoded;\n\t}\n\n\t/**\n\t * Fetch data from the original iphone api (Only news and timetables supported)\n\t * @param {ProgressCallback} [progress]\n\t * @returns {Promise.<Object>}\n\t */\n\tasync fetchV1(progress = () => {}) {\n\t\tlet currentProgress = 0;\n\t\tconst loginV1Response = await this.axios({\n\t\t\tmethod: 'GET',\n\t\t\turl: this.urls.loginV1\n\t\t});\n\t\tif (loginV1Response.data === '00000000-0000-0000-0000-000000000000')\n\t\t\tthrow new Error('Login failed.');\n\t\tconst id = loginV1Response.data;\n\t\tcurrentProgress++;\n\t\tprogress(percentage.from(currentProgress, 5));\n\t\tconst data = await Promise.all([\n\t\t\tthis.axios(this.urls.timetables + id).then(response => {\n\t\t\t\tcurrentProgress++;\n\t\t\t\tprogress(percentage.from(currentProgress, 5));\n\t\t\t\treturn Promise.resolve({ timetables: response.data });\n\t\t\t}),\n\t\t\tthis.axios(this.urls.news + id).then(response => {\n\t\t\t\tcurrentProgress++;\n\t\t\t\tprogress(percentage.from(currentProgress, 5));\n\t\t\t\treturn Promise.resolve({ news: response.data });\n\t\t\t})\n\t\t]);\n\t\tcurrentProgress++;\n\t\tprogress(percentage.from(currentProgress, 5));\n\t\tlet newData = {};\n\t\tfor (let fragment of data) {\n\t\t\tfor (let key in fragment) {\n\t\t\t\tif (fragment.hasOwnProperty(key)) {\n\t\t\t\t\tnewData[key] = fragment[key];\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tcurrentProgress++;\n\t\tprogress(percentage.from(currentProgress, 5));\n\t\treturn newData;\n\t}\n\n\t/**\n\t * Login with username and password\n\t * @param {String|Number} [username=this.username]\n\t * @param {String|Number} [password=this.password]\n\t * @returns {Promise.<String>}\n\t * @private\n\t */\n\tasync _login(username = this.username, password = this.password) {\n\t\tconst response = await this.axios({\n\t\t\tmethod: 'GET',\n\t\t\turl: this.urls.login,\n\t\t\tparams: {\n\t\t\t\tuser: username,\n\t\t\t\tpassword: password\n\t\t\t},\n\t\t\tvalidateStatus(status) {\n\t\t\t\treturn status === 200 || status === 302;\n\t\t\t},\n\t\t\tmaxRedirects: 0,\n\t\t\tonUploadProgress(e) {\n\t\t\t\tconsole.log(JSON.stringify(e));\n\t\t\t},\n\t\t\tonDownloadProgress(e) {\n\t\t\t\tconsole.log(JSON.stringify(e));\n\t\t\t}\n\t\t});\n\t\tif (!response.headers['set-cookie'])\n\t\t\tthrow new Error('Login failed. Returned no cookies.');\n\t\tthis.cookies = response.headers['set-cookie'].join('; ');\n\t\treturn this.cookies;\n\t}\n\n\t/**\n\t * Checks if dsb session cookie is valid\n\t * @param {String} [cookies=this.cookies]\n\t * @returns {Promise.<boolean>}\n\t * @private\n\t */\n\tasync _checkCookies(cookies = this.cookies) {\n\t\tlet returnValue = false;\n\t\ttry {\n\t\t\treturnValue = !!(await this.axios({\n\t\t\t\tmethod: 'GET',\n\t\t\t\turl: this.urls.default,\n\t\t\t\tvalidateStatus(status) {\n\t\t\t\t\treturn status === 200;\n\t\t\t\t},\n\t\t\t\tmaxRedirects: 0,\n\t\t\t\theaders: {\n\t\t\t\t\tCookie: cookies,\n\t\t\t\t\t'Cache-Control': 'no-cache',\n\t\t\t\t\tPragma: 'no-cache'\n\t\t\t\t}\n\t\t\t}));\n\t\t} catch (e) {\n\t\t\treturn false;\n\t\t} finally {\n\t\t\treturn returnValue;\n\t\t}\n\t}\n\n\t/**\n\t * Get a valid session\n\t * @param {Function} [progress]\n\t * @returns {Promise.<String>}\n\t * @private\n\t */\n\tasync _getSession(progress = () => {}) {\n\t\tlet returnValue;\n\t\ttry {\n\t\t\tconst cookies = this.cookies\n\t\t\t\t? this.cookies\n\t\t\t\t: await this.cache.get();\n\t\t\tprogress(percentage.from(1, 5));\n\t\t\tif (await this._checkCookies(cookies)) {\n\t\t\t\treturnValue = cookies;\n\t\t\t\tprogress(percentage.from(3, 5));\n\t\t\t} else {\n\t\t\t\treturnValue = await this._login();\n\t\t\t\tprogress(percentage.from(2, 5));\n\t\t\t\tthis.cache\n\t\t\t\t\t? await this.cache.set(returnValue)\n\t\t\t\t\t: (this.cookies = returnValue);\n\t\t\t\tprogress(percentage.from(3, 5));\n\t\t\t}\n\t\t} catch (e) {\n\t\t\treturnValue = await this._login();\n\t\t\tprogress(percentage.from(2, 5));\n\t\t\tthis.cache\n\t\t\t\t? await this.cache.set(returnValue)\n\t\t\t\t: (this.cookies = returnValue);\n\t\t\tprogress(percentage.from(3, 5));\n\t\t} finally {\n\t\t\treturn returnValue;\n\t\t}\n\t}\n\n\t/**\n\t * [Experimental] Try to get just the important data from the data you get back from fetch()\n\t * @param {String} method - The method name to search for (z.B tiles or timetable)\n\t * @param {Object} data - Data returned by fetch()\n\t * @returns {Object}\n\t */\n\tstatic findMethodInData(method, data) {\n\t\tfor (let key in data) {\n\t\t\tif (!data.hasOwnProperty(key)) continue;\n\t\t\tif (key === 'MethodName') {\n\t\t\t\tif (data[key] === method) {\n\t\t\t\t\tif (\n\t\t\t\t\t\ttypeof data['Root'] === 'object' &&\n\t\t\t\t\t\tArray.isArray(data['Root']['Childs'])\n\t\t\t\t\t) {\n\t\t\t\t\t\tlet transformData = [];\n\t\t\t\t\t\tfor (let o of data['Root']['Childs']) {\n\t\t\t\t\t\t\tlet newObject = {};\n\t\t\t\t\t\t\tnewObject.title = o.Title;\n\t\t\t\t\t\t\tnewObject.id = o.Id;\n\t\t\t\t\t\t\tnewObject.date = o.Date;\n\t\t\t\t\t\t\tif (o['Childs'].length === 1) {\n\t\t\t\t\t\t\t\tnewObject.url = o['Childs'][0]['Detail'];\n\t\t\t\t\t\t\t\tnewObject.preview = o['Childs'][0]['Preview'];\n\t\t\t\t\t\t\t\tnewObject.secondTitle = o['Childs'][0]['Title'];\n\t\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t\tnewObject.objects = [];\n\t\t\t\t\t\t\t\tfor (let objectOfArray of o['Childs']) {\n\t\t\t\t\t\t\t\t\tnewObject.objects.push({\n\t\t\t\t\t\t\t\t\t\tid: objectOfArray.Id,\n\t\t\t\t\t\t\t\t\t\turl: objectOfArray.Detail,\n\t\t\t\t\t\t\t\t\t\tpreview: objectOfArray.Preview,\n\t\t\t\t\t\t\t\t\t\ttitle: objectOfArray.Title,\n\t\t\t\t\t\t\t\t\t\tdate: objectOfArray.Date\n\t\t\t\t\t\t\t\t\t});\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\ttransformData.push(newObject);\n\t\t\t\t\t\t}\n\t\t\t\t\t\treturn {\n\t\t\t\t\t\t\tmethod: method,\n\t\t\t\t\t\t\tdata: transformData\n\t\t\t\t\t\t};\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tif (Array.isArray(data[key]) || typeof data[key] === 'object') {\n\t\t\t\tconst find = DSB.findMethodInData(method, data[key]);\n\t\t\t\tif (find) return find;\n\t\t\t}\n\t\t}\n\t}\n}\n\nclass DSBSessionStorageManager {\n\t/**\n\t * Class to store the dsb session\n\t * @param [path=\"\"]\n\t * @param [cookies=\"\"]\n\t */\n\tconstructor(path = '', cookies = '') {\n\t\tthis.path = path;\n\t\tthis.cookies = cookies;\n\t\tthis.fs = DSBSessionStorageManager.isNode() ? require('fs') : undefined;\n\t}\n\n\t/**\n\t * Retrieves session from cache.\n\t * @returns {Promise.<String>}\n\t */\n\tasync get() {\n\t\tif (DSBSessionStorageManager.isNode()) {\n\t\t\tthis.cookies = await new Promise((resolve, reject) => {\n\t\t\t\tthis.fs.readFile(this.path, (err, data) => {\n\t\t\t\t\tif (err) return reject(err);\n\t\t\t\t\tif (typeof data !== 'string') {\n\t\t\t\t\t\tlet value;\n\t\t\t\t\t\ttry {\n\t\t\t\t\t\t\tvalue = data.toString();\n\t\t\t\t\t\t} catch (e) {\n\t\t\t\t\t\t\treturn reject(e);\n\t\t\t\t\t\t} finally {\n\t\t\t\t\t\t\treturn resolve(value);\n\t\t\t\t\t\t}\n\t\t\t\t\t} else {\n\t\t\t\t\t\treturn resolve(data);\n\t\t\t\t\t}\n\t\t\t\t});\n\t\t\t});\n\t\t\treturn this.cookies;\n\t\t} else {\n\t\t\tif (window.localStorage) {\n\t\t\t\treturn window.localStorage.getItem('DSBSession');\n\t\t\t} else {\n\t\t\t\treturn this.cookies;\n\t\t\t}\n\t\t}\n\t}\n\n\t/**\n\t * Sets the session in the cache.\n\t * @param value\n\t * @returns {Promise.<void>}\n\t */\n\tasync set(value = '') {\n\t\tthis.cookies = value;\n\t\tif (DSBSessionStorageManager.isNode()) {\n\t\t\ttry {\n\t\t\t\tawait new Promise((resolve, reject) => {\n\t\t\t\t\tthis.fs.writeFile(this.path, value, err => {\n\t\t\t\t\t\tif (err) return reject(err);\n\t\t\t\t\t\treturn resolve();\n\t\t\t\t\t});\n\t\t\t\t});\n\t\t\t} catch (e) {}\n\t\t} else {\n\t\t\tif (window.localStorage) {\n\t\t\t\treturn window.localStorage.setItem('DSBSession', value);\n\t\t\t}\n\t\t}\n\t}\n\n\t/**\n\t * Checks if this module is running in a browser env or node env.\n\t * @returns {boolean}\n\t */\n\tstatic isNode() {\n\t\treturn (\n\t\t\tObject.prototype.toString.call(global.process) ===\n\t\t\t'[object process]'\n\t\t);\n\t}\n}\n",
+    "static": true,
+    "longname": "/github/workspace/src/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 75,
+    "kind": "class",
+    "name": "DSB",
+    "memberof": "src/index.js",
+    "static": true,
+    "longname": "src/index.js~DSB",
+    "access": "public",
+    "export": true,
+    "importPath": "dsbapi/src/index.js",
+    "importStyle": "DSB",
+    "description": "Main Library class",
+    "lineNumber": 8,
+    "interface": false
+  },
+  {
+    "__docId__": 76,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/index.js~DSB",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/index.js~DSB#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 17,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String",
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "username",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String",
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "password",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": "\"\"",
+        "defaultRaw": "",
+        "name": "cookies",
+        "description": "If you already have session cookies, you can add them here."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String",
+          "Boolean"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": "false",
+        "defaultRaw": false,
+        "name": "cache",
+        "description": "In the browser just a boolean and in node a path string. If you don't want to use any cache just use undefined, null or false."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Axios"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": "require('axios')",
+        "defaultRaw": "require('axios')",
+        "name": "axios",
+        "description": "Pass your custom axios instance if you want."
+      }
+    ]
+  },
+  {
+    "__docId__": 77,
+    "kind": "member",
+    "name": "username",
+    "memberof": "src/index.js~DSB",
+    "static": false,
+    "longname": "src/index.js~DSB#username",
+    "access": "private",
+    "description": "",
+    "lineNumber": 27,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 78,
+    "kind": "member",
+    "name": "password",
+    "memberof": "src/index.js~DSB",
+    "static": false,
+    "longname": "src/index.js~DSB#password",
+    "access": "private",
+    "description": "",
+    "lineNumber": 31,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 79,
+    "kind": "member",
+    "name": "axios",
+    "memberof": "src/index.js~DSB",
+    "static": false,
+    "longname": "src/index.js~DSB#axios",
+    "access": "private",
+    "description": "",
+    "lineNumber": 35,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 80,
+    "kind": "member",
+    "name": "urls",
+    "memberof": "src/index.js~DSB",
+    "static": false,
+    "longname": "src/index.js~DSB#urls",
+    "access": "private",
+    "description": "",
+    "lineNumber": 39,
+    "ignore": true,
+    "type": {
+      "types": [
+        "{\"login\": string, \"main\": string, \"Data\": string, \"default\": string, \"loginV1\": *, \"timetables\": string, \"news\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 81,
+    "kind": "member",
+    "name": "cookies",
+    "memberof": "src/index.js~DSB",
+    "static": false,
+    "longname": "src/index.js~DSB#cookies",
+    "access": "private",
+    "description": "",
+    "lineNumber": 54,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 82,
+    "kind": "member",
+    "name": "cache",
+    "memberof": "src/index.js~DSB",
+    "static": false,
+    "longname": "src/index.js~DSB#cache",
+    "access": "private",
+    "description": "",
+    "lineNumber": 64,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 83,
+    "kind": "method",
+    "name": "fetch",
+    "memberof": "src/index.js~DSB",
+    "generator": false,
+    "async": true,
+    "static": false,
+    "longname": "src/index.js~DSB#fetch",
+    "access": "public",
+    "description": "Fetch data",
+    "lineNumber": 78,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Promise.<Object>}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "ProgressCallback"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "progress",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise.<Object>"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 84,
+    "kind": "method",
+    "name": "fetchV1",
+    "memberof": "src/index.js~DSB",
+    "generator": false,
+    "async": true,
+    "static": false,
+    "longname": "src/index.js~DSB#fetchV1",
+    "access": "public",
+    "description": "Fetch data from the original iphone api (Only news and timetables supported)",
+    "lineNumber": 129,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Promise.<Object>}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "ProgressCallback"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "progress",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise.<Object>"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 85,
+    "kind": "method",
+    "name": "_login",
+    "memberof": "src/index.js~DSB",
+    "generator": false,
+    "async": true,
+    "static": false,
+    "longname": "src/index.js~DSB#_login",
+    "access": "private",
+    "description": "Login with username and password",
+    "lineNumber": 174,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Promise.<String>}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String",
+          "Number"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": "this.username",
+        "defaultRaw": "this.username",
+        "name": "username",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String",
+          "Number"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": "this.password",
+        "defaultRaw": "this.password",
+        "name": "password",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise.<String>"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 87,
+    "kind": "method",
+    "name": "_checkCookies",
+    "memberof": "src/index.js~DSB",
+    "generator": false,
+    "async": true,
+    "static": false,
+    "longname": "src/index.js~DSB#_checkCookies",
+    "access": "private",
+    "description": "Checks if dsb session cookie is valid",
+    "lineNumber": 205,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Promise.<boolean>}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": "this.cookies",
+        "defaultRaw": "this.cookies",
+        "name": "cookies",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise.<boolean>"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 88,
+    "kind": "method",
+    "name": "_getSession",
+    "memberof": "src/index.js~DSB",
+    "generator": false,
+    "async": true,
+    "static": false,
+    "longname": "src/index.js~DSB#_getSession",
+    "access": "private",
+    "description": "Get a valid session",
+    "lineNumber": 234,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Promise.<String>}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "progress",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise.<String>"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 89,
+    "kind": "method",
+    "name": "findMethodInData",
+    "memberof": "src/index.js~DSB",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/index.js~DSB.findMethodInData",
+    "access": "public",
+    "description": "[Experimental] Try to get just the important data from the data you get back from fetch()",
+    "lineNumber": 270,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Object}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "method",
+        "description": "The method name to search for (z.B tiles or timetable)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data",
+        "description": "Data returned by fetch()"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 90,
+    "kind": "class",
+    "name": "DSBSessionStorageManager",
+    "memberof": "src/index.js",
+    "static": true,
+    "longname": "src/index.js~DSBSessionStorageManager",
+    "access": "public",
+    "export": false,
+    "importPath": "dsbapi/src/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 318,
+    "undocument": true,
+    "interface": false,
+    "ignore": true
+  },
+  {
+    "__docId__": 91,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/index.js~DSBSessionStorageManager",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/index.js~DSBSessionStorageManager#constructor",
+    "access": "public",
+    "description": "Class to store the dsb session",
+    "lineNumber": 324,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": "\"\"",
+        "defaultRaw": "",
+        "name": "path",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": "\"\"",
+        "defaultRaw": "",
+        "name": "cookies",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 92,
+    "kind": "member",
+    "name": "path",
+    "memberof": "src/index.js~DSBSessionStorageManager",
+    "static": false,
+    "longname": "src/index.js~DSBSessionStorageManager#path",
+    "access": "public",
+    "description": null,
+    "lineNumber": 325,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 93,
+    "kind": "member",
+    "name": "cookies",
+    "memberof": "src/index.js~DSBSessionStorageManager",
+    "static": false,
+    "longname": "src/index.js~DSBSessionStorageManager#cookies",
+    "access": "public",
+    "description": null,
+    "lineNumber": 326,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 94,
+    "kind": "member",
+    "name": "fs",
+    "memberof": "src/index.js~DSBSessionStorageManager",
+    "static": false,
+    "longname": "src/index.js~DSBSessionStorageManager#fs",
+    "access": "public",
+    "description": null,
+    "lineNumber": 327,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 95,
+    "kind": "method",
+    "name": "get",
+    "memberof": "src/index.js~DSBSessionStorageManager",
+    "generator": false,
+    "async": true,
+    "static": false,
+    "longname": "src/index.js~DSBSessionStorageManager#get",
+    "access": "public",
+    "description": "Retrieves session from cache.",
+    "lineNumber": 334,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Promise.<String>}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise.<String>"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 97,
+    "kind": "method",
+    "name": "set",
+    "memberof": "src/index.js~DSBSessionStorageManager",
+    "generator": false,
+    "async": true,
+    "static": false,
+    "longname": "src/index.js~DSBSessionStorageManager#set",
+    "access": "public",
+    "description": "Sets the session in the cache.",
+    "lineNumber": 368,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Promise.<void>}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise.<void>"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 99,
+    "kind": "method",
+    "name": "isNode",
+    "memberof": "src/index.js~DSBSessionStorageManager",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/index.js~DSBSessionStorageManager.isNode",
+    "access": "public",
+    "description": "Checks if this module is running in a browser env or node env.",
+    "lineNumber": 390,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "kind": "index",
+    "content": "![Build Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/TheNoim/DSBAPI) [![Greenkeeper badge](https://badges.greenkeeper.io/TheNoim/DSBAPI.svg)](https://greenkeeper.io/)\n\n## Installation\n\nUse your favorite package manager for javascript\n\n```bash\nyarn add dsbapi\n# Or\nnpm install dsbapi --save\n```\n\n_Note: Requires `node >= 8`_\n\n## How to use:\n\n### Read the Documentation\n\n##### [https://noim.me/DSBAPI/](https://noim.me/DSBAPI/)\n\n### In NodeJS\n\n```javascript\nconst DSB = require('dsbapi');\n\nconst dsb = new DSB('USERNAME', 'PASSWORD');\n\ndsb.fetch()\n\t.then(data => {\n\t\tconst timetables = DSB.findMethodInData('timetable', data);\n\t\tconst tiles = DSB.findMethodInData('tiles', data);\n\n\t\t// Work with it\n\t})\n\t.catch(e => {\n\t\t// An error occurred :(\n\t\tconsole.log(e);\n\t});\n```\n\nOr with modern javascript\n\n```javascript\nimport DSB from 'dsbapi';\n\nconst dsb = new DSB('USERNAME', 'PASSWORD');\n\nasync function getMyShit() {\n\tconst data = await dsb.fetch();\n\tconst timetables = DSB.findMethodInData('timetable', data);\n\tconst tiles = DSB.findMethodInData('tiles', data);\n\n\t// YEAH\n}\n\ngetMyShit();\n```\n\n### Browser\n\nInstall it or download the index.browser.js file from the dist/ folder.\n\n##### Note:\n\nIt will probably not work in a normal browser client because of CORS policy\n\n```html\n<script src=\"location/to/index.browser.js\"></script>\n<script>\n\tconst dsb = new DSB('USERNAME', 'PASSWORD');\n\n\t// ... go on\n</script>\n```\n",
+    "longname": "/github/workspace/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n\t\"name\": \"dsbapi\",\n\t\"dependencies\": {\n\t\t\"axios\": \"^0.19.0\",\n\t\t\"pako\": \"^1.0.4\",\n\t\t\"percentage-calc\": \"^0.0.1\"\n\t},\n\t\"devDependencies\": {\n\t\t\"babel-register\": \"^6.26.0\",\n\t\t\"chai\": \"^4.1.2\",\n\t\t\"esdoc\": \"^1.1.0\",\n\t\t\"esdoc-external-ecmascript-plugin\": \"^1.0.0\",\n\t\t\"esdoc-external-nodejs-plugin\": \"^1.0.0\",\n\t\t\"esdoc-standard-plugin\": \"^1.0.0\",\n\t\t\"joi\": \"^14.0.6\",\n\t\t\"jsome\": \"^2.3.26\",\n\t\t\"minami\": \"^1.2.3\",\n\t\t\"mocha\": \"^6.0.0\",\n\t\t\"rollup\": \"1.12.5\"\n\t},\n\t\"version\": \"3.2.6\",\n\t\"description\": \"An api for mobile.dsbcontrol.de\",\n\t\"author\": \"Nils Bergmann <nilsbergmann@noim.io>\",\n\t\"main\": \"dist/index.js\",\n\t\"repository\": {\n\t\t\"type\": \"git\",\n\t\t\"url\": \"https://github.com/TheNoim/DSBAPI.git\"\n\t},\n\t\"keywords\": [\n\t\t\"dsb\",\n\t\t\"api\",\n\t\t\"mobile\"\n\t],\n\t\"license\": \"Apache-2.0\",\n\t\"scripts\": {\n\t\t\"test\": \"mocha --timeout 7000\",\n\t\t\"generate-doc\": \"esdoc\",\n\t\t\"build\": \"rollup src/index.js --format umd --name \\\"dsbapi\\\" --file ./dist/index.js\",\n\t\t\"patch\": \"npm version patch && git push --follow-tags\",\n\t\t\"minor\": \"npm version minor && git push --follow-tags\",\n\t\t\"major\": \"npm version major && git push --follow-tags\"\n\t}\n}\n",
+    "longname": "/github/workspace/package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]
