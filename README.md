@@ -1,5 +1,9 @@
 ![Build Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/TheNoim/DSBAPI) [![Greenkeeper badge](https://badges.greenkeeper.io/TheNoim/DSBAPI.svg)](https://greenkeeper.io/)
 
+## Note:
+
+I don't have any DSB Credentials to test this project anymore. If someone could send me valid credentials for testing purpose, this would be very appreciated.
+
 ## Installation
 
 Use your favorite package manager for javascript
