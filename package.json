@@ -19,7 +19,7 @@
 		"mocha": "^6.0.0",
 		"rollup": "1.13.1"
 	},
-	"version": "4.0.0",
+	"version": "4.0.1",
 	"description": "An api for mobile.dsbcontrol.de",
 	"author": "Nils Bergmann <nilsbergmann@noim.io>",
 	"main": "dist/index.js",
