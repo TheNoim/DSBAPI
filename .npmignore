@@ -2,3 +2,5 @@ test/
 docs/
 *.md
 .github/
+.env
+.esdoc.json
