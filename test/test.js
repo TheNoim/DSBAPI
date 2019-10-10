@@ -3,6 +3,9 @@ const chai = require('chai');
 const expect = chai.expect;
 const assert = chai.assert;
 
+// Load .env for testing purpose
+require('dotenv').config();
+
 chai.should();
 
 describe('Library', function() {
@@ -34,11 +37,6 @@ describe('DSB Instance', function() {
 	it('should have fetch()', function() {
 		assert.isDefined(dsb.fetch);
 		assert.isFunction(dsb.fetch);
-	});
-
-	it('should have fetchV1()', function() {
-		assert.isDefined(dsb.fetchV1);
-		assert.isFunction(dsb.fetchV1);
 	});
 });
 
@@ -94,37 +92,5 @@ describe('functions', function() {
 			throw new Error(
 				'Method timetable, tiles and news are all not an object.'
 			);
-	});
-});
-
-describe('functions v1', function() {
-	const DSB = require('../dist/index');
-	const dsb = new DSB(process.env.DSBUSERNAME, process.env.PASSWORD);
-
-	it('should not throw', function(done) {
-		dsb.fetchV1()
-			.then(() => {
-				done();
-			})
-			.catch(e => {
-				done(e);
-			});
-	});
-
-	it('should return an object', async function() {
-		const data = await dsb.fetchV1();
-		assert.isObject(data);
-	});
-
-	it('should be at least one an array', async function() {
-		const data = await dsb.fetchV1();
-		if (
-			!(
-				Array.isArray(data.timetables) ||
-				Array.isArray(data.tiles) ||
-				Array.isArray(data.news)
-			)
-		)
-			throw new Error('timetables, tiles and news are all not an array.');
 	});
 });

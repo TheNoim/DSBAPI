@@ -60,3 +60,5 @@ _test.js
 docs/
 
 dist/
+
+.env

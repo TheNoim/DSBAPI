@@ -40,13 +40,7 @@ export default class DSB {
 			login: 'https://mobile.dsbcontrol.de/dsbmobilepage.aspx',
 			main: 'https://www.dsbmobile.de/',
 			Data: 'http://www.dsbmobile.de/JsonHandlerWeb.ashx/GetData',
-			default: 'https://www.dsbmobile.de/default.aspx',
-			loginV1: `https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/authid/${
-				this.username
-			}/${this.password}`,
-			timetables:
-				'https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/timetables/',
-			news: 'https://iphone.dsbcontrol.de/iPhoneService.svc/DSB/news/'
+			default: 'https://www.dsbmobile.de/default.aspx'
 		};
 		/**
 		 * @private
@@ -119,49 +113,6 @@ export default class DSB {
 		const decoded = Decode(response.data.d);
 		progress(percentage.from(5, 5));
 		return decoded;
-	}
-
-	/**
-	 * Fetch data from the original iphone api (Only news and timetables supported)
-	 * @param {ProgressCallback} [progress]
-	 * @returns {Promise.<Object>}
-	 */
-	async fetchV1(progress = () => {}) {
-		let currentProgress = 0;
-		const loginV1Response = await this.axios({
-			method: 'GET',
-			url: this.urls.loginV1
-		});
-		if (loginV1Response.data === '00000000-0000-0000-0000-000000000000')
-			throw new Error('Login failed.');
-		const id = loginV1Response.data;
-		currentProgress++;
-		progress(percentage.from(currentProgress, 5));
-		const data = await Promise.all([
-			this.axios(this.urls.timetables + id).then(response => {
-				currentProgress++;
-				progress(percentage.from(currentProgress, 5));
-				return Promise.resolve({ timetables: response.data });
-			}),
-			this.axios(this.urls.news + id).then(response => {
-				currentProgress++;
-				progress(percentage.from(currentProgress, 5));
-				return Promise.resolve({ news: response.data });
-			})
-		]);
-		currentProgress++;
-		progress(percentage.from(currentProgress, 5));
-		let newData = {};
-		for (let fragment of data) {
-			for (let key in fragment) {
-				if (fragment.hasOwnProperty(key)) {
-					newData[key] = fragment[key];
-				}
-			}
-		}
-		currentProgress++;
-		progress(percentage.from(currentProgress, 5));
-		return newData;
 	}
 
 	/**
