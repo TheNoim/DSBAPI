@@ -1,6 +1,7 @@
 import Encode from './DSBEncoding';
 import Decode from './DSBDecode';
 import percentage from 'percentage-calc';
+import { URL } from 'url';
 
 /**
  * Main Library class
@@ -39,8 +40,9 @@ export default class DSB {
 		this.urls = {
 			login: 'https://mobile.dsbcontrol.de/dsbmobilepage.aspx',
 			main: 'https://www.dsbmobile.de/',
-			Data: 'http://www.dsbmobile.de/JsonHandlerWeb.ashx/GetData',
-			default: 'https://www.dsbmobile.de/default.aspx'
+			Data: null,
+			default: 'https://www.dsbmobile.de/default.aspx',
+			Configuration: 'https://www.dsbmobile.de/scripts/configuration.js'
 		};
 		/**
 		 * @private
@@ -71,6 +73,7 @@ export default class DSB {
 	 */
 	async fetch(progress = () => {}) {
 		const cookies = await this._getSession(progress);
+		await this._loadDataUrl(progress);
 		// Progress State: 3
 		const response = await this.axios({
 			method: 'POST',
@@ -174,6 +177,34 @@ export default class DSB {
 		} finally {
 			return returnValue;
 		}
+	}
+
+	async _loadDataUrl(progress) {
+		if (this.urls.Data) return;
+		const cookies = await this._getSession(progress);
+		const response = await this.axios({
+			method: 'GET',
+			url: this.urls.Configuration,
+			headers: {
+				Bundle_ID: 'de.heinekingmedia.inhouse.dsbmobile.web',
+				Referer: this.urls.main,
+				Cookie: cookies,
+				'X-Requested-With': 'XMLHttpRequest'
+			},
+			onUploadProgress(e) {
+				console.log(JSON.stringify(e));
+			},
+			onDownloadProgress(e) {
+				console.log(JSON.stringify(e));
+			}
+		});
+
+		const URLRegex = /METHOD\s*:\s*["'](.*)["']/gm;
+		const matches = URLRegex.exec(response.data);
+		if (matches.length < 2) throw new Error('Can not find data url.');
+		const dataURLPath = matches[1];
+		const url = new URL(dataURLPath, this.urls.main);
+		this.urls.Data = url.toString();
 	}
 
 	/**
