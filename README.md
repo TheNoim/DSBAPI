@@ -1,4 +1,4 @@
-![Build Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/TheNoim/DSBAPI) [![Greenkeeper badge](https://badges.greenkeeper.io/TheNoim/DSBAPI.svg)](https://greenkeeper.io/)
+![Test Status](https://github.com/TheNoim/DSBAPI/workflows/Test%20the%20dsb/badge.svg) [![Greenkeeper badge](https://badges.greenkeeper.io/TheNoim/DSBAPI.svg)](https://greenkeeper.io/)
 
 ## Installation
 
