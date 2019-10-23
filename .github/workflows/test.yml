@@ -2,6 +2,8 @@ name: Test the dsb
 on:
   schedule:
     - cron: "20 0 * * *"
+  push:
+  pull_request:
 
 jobs:
   test:
