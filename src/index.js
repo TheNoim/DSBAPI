@@ -2,6 +2,8 @@ import Encode from './DSBEncoding';
 import Decode from './DSBDecode';
 import percentage from 'percentage-calc';
 import { URL } from 'url';
+import cheerio from 'cheerio';
+import qs from 'querystring';
 
 /**
  * Main Library class
@@ -38,7 +40,7 @@ export default class DSB {
 		 * @private
 		 */
 		this.urls = {
-			login: 'https://mobile.dsbcontrol.de/dsbmobilepage.aspx',
+			login: 'https://www.dsbmobile.de/Login.aspx',
 			main: 'https://www.dsbmobile.de/',
 			Data: null,
 			default: 'https://www.dsbmobile.de/default.aspx',
@@ -92,7 +94,7 @@ export default class DSB {
 						Date: new Date(),
 						LastUpdate: new Date(),
 						OsVersion:
-							'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36'
+							'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36'
 					}),
 					DataType: 1
 				}
@@ -126,12 +128,40 @@ export default class DSB {
 	 * @private
 	 */
 	async _login(username = this.username, password = this.password) {
-		const response = await this.axios({
+		const loginFormResponse = await this.axios({
 			method: 'GET',
+			url: this.urls.login
+		});
+
+		const html = loginFormResponse.data;
+
+		const $ = cheerio.load(html);
+
+		const __VIEWSTATE = $('input[name=__VIEWSTATE]').attr('value');
+		const __VIEWSTATEGENERATOR = $('input[name=__VIEWSTATEGENERATOR]').attr(
+			'value'
+		);
+		const __EVENTVALIDATION = $('input[name=__EVENTVALIDATION]').attr(
+			'value'
+		);
+
+		const bodyData = {
+			txtUser: username,
+			txtPass: password,
+			ctl03: 'Anmelden',
+			__EVENTVALIDATION,
+			__VIEWSTATE,
+			__VIEWSTATEGENERATOR
+		};
+
+		const body = qs.stringify(bodyData);
+
+		const response = await this.axios({
+			method: 'POST',
 			url: this.urls.login,
-			params: {
-				user: username,
-				password: password
+			data: body,
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
 			},
 			validateStatus(status) {
 				return status === 200 || status === 302;
@@ -146,7 +176,12 @@ export default class DSB {
 		});
 		if (!response.headers['set-cookie'])
 			throw new Error('Login failed. Returned no cookies.');
+
 		this.cookies = response.headers['set-cookie'].join('; ');
+
+		if (!this.cookies.indexOf('DSBmobile=') < 0)
+			throw new Error('Missing DSBmobile cookie. Login failed.');
+
 		return this.cookies;
 	}
 
@@ -296,6 +331,9 @@ export default class DSB {
 		}
 	}
 }
+
+DSB.Decode = Decode;
+DSB.Encode = Encode;
 
 class DSBSessionStorageManager {
 	/**
