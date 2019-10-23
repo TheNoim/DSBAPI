@@ -1,9 +1,5 @@
 ![Build Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/TheNoim/DSBAPI) [![Greenkeeper badge](https://badges.greenkeeper.io/TheNoim/DSBAPI.svg)](https://greenkeeper.io/)
 
-## Note:
-
-I don't have any DSB Credentials to test this project anymore. If someone could send me valid credentials for testing purpose, this would be very appreciated.
-
 ## Installation
 
 Use your favorite package manager for javascript
@@ -60,19 +56,10 @@ async function getMyShit() {
 getMyShit();
 ```
 
+### Fetch V1
+
+The old iPhone API is not active anymore. You need to use the new fetch() method. After you got the data with the fetch() method you can find the timetables with the findMethodInData method. Look at the example above.
+
 ### Browser
 
-Install it or download the index.browser.js file from the dist/ folder.
-
-##### Note:
-
-It will probably not work in a normal browser client because of CORS policy
-
-```html
-<script src="location/to/index.browser.js"></script>
-<script>
-	const dsb = new DSB('USERNAME', 'PASSWORD');
-
-	// ... go on
-</script>
-```
+It will probably not work in the browser. The dsb does not set cors, so you are not able to use this module on the client side of your website. You can only use it on the backend.
