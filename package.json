@@ -2,10 +2,8 @@
 	"name": "dsbapi",
 	"dependencies": {
 		"axios": "^0.19.0",
-		"cheerio": "^1.0.0-rc.3",
 		"pako": "^1.0.4",
-		"percentage-calc": "^0.0.1",
-		"querystring": "^0.2.0"
+		"percentage-calc": "^0.0.1"
 	},
 	"devDependencies": {
 		"babel-register": "^6.26.0",
