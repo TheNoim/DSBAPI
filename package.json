@@ -1,7 +1,7 @@
 {
 	"name": "dsbapi",
 	"dependencies": {
-		"axios": "^0.19.0",
+		"axios": "^0.21.1",
 		"pako": "^1.0.4",
 		"percentage-calc": "^0.0.1"
 	},
