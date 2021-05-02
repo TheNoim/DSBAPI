@@ -1,36 +1,16 @@
 import pako from 'pako';
 
-function atob(a) {
-	for (
-		var b,
-			c,
-			d =
-				'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
-			e = String(a).replace(/=+$/, ''),
-			f = 0,
-			g = 0,
-			h = '';
-		(c = e.charAt(g++));
-		~c && ((b = f % 4 ? 64 * b + c : c), f++ % 4)
-			? (h += String.fromCharCode(255 & (b >> ((-2 * f) & 6))))
-			: 0
-	)
-		c = d.indexOf(c);
-	return h;
-}
-
 /**
  *
  * @private
  * @param {*} ToDecode
  */
 export default function(ToDecode) {
-	var b = StringView.base64ToBytes(ToDecode),
+	let b = StringView.base64ToBytes(ToDecode),
 		c = pako.inflate(b),
 		d = new StringView(c),
-		e = d.toString(),
-		f = JSON.parse(e);
-	return f;
+		e = d.toString();
+	return JSON.parse(e);
 }
 
 function StringView(
