@@ -1,6 +1,6 @@
 {
 	"name": "dsbapi",
-	"version": "4.1.0",
+	"version": "4.1.1",
 	"description": "An api for mobile.dsbcontrol.de",
 	"author": "Nils Bergmann <nilsbergmann@noim.io>",
 	"license": "Apache-2.0",
