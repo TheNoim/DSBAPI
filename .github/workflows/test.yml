@@ -4,6 +4,7 @@ on:
     - cron: "20 0 * * *"
   push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   test:
