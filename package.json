@@ -33,7 +33,7 @@
 		"mobile"
 	],
 	"dependencies": {
-		"axios": "^0.22.0",
+		"axios": "^1.6.4",
 		"pako": "^2.0.4",
 		"percentage-calc": "^0.0.1"
 	},
